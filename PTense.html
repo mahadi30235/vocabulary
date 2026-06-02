@@ -1,0 +1,2261 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Master Course — বাংলায় ইংরেজি শেখো</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lora:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf8f0;
+    --cream2: #f5ede0;
+    --cream3: #ede0cc;
+    --warm: #e8d5b7;
+    --brown: #8b6340;
+    --brown-dark: #5c3d1e;
+    --accent: #c0703a;
+    --accent2: #2a6049;
+    --accent3: #4a3a8c;
+    --text: #2d1f0f;
+    --text-soft: #6b4f2e;
+    --gold: #c8952a;
+    --shadow: rgba(90,50,10,0.13);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Lora', 'Noto Sans Bengali', serif;
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  .main-nav {
+    background: var(--brown-dark);
+    position: sticky; top:0; z-index:100;
+    display:flex; align-items:center; gap:0;
+    box-shadow: 0 3px 20px var(--shadow);
+  }
+  .nav-logo {
+    padding: 14px 28px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; color: var(--warm);
+    letter-spacing:.5px; white-space:nowrap;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .nav-tabs {
+    display:flex; flex:1; overflow-x:auto;
+  }
+  .nav-tab {
+    padding: 16px 28px;
+    color: var(--warm); opacity:.7;
+    cursor:pointer; font-size:.95rem;
+    white-space:nowrap;
+    transition: all .2s;
+    border-bottom: 3px solid transparent;
+    font-family: 'Noto Sans Bengali', serif;
+  }
+  .nav-tab:hover { opacity:1; background: rgba(255,255,255,0.05); }
+  .nav-tab.active { opacity:1; border-bottom-color: var(--gold); color:#fff; }
+
+  /* PAGES */
+  .page { display:none; padding: 40px 20px 80px; max-width:960px; margin:0 auto; }
+  .page.active { display:block; animation: fadeIn .4s ease; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--brown-dark) 0%, #7a4a25 50%, var(--accent) 100%);
+    border-radius: 20px;
+    padding: 56px 40px;
+    color: #fff;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:'';
+    position:absolute; inset:0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem; font-weight:900;
+    line-height:1.2; margin-bottom:12px;
+    position:relative;
+  }
+  .hero p { font-size:1.1rem; opacity:.85; position:relative; line-height:1.7; }
+  .hero-badges { display:flex; gap:10px; flex-wrap:wrap; margin-top:20px; position:relative; }
+  .badge {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 6px 16px; border-radius:20px;
+    font-size:.85rem;
+  }
+
+  /* SECTION HEADINGS */
+  .sec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem; color: var(--brown-dark);
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 10px; margin-bottom: 30px;
+    display:inline-block;
+  }
+
+  /* PARTS OF SPEECH CARDS */
+  .pos-grid { display:grid; grid-template-columns:1fr; gap:32px; }
+
+  .pos-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px var(--shadow);
+    border: 1px solid var(--cream3);
+  }
+  .pos-header {
+    padding: 22px 28px 18px;
+    display:flex; align-items:center; gap:16px;
+  }
+  .pos-icon {
+    width:52px; height:52px; border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.6rem; flex-shrink:0;
+  }
+  .pos-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size:1.5rem;
+  }
+  .pos-header .bn { font-size:.9rem; color: var(--text-soft); margin-top:2px; }
+
+  .pos-body { padding: 0 28px 28px; }
+
+  .info-grid {
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:16px; margin-bottom:20px;
+  }
+  @media(max-width:600px){ .info-grid{grid-template-columns:1fr;} }
+
+  .info-box {
+    background: var(--cream);
+    border-radius:10px; padding:16px;
+    border-left: 4px solid;
+  }
+  .info-box h4 {
+    font-size:.8rem; text-transform:uppercase;
+    letter-spacing:.8px; margin-bottom:8px;
+    font-family:'Lora',serif; font-weight:600;
+  }
+  .info-box p, .info-box ul { font-size:.92rem; line-height:1.7; }
+  .info-box ul { padding-left:16px; }
+
+  .struct-box {
+    background: var(--brown-dark);
+    color: #fff;
+    border-radius:10px; padding:16px 20px;
+    margin-bottom:20px;
+    font-family: monospace; font-size:.95rem;
+    letter-spacing:.3px;
+  }
+  .struct-box span { color: var(--gold); font-weight:700; }
+
+  .trick-box {
+    background: linear-gradient(135deg, #fffbec, #fff3d0);
+    border: 1px dashed var(--gold);
+    border-radius:10px; padding:16px;
+    margin-bottom:20px;
+    font-size:.92rem; line-height:1.7;
+  }
+  .trick-box::before { content:'💡 '; }
+
+  .examples-title {
+    font-size:.85rem; text-transform:uppercase;
+    letter-spacing:1px; color:var(--text-soft);
+    margin-bottom:12px; font-weight:600;
+  }
+  .examples-grid {
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:6px;
+  }
+  @media(max-width:500px){ .examples-grid{grid-template-columns:1fr;} }
+
+  .example-item {
+    background: var(--cream2);
+    border-radius:7px; padding:8px 12px;
+    font-size:.87rem; line-height:1.5;
+  }
+  .example-item .en { font-weight:600; color: var(--brown-dark); }
+  .example-item .bn-ex { color: var(--text-soft); font-size:.82rem; }
+
+  /* highlight words */
+  .hl { border-radius:3px; padding:1px 4px; font-weight:700; }
+
+  /* TENSE */
+  .tense-tabs {
+    display:flex; flex-wrap:wrap; gap:8px; margin-bottom:28px;
+  }
+  .tense-btn {
+    padding:8px 16px; border-radius:8px;
+    background: var(--cream2); border:1px solid var(--cream3);
+    cursor:pointer; font-size:.85rem;
+    font-family:'Noto Sans Bengali',serif;
+    transition:all .2s;
+  }
+  .tense-btn:hover { background:var(--warm); }
+  .tense-btn.active { background:var(--brown-dark); color:#fff; border-color:var(--brown-dark); }
+
+  .tense-card { display:none; }
+  .tense-card.active { display:block; animation:fadeIn .3s ease; }
+
+  /* EXAM */
+  .exam-section { margin-bottom:40px; }
+  .exam-title {
+    font-family:'Playfair Display',serif;
+    font-size:1.4rem; color:var(--brown-dark);
+    margin-bottom:20px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .q-card {
+    background:#fff; border-radius:12px;
+    padding:22px; margin-bottom:16px;
+    box-shadow:0 2px 12px var(--shadow);
+    border:1px solid var(--cream3);
+  }
+  .q-text { font-size:1rem; margin-bottom:14px; line-height:1.6; }
+  .q-num { color:var(--accent); font-weight:700; margin-right:6px; }
+  .options { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  @media(max-width:480px){ .options{grid-template-columns:1fr;} }
+  .opt-btn {
+    padding:10px 14px; border-radius:8px;
+    background:var(--cream2); border:1px solid var(--cream3);
+    cursor:pointer; font-size:.9rem; text-align:left;
+    transition:all .2s; font-family:inherit;
+  }
+  .opt-btn:hover { background:var(--warm); }
+  .opt-btn.correct { background:#d4edda; border-color:#28a745; color:#155724; }
+  .opt-btn.wrong { background:#f8d7da; border-color:#dc3545; color:#721c24; }
+  .opt-btn:disabled { cursor:default; }
+
+  .fill-blank {
+    display:inline-block;
+    border-bottom: 2px solid var(--brown-dark);
+    min-width:100px; padding:2px 8px;
+    font-size:1rem; background:transparent;
+    font-family:inherit; outline:none;
+    color:var(--text);
+  }
+  .fill-blank.correct { border-color:#28a745; color:#155724; }
+  .fill-blank.wrong { border-color:#dc3545; color:#721c24; }
+
+  .check-btn {
+    margin-top:10px;
+    padding:8px 20px; border-radius:8px;
+    background:var(--accent); color:#fff;
+    border:none; cursor:pointer; font-size:.9rem;
+    font-family:inherit; transition:all .2s;
+  }
+  .check-btn:hover { background:var(--brown-dark); }
+
+  .feedback { margin-top:8px; font-size:.88rem; font-weight:600; }
+  .feedback.ok { color:#28a745; }
+  .feedback.no { color:#dc3545; }
+
+  .score-board {
+    background: var(--brown-dark); color:#fff;
+    border-radius:14px; padding:28px;
+    text-align:center; margin-top:24px; display:none;
+  }
+  .score-board h3 { font-family:'Playfair Display',serif; font-size:1.5rem; }
+  .score-big { font-size:3rem; font-weight:900; color:var(--gold); }
+
+  .exam-submit {
+    padding:14px 36px; border-radius:10px;
+    background:var(--accent2); color:#fff;
+    border:none; cursor:pointer;
+    font-size:1rem; font-family:inherit;
+    font-weight:600; letter-spacing:.3px;
+    transition:all .2s; margin-top:10px;
+  }
+  .exam-submit:hover { background:#1a4a35; transform:translateY(-1px); }
+
+  /* Colors per POS */
+  .pos-noun .pos-header { background: linear-gradient(135deg,#fff5e6,#ffe5c0); }
+  .pos-noun .pos-icon { background:#ff8c42; }
+  .pos-noun .info-box { border-color:#ff8c42; }
+
+  .pos-pronoun .pos-header { background:linear-gradient(135deg,#e8f5e9,#c8e6c9); }
+  .pos-pronoun .pos-icon { background:#43a047; }
+  .pos-pronoun .info-box { border-color:#43a047; }
+
+  .pos-verb .pos-header { background:linear-gradient(135deg,#e3f2fd,#bbdefb); }
+  .pos-verb .pos-icon { background:#1e88e5; }
+  .pos-verb .info-box { border-color:#1e88e5; }
+
+  .pos-adj .pos-header { background:linear-gradient(135deg,#fce4ec,#f8bbd0); }
+  .pos-adj .pos-icon { background:#e91e63; }
+  .pos-adj .info-box { border-color:#e91e63; }
+
+  .pos-adv .pos-header { background:linear-gradient(135deg,#ede7f6,#d1c4e9); }
+  .pos-adv .pos-icon { background:#7b1fa2; }
+  .pos-adv .info-box { border-color:#7b1fa2; }
+
+  .pos-prep .pos-header { background:linear-gradient(135deg,#e0f7fa,#b2ebf2); }
+  .pos-prep .pos-icon { background:#00838f; }
+  .pos-prep .info-box { border-color:#00838f; }
+
+  .pos-conj .pos-header { background:linear-gradient(135deg,#fff8e1,#ffecb3); }
+  .pos-conj .pos-icon { background:#f9a825; }
+  .pos-conj .info-box { border-color:#f9a825; }
+
+  .pos-interj .pos-header { background:linear-gradient(135deg,#fbe9e7,#ffccbc); }
+  .pos-interj .pos-icon { background:#e64a19; }
+  .pos-interj .info-box { border-color:#e64a19; }
+
+  /* progress bar */
+  .progress-wrap { margin:12px 0 0; }
+  .progress-label { font-size:.8rem; color:var(--text-soft); margin-bottom:4px; }
+  .progress-bar { background:var(--cream3); border-radius:99px; height:6px; }
+  .progress-fill { height:100%; border-radius:99px; transition:width .5s; }
+
+  /* collapsible */
+  .collapse-btn {
+    background:none; border:none; cursor:pointer;
+    color:var(--accent); font-size:.85rem;
+    font-family:inherit; padding:6px 0;
+    display:flex; align-items:center; gap:4px;
+  }
+  .collapse-content { display:none; }
+  .collapse-content.open { display:block; animation:fadeIn .3s; }
+
+  @media(max-width:700px){
+    .hero h1{font-size:1.8rem;}
+    .hero{padding:36px 22px;}
+    .pos-body{padding:0 16px 20px;}
+    .pos-header{padding:18px 16px;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="main-nav">
+  <div class="nav-logo">📖 English Master</div>
+  <div class="nav-tabs">
+    <div class="nav-tab active" onclick="showPage('home')">🏠 হোম</div>
+    <div class="nav-tab" onclick="showPage('pos')">📝 Parts of Speech</div>
+    <div class="nav-tab" onclick="showPage('tense')">⏰ Tense</div>
+    <div class="nav-tab" onclick="showPage('exam')">🎯 পরীক্ষা দাও</div>
+  </div>
+</nav>
+
+<!-- ===== HOME ===== -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <h1>English Master Course</h1>
+    <p>বাংলায় বুঝো, ইংরেজিতে জয় করো। Parts of Speech থেকে ১২টি Tense — সব কিছু এক জায়গায়।</p>
+    <div class="hero-badges">
+      <span class="badge">✅ 8টি Parts of Speech</span>
+      <span class="badge">✅ ১২টি Tense</span>
+      <span class="badge">✅ প্রতিটিতে ২০ উদাহরণ</span>
+      <span class="badge">✅ MCQ + Fill-in-the-Blank পরীক্ষা</span>
+    </div>
+  </div>
+
+  <h2 class="sec-title">কোর্সের রোডম্যাপ</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:40px;">
+    <div style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 3px 16px var(--shadow);text-align:center;cursor:pointer;border:2px solid var(--cream3)" onclick="showPage('pos')">
+      <div style="font-size:2.5rem;margin-bottom:10px;">📝</div>
+      <h3 style="font-family:'Playfair Display',serif;color:var(--brown-dark);margin-bottom:6px;">Parts of Speech</h3>
+      <p style="font-size:.88rem;color:var(--text-soft);line-height:1.6;">Noun, Pronoun, Verb, Adjective, Adverb, Preposition, Conjunction, Interjection</p>
+    </div>
+    <div style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 3px 16px var(--shadow);text-align:center;cursor:pointer;border:2px solid var(--cream3)" onclick="showPage('tense')">
+      <div style="font-size:2.5rem;margin-bottom:10px;">⏰</div>
+      <h3 style="font-family:'Playfair Display',serif;color:var(--brown-dark);margin-bottom:6px;">12 Tenses</h3>
+      <p style="font-size:.88rem;color:var(--text-soft);line-height:1.6;">Present, Past, Future — Simple, Continuous, Perfect, Perfect Continuous</p>
+    </div>
+    <div style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 3px 16px var(--shadow);text-align:center;cursor:pointer;border:2px solid var(--cream3)" onclick="showPage('exam')">
+      <div style="font-size:2.5rem;margin-bottom:10px;">🎯</div>
+      <h3 style="font-family:'Playfair Display',serif;color:var(--brown-dark);margin-bottom:6px;">পরীক্ষা</h3>
+      <p style="font-size:.88rem;color:var(--text-soft);line-height:1.6;">MCQ ও Fill-in-the-Blank দিয়ে নিজেকে যাচাই করো</p>
+    </div>
+  </div>
+
+  <h2 class="sec-title">ডে বাই ডে প্ল্যান</h2>
+  <div style="background:#fff;border-radius:14px;padding:28px;box-shadow:0 3px 16px var(--shadow);">
+    <div style="display:grid;gap:12px;">
+      <div style="background:var(--cream);border-radius:10px;padding:14px 18px;border-left:4px solid var(--accent);"><b>Day 1-2:</b> Noun ও Pronoun পড়ো, ২০টি করে উদাহরণ মনে রাখো</div>
+      <div style="background:var(--cream);border-radius:10px;padding:14px 18px;border-left:4px solid var(--accent2);"><b>Day 3-4:</b> Verb ও Adjective পড়ো — এগুলো সবচেয়ে গুরুত্বপূর্ণ</div>
+      <div style="background:var(--cream);border-radius:10px;padding:14px 18px;border-left:4px solid var(--accent3);"><b>Day 5-6:</b> Adverb, Preposition, Conjunction, Interjection</div>
+      <div style="background:var(--cream);border-radius:10px;padding:14px 18px;border-left:4px solid var(--gold);"><b>Day 7:</b> Parts of Speech পরীক্ষা দাও</div>
+      <div style="background:var(--cream);border-radius:10px;padding:14px 18px;border-left:4px solid var(--accent);"><b>Day 8-10:</b> Present Tense (Simple, Continuous, Perfect, P.Continuous)</div>
+      <div style="background:var(--cream);border-radius:10px;padding:14px 18px;border-left:4px solid var(--accent2);"><b>Day 11-13:</b> Past Tense (৪টি)</div>
+      <div style="background:var(--cream);border-radius:10px;padding:14px 18px;border-left:4px solid var(--accent3);"><b>Day 14-16:</b> Future Tense (৪টি)</div>
+      <div style="background:var(--cream);border-radius:10px;padding:14px 18px;border-left:4px solid var(--gold);"><b>Day 17-20:</b> সব Tense পুনরায় পড়ো ও পরীক্ষা দাও</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PARTS OF SPEECH ===== -->
+<div class="page" id="page-pos">
+  <h2 class="sec-title">Parts of Speech — বাংলায় সম্পূর্ণ গাইড</h2>
+  <p style="margin-bottom:30px;color:var(--text-soft);line-height:1.7;">ইংরেজির ৮টি Parts of Speech হলো ভাষার আটটি স্তম্ভ। এগুলো না জানলে কোনো বাক্য তৈরি করা সম্ভব নয়।</p>
+
+  <div class="pos-grid">
+
+    <!-- NOUN -->
+    <div class="pos-card pos-noun">
+      <div class="pos-header">
+        <div class="pos-icon">🏠</div>
+        <div>
+          <h2>Noun — বিশেষ্য</h2>
+          <div class="bn">যা দিয়ে কোনো ব্যক্তি, বস্তু, স্থান বা ধারণার নাম বোঝায়</div>
+        </div>
+      </div>
+      <div class="pos-body">
+        <div class="info-grid">
+          <div class="info-box">
+            <h4>📚 সংজ্ঞা</h4>
+            <p>Noun হলো এমন একটি শব্দ যা কোনো <b>ব্যক্তি</b> (person), <b>স্থান</b> (place), <b>বস্তু</b> (thing) বা <b>ধারণা</b> (idea) র নাম প্রকাশ করে।</p>
+          </div>
+          <div class="info-box">
+            <h4>🔍 চিনার উপায়</h4>
+            <ul>
+              <li>a/an/the বসে (a <b>book</b>)</li>
+              <li>s/es যোগে plural হয়</li>
+              <li>Sentence-এ Subject বা Object হিসেবে থাকে</li>
+              <li>-tion, -ness, -ment, -er দিয়ে শেষ হয়</li>
+            </ul>
+          </div>
+        </div>
+        <div class="struct-box">
+          Structure: <span>a/an/the + Noun</span> | Subject হিসেবে: <span>Noun + Verb</span>
+          <br>Types: <span>Proper</span> (Dhaka) | <span>Common</span> (city) | <span>Abstract</span> (love) | <span>Collective</span> (team)
+        </div>
+        <div class="trick-box">
+          <b>মনে রাখার কৌশল:</b> যা দেখা যায়, ছোঁয়া যায়, বা কল্পনা করা যায় — তার নামই Noun। "কে বা কী?" প্রশ্ন করলেই Noun পাবে।
+        </div>
+        <div class="examples-title">📌 ২০টি উদাহরণ (Highlighted Noun)</div>
+        <div class="examples-grid">
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffe0b2">Riya</span> is my sister.</span><div class="bn-ex">রিয়া আমার বোন।</div></div>
+          <div class="example-item"><span class="en">I live in <span class="hl" style="background:#ffe0b2">Dhaka</span>.</span><div class="bn-ex">আমি ঢাকায় থাকি।</div></div>
+          <div class="example-item"><span class="en">The <span class="hl" style="background:#ffe0b2">book</span> is on the table.</span><div class="bn-ex">বইটি টেবিলে আছে।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffe0b2">Love</span> is powerful.</span><div class="bn-ex">ভালোবাসা শক্তিশালী।</div></div>
+          <div class="example-item"><span class="en">The <span class="hl" style="background:#ffe0b2">team</span> won the match.</span><div class="bn-ex">দলটি ম্যাচ জিতেছে।</div></div>
+          <div class="example-item"><span class="en">She has a beautiful <span class="hl" style="background:#ffe0b2">smile</span>.</span><div class="bn-ex">তার সুন্দর হাসি আছে।</div></div>
+          <div class="example-item"><span class="en">The <span class="hl" style="background:#ffe0b2">dog</span> barked loudly.</span><div class="bn-ex">কুকুরটি জোরে ডাকল।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffe0b2">Honesty</span> is the best policy.</span><div class="bn-ex">সততাই সর্বোৎকৃষ্ট নীতি।</div></div>
+          <div class="example-item"><span class="en">I drink <span class="hl" style="background:#ffe0b2">water</span> every day.</span><div class="bn-ex">আমি প্রতিদিন পানি পান করি।</div></div>
+          <div class="example-item"><span class="en">The <span class="hl" style="background:#ffe0b2">sun</span> rises in the east.</span><div class="bn-ex">সূর্য পূর্বে ওঠে।</div></div>
+          <div class="example-item"><span class="en">My <span class="hl" style="background:#ffe0b2">mother</span> cooks well.</span><div class="bn-ex">আমার মা ভালো রান্না করেন।</div></div>
+          <div class="example-item"><span class="en">The <span class="hl" style="background:#ffe0b2">children</span> are playing.</span><div class="bn-ex">বাচ্চারা খেলছে।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffe0b2">Freedom</span> is precious.</span><div class="bn-ex">স্বাধীনতা মূল্যবান।</div></div>
+          <div class="example-item"><span class="en">He bought a new <span class="hl" style="background:#ffe0b2">car</span>.</span><div class="bn-ex">সে একটি নতুন গাড়ি কিনেছে।</div></div>
+          <div class="example-item"><span class="en">The <span class="hl" style="background:#ffe0b2">teacher</span> is kind.</span><div class="bn-ex">শিক্ষক দয়ালু।</div></div>
+          <div class="example-item"><span class="en">I eat <span class="hl" style="background:#ffe0b2">rice</span> at noon.</span><div class="bn-ex">আমি দুপুরে ভাত খাই।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffe0b2">Bangladesh</span> is my country.</span><div class="bn-ex">বাংলাদেশ আমার দেশ।</div></div>
+          <div class="example-item"><span class="en">The <span class="hl" style="background:#ffe0b2">river</span> flows fast.</span><div class="bn-ex">নদীটি দ্রুত প্রবাহিত হয়।</div></div>
+          <div class="example-item"><span class="en">She felt <span class="hl" style="background:#ffe0b2">happiness</span>.</span><div class="bn-ex">সে সুখ অনুভব করল।</div></div>
+          <div class="example-item"><span class="en">The <span class="hl" style="background:#ffe0b2">army</span> marched forward.</span><div class="bn-ex">সেনাবাহিনী সামনে এগিয়ে গেল।</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRONOUN -->
+    <div class="pos-card pos-pronoun">
+      <div class="pos-header">
+        <div class="pos-icon">👤</div>
+        <div>
+          <h2>Pronoun — সর্বনাম</h2>
+          <div class="bn">Noun-এর পরিবর্তে যে শব্দ ব্যবহার হয়</div>
+        </div>
+      </div>
+      <div class="pos-body">
+        <div class="info-grid">
+          <div class="info-box">
+            <h4>📚 সংজ্ঞা</h4>
+            <p>Pronoun হলো সেই শব্দ যা Noun-এর জায়গায় বসে বাক্যকে সংক্ষিপ্ত ও সহজ করে। যেমন: Rahim → <b>He</b>।</p>
+          </div>
+          <div class="info-box">
+            <h4>🔍 চিনার উপায়</h4>
+            <ul>
+              <li>I, You, He, She, It, We, They</li>
+              <li>Me, Him, Her, Us, Them</li>
+              <li>My, Your, His, Her, Our</li>
+              <li>This, That, These, Those</li>
+            </ul>
+          </div>
+        </div>
+        <div class="struct-box">
+          Personal: <span>I/You/He/She/It/We/They</span>
+          <br>Possessive: <span>My/Your/His/Her/Its/Our/Their</span>
+          <br>Reflexive: <span>Myself/Yourself/Himself/Herself</span>
+        </div>
+        <div class="trick-box">
+          <b>মনে রাখার কৌশল:</b> "PRO" মানে "for" — Pronoun মানে Noun-এর FOR / পরিবর্তে। Noun একবার বললে পরের বার Pronoun দাও।
+        </div>
+        <div class="examples-title">📌 ২০টি উদাহরণ</div>
+        <div class="examples-grid">
+          <div class="example-item"><span class="en"><span class="hl" style="background:#c8e6c9">I</span> love my country.</span><div class="bn-ex">আমি আমার দেশকে ভালোবাসি।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#c8e6c9">She</span> is a doctor.</span><div class="bn-ex">সে একজন ডাক্তার।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#c8e6c9">He</span> plays football.</span><div class="bn-ex">সে ফুটবল খেলে।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#c8e6c9">They</span> went to school.</span><div class="bn-ex">তারা স্কুলে গেল।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#c8e6c9">We</span> are friends.</span><div class="bn-ex">আমরা বন্ধু।</div></div>
+          <div class="example-item"><span class="en">Give <span class="hl" style="background:#c8e6c9">me</span> the pen.</span><div class="bn-ex">আমাকে কলমটা দাও।</div></div>
+          <div class="example-item"><span class="en">This is <span class="hl" style="background:#c8e6c9">my</span> bag.</span><div class="bn-ex">এটা আমার ব্যাগ।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#c8e6c9">It</span> is raining.</span><div class="bn-ex">বৃষ্টি পড়ছে।</div></div>
+          <div class="example-item"><span class="en">I hurt <span class="hl" style="background:#c8e6c9">myself</span>.</span><div class="bn-ex">আমি নিজেকে আঘাত করলাম।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#c8e6c9">Who</span> is at the door?</span><div class="bn-ex">দরজায় কে?</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#c8e6c9">This</span> is my house.</span><div class="bn-ex">এটা আমার বাড়ি।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#c8e6c9">Those</span> are his books.</span><div class="bn-ex">ওগুলো তার বই।</div></div>
+          <div class="example-item"><span class="en">Tell <span class="hl" style="background:#c8e6c9">him</span> the truth.</span><div class="bn-ex">তাকে সত্যটা বলো।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#c8e6c9">Nobody</span> knows the answer.</span><div class="bn-ex">কেউ উত্তর জানে না।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#c8e6c9">Everybody</span> loves her.</span><div class="bn-ex">সবাই তাকে ভালোবাসে।</div></div>
+          <div class="example-item"><span class="en">She blames <span class="hl" style="background:#c8e6c9">herself</span>.</span><div class="bn-ex">সে নিজেকে দোষ দেয়।</div></div>
+          <div class="example-item"><span class="en">The book is <span class="hl" style="background:#c8e6c9">hers</span>.</span><div class="bn-ex">বইটা তার।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#c8e6c9">You</span> are smart.</span><div class="bn-ex">তুমি চালাক।</div></div>
+          <div class="example-item"><span class="en">I saw <span class="hl" style="background:#c8e6c9">them</span> yesterday.</span><div class="bn-ex">আমি গতকাল তাদের দেখেছিলাম।</div></div>
+          <div class="example-item"><span class="en">Each of <span class="hl" style="background:#c8e6c9">us</span> tried.</span><div class="bn-ex">আমাদের প্রত্যেকে চেষ্টা করেছিল।</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VERB -->
+    <div class="pos-card pos-verb">
+      <div class="pos-header">
+        <div class="pos-icon">⚡</div>
+        <div>
+          <h2>Verb — ক্রিয়া</h2>
+          <div class="bn">কাজ, অবস্থা বা ঘটনা বোঝানো শব্দ</div>
+        </div>
+      </div>
+      <div class="pos-body">
+        <div class="info-grid">
+          <div class="info-box">
+            <h4>📚 সংজ্ঞা</h4>
+            <p>Verb হলো বাক্যের প্রাণ। যে শব্দ দিয়ে কোনো <b>কাজ করা</b> (action), <b>অবস্থা থাকা</b> (state), বা <b>ঘটনা ঘটা</b> (occurrence) বোঝায়।</p>
+          </div>
+          <div class="info-box">
+            <h4>🔍 চিনার উপায়</h4>
+            <ul>
+              <li>"সে কী করছে?" — উত্তরই Verb</li>
+              <li>Tense অনুযায়ী রূপ পরিবর্তন হয়</li>
+              <li>Action Verb: run, eat, write</li>
+              <li>Linking Verb: is, am, are, was</li>
+            </ul>
+          </div>
+        </div>
+        <div class="struct-box">
+          Action: <span>Subject + Verb + Object</span> → He <span>eats</span> rice.
+          <br>Linking: <span>Subject + is/am/are + Complement</span> → She <span>is</span> happy.
+          <br>Auxiliary: <span>do/does/did/will/have/has/had</span>
+        </div>
+        <div class="trick-box">
+          <b>মনে রাখার কৌশল:</b> Verb ছাড়া কোনো sentence হয় না। "করা, থাকা, হওয়া" — এই তিনটি ধারণাই Verb। V1 (base), V2 (past), V3 (past participle) মনে রাখো।
+        </div>
+        <div class="examples-title">📌 ২০টি উদাহরণ</div>
+        <div class="examples-grid">
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#bbdefb">sings</span> beautifully.</span><div class="bn-ex">সে সুন্দর গান গায়।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#bbdefb">runs</span> every morning.</span><div class="bn-ex">সে প্রতিদিন সকালে দৌড়ায়।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#bbdefb">study</span> hard.</span><div class="bn-ex">তারা কঠোর পরিশ্রম করে পড়ে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#bbdefb">am</span> a student.</span><div class="bn-ex">আমি একজন ছাত্র।</div></div>
+          <div class="example-item"><span class="en">The bird <span class="hl" style="background:#bbdefb">flew</span> away.</span><div class="bn-ex">পাখিটি উড়ে গেল।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#bbdefb">has eaten</span> lunch.</span><div class="bn-ex">সে দুপুরের খাবার খেয়েছে।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#bbdefb">was sleeping</span> quietly.</span><div class="bn-ex">সে চুপচাপ ঘুমাচ্ছিল।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#bbdefb">will go</span> tomorrow.</span><div class="bn-ex">আমরা আগামীকাল যাব।</div></div>
+          <div class="example-item"><span class="en">The baby <span class="hl" style="background:#bbdefb">cried</span> all night.</span><div class="bn-ex">শিশুটি সারারাত কেঁদেছিল।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#bbdefb">seems</span> tired.</span><div class="bn-ex">সে ক্লান্ত মনে হচ্ছে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#bbdefb">love</span> reading books.</span><div class="bn-ex">আমি বই পড়তে ভালোবাসি।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#bbdefb">have arrived</span>.</span><div class="bn-ex">তারা এসে পড়েছে।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#bbdefb">teaches</span> English.</span><div class="bn-ex">সে ইংরেজি শেখায়।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#bbdefb">became</span> a doctor.</span><div class="bn-ex">সে ডাক্তার হয়েছে।</div></div>
+          <div class="example-item"><span class="en">It <span class="hl" style="background:#bbdefb">is raining</span> now.</span><div class="bn-ex">এখন বৃষ্টি হচ্ছে।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#bbdefb">played</span> cricket.</span><div class="bn-ex">আমরা ক্রিকেট খেলেছিলাম।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#bbdefb">wrote</span> a letter.</span><div class="bn-ex">সে একটি চিঠি লিখেছিল।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#bbdefb">can swim</span> well.</span><div class="bn-ex">সে ভালো সাঁতার কাটতে পারে।</div></div>
+          <div class="example-item"><span class="en">The flowers <span class="hl" style="background:#bbdefb">bloom</span> in spring.</span><div class="bn-ex">বসন্তে ফুল ফোটে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#bbdefb">will finish</span> the work.</span><div class="bn-ex">আমি কাজটি শেষ করব।</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADJECTIVE -->
+    <div class="pos-card pos-adj">
+      <div class="pos-header">
+        <div class="pos-icon">🌈</div>
+        <div>
+          <h2>Adjective — বিশেষণ</h2>
+          <div class="bn">Noun বা Pronoun-কে বর্ণনা করে</div>
+        </div>
+      </div>
+      <div class="pos-body">
+        <div class="info-grid">
+          <div class="info-box">
+            <h4>📚 সংজ্ঞা</h4>
+            <p>Adjective হলো সেই শব্দ যা Noun বা Pronoun-এর গুণ, সংখ্যা, পরিমাণ, অবস্থা ইত্যাদি বর্ণনা করে।</p>
+          </div>
+          <div class="info-box">
+            <h4>🔍 চিনার উপায়</h4>
+            <ul>
+              <li>Noun-এর আগে বসে: <b>tall</b> boy</li>
+              <li>"কেমন?" প্রশ্নের উত্তর</li>
+              <li>-ful, -less, -ous, -ive দিয়ে শেষ</li>
+              <li>Comparison হয়: big → bigger → biggest</li>
+            </ul>
+          </div>
+        </div>
+        <div class="struct-box">
+          Attributive: <span>Adjective + Noun</span> → a <span>beautiful</span> flower
+          <br>Predicative: <span>Subject + is/am/are + Adjective</span> → She <span>is beautiful</span>
+          <br>Degrees: <span>Positive → Comparative → Superlative</span>
+        </div>
+        <div class="trick-box">
+          <b>মনে রাখার কৌশল:</b> Adjective "ADD" করে — Noun-এ রঙ, আকার, স্বাদ, সংখ্যা যোগ করে। "কেমন বই? — সুন্দর বই" — সুন্দর = Adjective।
+        </div>
+        <div class="examples-title">📌 ২০টি উদাহরণ</div>
+        <div class="examples-grid">
+          <div class="example-item"><span class="en">She is a <span class="hl" style="background:#f8bbd0">beautiful</span> girl.</span><div class="bn-ex">সে একটি সুন্দর মেয়ে।</div></div>
+          <div class="example-item"><span class="en">He is a <span class="hl" style="background:#f8bbd0">tall</span> man.</span><div class="bn-ex">সে একজন লম্বা মানুষ।</div></div>
+          <div class="example-item"><span class="en">This is a <span class="hl" style="background:#f8bbd0">big</span> house.</span><div class="bn-ex">এটা একটি বড় বাড়ি।</div></div>
+          <div class="example-item"><span class="en">The water is <span class="hl" style="background:#f8bbd0">cold</span>.</span><div class="bn-ex">পানি ঠান্ডা।</div></div>
+          <div class="example-item"><span class="en">She is very <span class="hl" style="background:#f8bbd0">intelligent</span>.</span><div class="bn-ex">সে অত্যন্ত বুদ্ধিমান।</div></div>
+          <div class="example-item"><span class="en">I have <span class="hl" style="background:#f8bbd0">three</span> cats.</span><div class="bn-ex">আমার তিনটি বিড়াল আছে।</div></div>
+          <div class="example-item"><span class="en">He wore a <span class="hl" style="background:#f8bbd0">red</span> shirt.</span><div class="bn-ex">সে একটি লাল শার্ট পরেছিল।</div></div>
+          <div class="example-item"><span class="en">It is a <span class="hl" style="background:#f8bbd0">hot</span> day.</span><div class="bn-ex">আজ গরমের দিন।</div></div>
+          <div class="example-item"><span class="en">She has <span class="hl" style="background:#f8bbd0">long</span> hair.</span><div class="bn-ex">তার লম্বা চুল আছে।</div></div>
+          <div class="example-item"><span class="en">He is a <span class="hl" style="background:#f8bbd0">brave</span> soldier.</span><div class="bn-ex">সে একজন সাহসী সৈনিক।</div></div>
+          <div class="example-item"><span class="en">The food is <span class="hl" style="background:#f8bbd0">delicious</span>.</span><div class="bn-ex">খাবারটা সুস্বাদু।</div></div>
+          <div class="example-item"><span class="en">She is a <span class="hl" style="background:#f8bbd0">kind</span> person.</span><div class="bn-ex">সে একজন দয়ালু মানুষ।</div></div>
+          <div class="example-item"><span class="en">It is a <span class="hl" style="background:#f8bbd0">heavy</span> bag.</span><div class="bn-ex">এটা একটা ভারী ব্যাগ।</div></div>
+          <div class="example-item"><span class="en">The sky is <span class="hl" style="background:#f8bbd0">blue</span>.</span><div class="bn-ex">আকাশ নীল।</div></div>
+          <div class="example-item"><span class="en">He is an <span class="hl" style="background:#f8bbd0">honest</span> man.</span><div class="bn-ex">সে একজন সৎ মানুষ।</div></div>
+          <div class="example-item"><span class="en">She sang a <span class="hl" style="background:#f8bbd0">sweet</span> song.</span><div class="bn-ex">সে মিষ্টি গান গাইল।</div></div>
+          <div class="example-item"><span class="en">We need <span class="hl" style="background:#f8bbd0">fresh</span> air.</span><div class="bn-ex">আমাদের তাজা বাতাস দরকার।</div></div>
+          <div class="example-item"><span class="en">She is a <span class="hl" style="background:#f8bbd0">clever</span> student.</span><div class="bn-ex">সে একজন চালাক ছাত্রী।</div></div>
+          <div class="example-item"><span class="en">It is a <span class="hl" style="background:#f8bbd0">dark</span> night.</span><div class="bn-ex">এটা একটা অন্ধকার রাত।</div></div>
+          <div class="example-item"><span class="en">He has a <span class="hl" style="background:#f8bbd0">loud</span> voice.</span><div class="bn-ex">তার উচ্চস্বর আছে।</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADVERB -->
+    <div class="pos-card pos-adv">
+      <div class="pos-header">
+        <div class="pos-icon">🚀</div>
+        <div>
+          <h2>Adverb — ক্রিয়া বিশেষণ</h2>
+          <div class="bn">Verb, Adjective বা অন্য Adverb-কে বর্ণনা করে</div>
+        </div>
+      </div>
+      <div class="pos-body">
+        <div class="info-grid">
+          <div class="info-box">
+            <h4>📚 সংজ্ঞা</h4>
+            <p>Adverb হলো সেই শব্দ যা কোনো <b>Verb</b>, <b>Adjective</b> বা অন্য <b>Adverb</b>-এর গুণ, পরিমাণ, স্থান, সময় ইত্যাদি বর্ণনা করে।</p>
+          </div>
+          <div class="info-box">
+            <h4>🔍 চিনার উপায়</h4>
+            <ul>
+              <li>বেশিরভাগ -ly দিয়ে শেষ: quickly, slowly</li>
+              <li>কীভাবে? কখন? কোথায়? কতটুকু?</li>
+              <li>Adjective-এর আগে: <b>very</b> beautiful</li>
+              <li>Verb-এর পরে: runs <b>fast</b></li>
+            </ul>
+          </div>
+        </div>
+        <div class="struct-box">
+          Manner: <span>Verb + Adverb</span> → She walks <span>slowly</span>
+          <br>Degree: <span>Adverb + Adjective</span> → <span>very</span> beautiful
+          <br>Place/Time: <span>here, there, now, then, always, never</span>
+        </div>
+        <div class="trick-box">
+          <b>মনে রাখার কৌশল:</b> Adjective-এর শেষে <b>-ly</b> যোগ করলেই বেশিরভাগ Adverb হয়। quick → quickly, slow → slowly। তবে fast, hard, well — এগুলোতে -ly লাগে না!
+        </div>
+        <div class="examples-title">📌 ২০টি উদাহরণ</div>
+        <div class="examples-grid">
+          <div class="example-item"><span class="en">She speaks <span class="hl" style="background:#d1c4e9">softly</span>.</span><div class="bn-ex">সে আস্তে কথা বলে।</div></div>
+          <div class="example-item"><span class="en">He runs <span class="hl" style="background:#d1c4e9">fast</span>.</span><div class="bn-ex">সে দ্রুত দৌড়ায়।</div></div>
+          <div class="example-item"><span class="en">She is <span class="hl" style="background:#d1c4e9">very</span> beautiful.</span><div class="bn-ex">সে অত্যন্ত সুন্দর।</div></div>
+          <div class="example-item"><span class="en">He works <span class="hl" style="background:#d1c4e9">hard</span>.</span><div class="bn-ex">সে কঠোর পরিশ্রম করে।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#d1c4e9">always</span> smiles.</span><div class="bn-ex">সে সবসময় হাসে।</div></div>
+          <div class="example-item"><span class="en">I will go <span class="hl" style="background:#d1c4e9">tomorrow</span>.</span><div class="bn-ex">আমি আগামীকাল যাব।</div></div>
+          <div class="example-item"><span class="en">She sings <span class="hl" style="background:#d1c4e9">beautifully</span>.</span><div class="bn-ex">সে সুন্দরভাবে গান গায়।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#d1c4e9">never</span> lies.</span><div class="bn-ex">সে কখনো মিথ্যা বলে না।</div></div>
+          <div class="example-item"><span class="en">Come <span class="hl" style="background:#d1c4e9">here</span>!</span><div class="bn-ex">এখানে আসো!</div></div>
+          <div class="example-item"><span class="en">She finished <span class="hl" style="background:#d1c4e9">quickly</span>.</span><div class="bn-ex">সে দ্রুত শেষ করল।</div></div>
+          <div class="example-item"><span class="en">He is <span class="hl" style="background:#d1c4e9">quite</span> tall.</span><div class="bn-ex">সে বেশ লম্বা।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#d1c4e9">often</span> reads books.</span><div class="bn-ex">সে প্রায়ই বই পড়ে।</div></div>
+          <div class="example-item"><span class="en">I can do it <span class="hl" style="background:#d1c4e9">easily</span>.</span><div class="bn-ex">আমি এটা সহজে করতে পারি।</div></div>
+          <div class="example-item"><span class="en">He spoke <span class="hl" style="background:#d1c4e9">loudly</span>.</span><div class="bn-ex">সে জোরে কথা বলল।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#d1c4e9">rarely</span> goes out.</span><div class="bn-ex">সে খুব কমই বাইরে যায়।</div></div>
+          <div class="example-item"><span class="en">Put the book <span class="hl" style="background:#d1c4e9">there</span>.</span><div class="bn-ex">বইটা ওখানে রাখো।</div></div>
+          <div class="example-item"><span class="en">She arrived <span class="hl" style="background:#d1c4e9">early</span>.</span><div class="bn-ex">সে আগে এসেছিল।</div></div>
+          <div class="example-item"><span class="en">He is <span class="hl" style="background:#d1c4e9">too</span> tired.</span><div class="bn-ex">সে অনেক বেশি ক্লান্ত।</div></div>
+          <div class="example-item"><span class="en">She plays <span class="hl" style="background:#d1c4e9">well</span>.</span><div class="bn-ex">সে ভালো খেলে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#d1c4e9">almost</span> forgot it.</span><div class="bn-ex">আমি প্রায় ভুলে গিয়েছিলাম।</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREPOSITION -->
+    <div class="pos-card pos-prep">
+      <div class="pos-header">
+        <div class="pos-icon">🔗</div>
+        <div>
+          <h2>Preposition — অনুসর্গ / পদান্বয়ী অব্যয়</h2>
+          <div class="bn">Noun/Pronoun-এর সাথে বাক্যের অন্য অংশের সম্পর্ক দেখায়</div>
+        </div>
+      </div>
+      <div class="pos-body">
+        <div class="info-grid">
+          <div class="info-box">
+            <h4>📚 সংজ্ঞা</h4>
+            <p>Preposition হলো সেই শব্দ যা কোনো Noun বা Pronoun-এর আগে বসে তার সাথে বাক্যের অন্য শব্দের <b>স্থান, সময়, দিক, কারণ</b> ইত্যাদি সম্পর্ক বোঝায়।</p>
+          </div>
+          <div class="info-box">
+            <h4>🔍 চিনার উপায়</h4>
+            <ul>
+              <li>in, on, at, by, for, with, to, from</li>
+              <li>স্থান: in the room, on the table</li>
+              <li>সময়: at 5 PM, in January</li>
+              <li>দিক: to school, from home</li>
+            </ul>
+          </div>
+        </div>
+        <div class="struct-box">
+          Structure: <span>Preposition + Noun/Pronoun</span>
+          <br>Place: <span>in, on, at, under, above, behind, between</span>
+          <br>Time: <span>at (time), on (day), in (month/year)</span>
+        </div>
+        <div class="trick-box">
+          <b>মনে রাখার কৌশল:</b> "PRE" মানে আগে — Preposition সবসময় Noun-এর আগে বসে। সহজ নিয়ম: <b>IN</b> (বড় জায়গা/মাস/বছর), <b>ON</b> (নির্দিষ্ট দিন/তারিখ), <b>AT</b> (ছোট জায়গা/নির্দিষ্ট সময়)।
+        </div>
+        <div class="examples-title">📌 ২০টি উদাহরণ</div>
+        <div class="examples-grid">
+          <div class="example-item"><span class="en">The cat is <span class="hl" style="background:#b2ebf2">on</span> the table.</span><div class="bn-ex">বিড়ালটি টেবিলে আছে।</div></div>
+          <div class="example-item"><span class="en">I live <span class="hl" style="background:#b2ebf2">in</span> Dhaka.</span><div class="bn-ex">আমি ঢাকায় থাকি।</div></div>
+          <div class="example-item"><span class="en">She arrived <span class="hl" style="background:#b2ebf2">at</span> 8 AM.</span><div class="bn-ex">সে সকাল ৮টায় পৌঁছাল।</div></div>
+          <div class="example-item"><span class="en">He went <span class="hl" style="background:#b2ebf2">to</span> school.</span><div class="bn-ex">সে স্কুলে গেল।</div></div>
+          <div class="example-item"><span class="en">The book is <span class="hl" style="background:#b2ebf2">under</span> the desk.</span><div class="bn-ex">বইটা ডেস্কের নিচে।</div></div>
+          <div class="example-item"><span class="en">I came <span class="hl" style="background:#b2ebf2">from</span> home.</span><div class="bn-ex">আমি বাড়ি থেকে এলাম।</div></div>
+          <div class="example-item"><span class="en">She is standing <span class="hl" style="background:#b2ebf2">beside</span> me.</span><div class="bn-ex">সে আমার পাশে দাঁড়িয়ে আছে।</div></div>
+          <div class="example-item"><span class="en">It happened <span class="hl" style="background:#b2ebf2">before</span> noon.</span><div class="bn-ex">এটা দুপুরের আগে হয়েছিল।</div></div>
+          <div class="example-item"><span class="en">He ran <span class="hl" style="background:#b2ebf2">across</span> the road.</span><div class="bn-ex">সে রাস্তার ওপারে দৌড়াল।</div></div>
+          <div class="example-item"><span class="en">I did it <span class="hl" style="background:#b2ebf2">for</span> you.</span><div class="bn-ex">আমি তোমার জন্য এটা করেছি।</div></div>
+          <div class="example-item"><span class="en">She sat <span class="hl" style="background:#b2ebf2">between</span> us.</span><div class="bn-ex">সে আমাদের মাঝে বসল।</div></div>
+          <div class="example-item"><span class="en">The plane flew <span class="hl" style="background:#b2ebf2">over</span> us.</span><div class="bn-ex">বিমানটি আমাদের উপর দিয়ে উড়ল।</div></div>
+          <div class="example-item"><span class="en">He spoke <span class="hl" style="background:#b2ebf2">about</span> the topic.</span><div class="bn-ex">সে বিষয়টি সম্পর্কে বলল।</div></div>
+          <div class="example-item"><span class="en">She came <span class="hl" style="background:#b2ebf2">with</span> her friend.</span><div class="bn-ex">সে তার বন্ধুর সাথে এলো।</div></div>
+          <div class="example-item"><span class="en">I will meet you <span class="hl" style="background:#b2ebf2">after</span> school.</span><div class="bn-ex">স্কুলের পরে দেখা হবে।</div></div>
+          <div class="example-item"><span class="en">The dog jumped <span class="hl" style="background:#b2ebf2">into</span> the river.</span><div class="bn-ex">কুকুরটি নদীতে লাফ দিল।</div></div>
+          <div class="example-item"><span class="en">She lives <span class="hl" style="background:#b2ebf2">near</span> the school.</span><div class="bn-ex">সে স্কুলের কাছে থাকে।</div></div>
+          <div class="example-item"><span class="en">I go to bed <span class="hl" style="background:#b2ebf2">at</span> night.</span><div class="bn-ex">আমি রাতে ঘুমাতে যাই।</div></div>
+          <div class="example-item"><span class="en">He was born <span class="hl" style="background:#b2ebf2">in</span> 2000.</span><div class="bn-ex">সে ২০০০ সালে জন্মেছিল।</div></div>
+          <div class="example-item"><span class="en">The picture hangs <span class="hl" style="background:#b2ebf2">on</span> the wall.</span><div class="bn-ex">ছবিটা দেয়ালে ঝুলছে।</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONJUNCTION -->
+    <div class="pos-card pos-conj">
+      <div class="pos-header">
+        <div class="pos-icon">🤝</div>
+        <div>
+          <h2>Conjunction — সংযোজক অব্যয়</h2>
+          <div class="bn">দুটি শব্দ, phrase বা clause-কে জোড়া লাগায়</div>
+        </div>
+      </div>
+      <div class="pos-body">
+        <div class="info-grid">
+          <div class="info-box">
+            <h4>📚 সংজ্ঞা</h4>
+            <p>Conjunction হলো সেই শব্দ যা দুটি বা তার বেশি শব্দ, phrase বা clause-কে <b>সংযুক্ত</b> করে।</p>
+          </div>
+          <div class="info-box">
+            <h4>🔍 চিনার উপায়</h4>
+            <ul>
+              <li>Coordinating: and, but, or, so, yet</li>
+              <li>Subordinating: because, if, when, although</li>
+              <li>Correlative: both...and, either...or</li>
+              <li>দুটি অংশকে জুড়ে দেয়</li>
+            </ul>
+          </div>
+        </div>
+        <div class="struct-box">
+          Coordinating: <span>Clause + and/but/or/so + Clause</span>
+          <br>Subordinating: <span>because/if/when/although + Clause</span>
+          <br>Correlative: <span>both...and | either...or | neither...nor</span>
+        </div>
+        <div class="trick-box">
+          <b>মনে রাখার কৌশল:</b> FANBOYS = <b>F</b>or, <b>A</b>nd, <b>N</b>or, <b>B</b>ut, <b>O</b>r, <b>Y</b>et, <b>S</b>o — এই ৭টি হলো Coordinating Conjunction। এই নামটা মনে রাখলেই হবে!
+        </div>
+        <div class="examples-title">📌 ২০টি উদাহরণ</div>
+        <div class="examples-grid">
+          <div class="example-item"><span class="en">I like tea <span class="hl" style="background:#ffecb3">and</span> coffee.</span><div class="bn-ex">আমি চা এবং কফি পছন্দ করি।</div></div>
+          <div class="example-item"><span class="en">She is poor <span class="hl" style="background:#ffecb3">but</span> happy.</span><div class="bn-ex">সে গরিব কিন্তু সুখী।</div></div>
+          <div class="example-item"><span class="en">Work hard <span class="hl" style="background:#ffecb3">or</span> you will fail.</span><div class="bn-ex">কঠোর পরিশ্রম করো নয়তো ফেল করবে।</div></div>
+          <div class="example-item"><span class="en">He was tired <span class="hl" style="background:#ffecb3">so</span> he slept.</span><div class="bn-ex">সে ক্লান্ত ছিল তাই ঘুমাল।</div></div>
+          <div class="example-item"><span class="en">I eat rice <span class="hl" style="background:#ffecb3">because</span> I am hungry.</span><div class="bn-ex">আমি ভাত খাই কারণ আমি ক্ষুধার্ত।</div></div>
+          <div class="example-item"><span class="en">Call me <span class="hl" style="background:#ffecb3">when</span> you arrive.</span><div class="bn-ex">পৌঁছানোর পর আমাকে ডেকো।</div></div>
+          <div class="example-item"><span class="en">I will go <span class="hl" style="background:#ffecb3">if</span> it rains.</span><div class="bn-ex">যদি বৃষ্টি পড়ে তাহলে যাব।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffecb3">Although</span> he is poor, he is happy.</span><div class="bn-ex">যদিও সে গরিব, সে সুখী।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffecb3">Both</span> Rima <span class="hl" style="background:#ffecb3">and</span> Tina came.</span><div class="bn-ex">রিমা এবং তিনা দুজনেই এসেছিল।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffecb3">Either</span> work <span class="hl" style="background:#ffecb3">or</span> leave.</span><div class="bn-ex">হয় কাজ করো নয়তো চলে যাও।</div></div>
+          <div class="example-item"><span class="en">He is smart <span class="hl" style="background:#ffecb3">yet</span> lazy.</span><div class="bn-ex">সে চালাক তবুও অলস।</div></div>
+          <div class="example-item"><span class="en">He came <span class="hl" style="background:#ffecb3">while</span> I was sleeping.</span><div class="bn-ex">সে এলো যখন আমি ঘুমাচ্ছিলাম।</div></div>
+          <div class="example-item"><span class="en">She worked hard <span class="hl" style="background:#ffecb3">so that</span> she could pass.</span><div class="bn-ex">সে পাস করার জন্য কঠোর পরিশ্রম করল।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffecb3">Unless</span> you study, you won't pass.</span><div class="bn-ex">না পড়লে পাস করবে না।</div></div>
+          <div class="example-item"><span class="en">I know <span class="hl" style="background:#ffecb3">that</span> he is good.</span><div class="bn-ex">আমি জানি যে সে ভালো।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffecb3">Neither</span> he <span class="hl" style="background:#ffecb3">nor</span> she came.</span><div class="bn-ex">না সে এলো না সেও এলো।</div></div>
+          <div class="example-item"><span class="en">I waited <span class="hl" style="background:#ffecb3">until</span> she arrived.</span><div class="bn-ex">সে না আসা পর্যন্ত অপেক্ষা করলাম।</div></div>
+          <div class="example-item"><span class="en">He cried <span class="hl" style="background:#ffecb3">as</span> he fell.</span><div class="bn-ex">পড়ে গিয়ে সে কাঁদল।</div></div>
+          <div class="example-item"><span class="en">She is happy <span class="hl" style="background:#ffecb3">for</span> she passed.</span><div class="bn-ex">সে খুশি কারণ সে পাস করেছে।</div></div>
+          <div class="example-item"><span class="en">Read <span class="hl" style="background:#ffecb3">and</span> write every day.</span><div class="bn-ex">প্রতিদিন পড়ো এবং লেখো।</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTERJECTION -->
+    <div class="pos-card pos-interj">
+      <div class="pos-header">
+        <div class="pos-icon">😲</div>
+        <div>
+          <h2>Interjection — আবেগ প্রকাশক শব্দ</h2>
+          <div class="bn">আকস্মিক অনুভূতি বা আবেগ প্রকাশ করে</div>
+        </div>
+      </div>
+      <div class="pos-body">
+        <div class="info-grid">
+          <div class="info-box">
+            <h4>📚 সংজ্ঞা</h4>
+            <p>Interjection হলো এমন শব্দ বা শব্দসমষ্টি যা কোনো <b>আকস্মিক আবেগ</b>, যেমন আনন্দ, দুঃখ, বিস্ময়, ঘৃণা ইত্যাদি প্রকাশ করে।</p>
+          </div>
+          <div class="info-box">
+            <h4>🔍 চিনার উপায়</h4>
+            <ul>
+              <li>বাক্যের সাথে grammatical সংযোগ নেই</li>
+              <li>Exclamation mark (!) বসে</li>
+              <li>আনন্দ: Hurray! Wow!</li>
+              <li>দুঃখ: Alas! Oh!</li>
+            </ul>
+          </div>
+        </div>
+        <div class="struct-box">
+          Structure: <span>Interjection + !</span> বাক্যের শুরুতে বসে।
+          <br>Joy: <span>Wow! Hurray! Yippee!</span>
+          <br>Sorrow: <span>Alas! Oh! Ouch!</span>
+          <br>Surprise: <span>What! Really! Goodness!</span>
+        </div>
+        <div class="trick-box">
+          <b>মনে রাখার কৌশল:</b> মনের কথা মুখে বের হলেই Interjection। "Wow!" শুনলেই বোঝা যায় — এটা কোনো grammar rule মানে না, শুধু মনের ভাব প্রকাশ করে!
+        </div>
+        <div class="examples-title">📌 ২০টি উদাহরণ</div>
+        <div class="examples-grid">
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffccbc">Wow!</span> What a beautiful view!</span><div class="bn-ex">বাহ! কী সুন্দর দৃশ্য!</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffccbc">Alas!</span> He is dead.</span><div class="bn-ex">হায়! সে মারা গেছে।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffccbc">Hurray!</span> We won!</span><div class="bn-ex">হুররে! আমরা জিতেছি!</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffccbc">Ouch!</span> That hurt!</span><div class="bn-ex">আউচ! এটা ব্যথা করছে!</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffccbc">Oh!</span> I forgot my bag.</span><div class="bn-ex">ওহ! আমি ব্যাগ ভুলে এলাম।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffccbc">Bravo!</span> Well done!</span><div class="bn-ex">শাবাশ! খুব ভালো!</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffccbc">Hello!</span> How are you?</span><div class="bn-ex">হ্যালো! কেমন আছো?</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffccbc">Shh!</span> Don't make noise.</span><div class="bn-ex">শশ! শব্দ করো না।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffccbc">Yikes!</span> A spider!</span><div class="bn-ex">ইস! একটা মাকড়সা!</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffccbc">Ah!</span> Now I understand.</span><div class="bn-ex">আহ! এখন বুঝতে পারলাম।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffccbc">Yuck!</span> This tastes bad.</span><div class="bn-ex">ছি! এটা খেতে খারাপ।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffccbc">Hey!</span> Come over here.</span><div class="bn-ex">এই! এদিকে এসো।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffccbc">Hush!</span> The baby is sleeping.</span><div class="bn-ex">চুপ! বাবু ঘুমাচ্ছে।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffccbc">Gosh!</span> That's amazing!</span><div class="bn-ex">আরে! এটা অবাক করা!</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffccbc">Ugh!</span> This is awful.</span><div class="bn-ex">উফ! এটা ভয়ানক।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffccbc">Phew!</span> What a relief!</span><div class="bn-ex">ফিউ! কী স্বস্তি!</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffccbc">Oh no!</span> I'm late!</span><div class="bn-ex">ওহ না! আমি দেরি করে ফেললাম!</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffccbc">Congratulations!</span> You passed!</span><div class="bn-ex">অভিনন্দন! তুমি পাস করেছ!</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffccbc">Boo!</span> That was terrible.</span><div class="bn-ex">বু! এটা ছিল ভয়াবহ।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffccbc">Eureka!</span> I found it!</span><div class="bn-ex">ইউরেকা! আমি খুঁজে পেয়েছি!</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end pos-grid -->
+</div><!-- end pos page -->
+
+<!-- ===== TENSE PAGE ===== -->
+<div class="page" id="page-tense">
+  <h2 class="sec-title">12 Tenses — সম্পূর্ণ গাইড</h2>
+  <p style="margin-bottom:20px;color:var(--text-soft);line-height:1.7;">Tense মানে সময়। কাজটি কখন হচ্ছে তা বোঝাতে Tense ব্যবহার করা হয়।</p>
+
+  <div class="tense-tabs">
+    <button class="tense-btn active" onclick="showTense('prs')">Simple Present</button>
+    <button class="tense-btn" onclick="showTense('prc')">Present Continuous</button>
+    <button class="tense-btn" onclick="showTense('prp')">Present Perfect</button>
+    <button class="tense-btn" onclick="showTense('prpc')">Present Perfect Continuous</button>
+    <button class="tense-btn" onclick="showTense('pas')">Simple Past</button>
+    <button class="tense-btn" onclick="showTense('pac')">Past Continuous</button>
+    <button class="tense-btn" onclick="showTense('pap')">Past Perfect</button>
+    <button class="tense-btn" onclick="showTense('papc')">Past Perfect Continuous</button>
+    <button class="tense-btn" onclick="showTense('fts')">Simple Future</button>
+    <button class="tense-btn" onclick="showTense('ftc')">Future Continuous</button>
+    <button class="tense-btn" onclick="showTense('ftp')">Future Perfect</button>
+    <button class="tense-btn" onclick="showTense('ftpc')">Future Perfect Continuous</button>
+  </div>
+
+  <!-- PRS -->
+  <div class="tense-card active" id="tense-prs">
+    <div class="pos-card" style="border-top:4px solid var(--accent);">
+      <div class="pos-header" style="background:linear-gradient(135deg,#fff5e6,#ffe5c0);">
+        <div class="pos-icon" style="background:var(--accent);">1</div>
+        <div><h2>Simple Present Tense</h2><div class="bn">সাধারণ বর্তমান কাল — অভ্যাস ও সত্যের কাজ</div></div>
+      </div>
+      <div class="pos-body">
+        <div class="info-grid">
+          <div class="info-box" style="border-color:var(--accent)">
+            <h4>📚 সংজ্ঞা</h4>
+            <p>যে কাজ সবসময় হয়, অভ্যাসগত কাজ, বৈজ্ঞানিক সত্য বা চিরসত্য প্রকাশ করতে Simple Present Tense ব্যবহার হয়।</p>
+          </div>
+          <div class="info-box" style="border-color:var(--accent)">
+            <h4>🔍 চিনার উপায়</h4>
+            <ul>
+              <li>বাংলায় "করি, করো, করে" থাকে</li>
+              <li>He/She/It → verb + s/es</li>
+              <li>always, usually, every day, often</li>
+            </ul>
+          </div>
+        </div>
+        <div class="struct-box">
+          (+): <span>Subject + V1(+s/es) + Object</span><br>
+          (-): <span>Subject + do/does + not + V1 + Object</span><br>
+          (?): <span>Do/Does + Subject + V1 + Object?</span>
+        </div>
+        <div class="trick-box"><b>মনে রাখার কৌশল:</b> He/She/It দিয়ে Positive-এ "s/es" আসে। আর Negative/Question-এ "does" থাকলে Verb-এ আর "s/es" লাগে না।</div>
+        <div class="examples-title">📌 ২০টি উদাহরণ</div>
+        <div class="examples-grid">
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#ffe0b2">goes</span> to school daily.</span><div class="bn-ex">সে প্রতিদিন স্কুলে যায়।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#ffe0b2">eat</span> rice every day.</span><div class="bn-ex">আমি প্রতিদিন ভাত খাই।</div></div>
+          <div class="example-item"><span class="en">The sun <span class="hl" style="background:#ffe0b2">rises</span> in the east.</span><div class="bn-ex">সূর্য পূর্বে ওঠে।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#ffe0b2">does not play</span> cricket.</span><div class="bn-ex">সে ক্রিকেট খেলে না।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffe0b2">Do</span> you like tea?</span><div class="bn-ex">তুমি কি চা পছন্দ করো?</div></div>
+          <div class="example-item"><span class="en">Birds <span class="hl" style="background:#ffe0b2">fly</span> in the sky.</span><div class="bn-ex">পাখি আকাশে উড়ে।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#ffe0b2">teaches</span> English.</span><div class="bn-ex">সে ইংরেজি পড়ায়।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#ffe0b2">go</span> to mosque on Friday.</span><div class="bn-ex">আমরা শুক্রবারে মসজিদে যাই।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#ffe0b2">watches</span> TV at night.</span><div class="bn-ex">সে রাতে টিভি দেখে।</div></div>
+          <div class="example-item"><span class="en">Water <span class="hl" style="background:#ffe0b2">boils</span> at 100°C.</span><div class="bn-ex">পানি ১০০°C-তে ফুটে।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#ffe0b2">do not know</span> the answer.</span><div class="bn-ex">তারা উত্তর জানে না।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffe0b2">Does</span> she speak English?</span><div class="bn-ex">সে কি ইংরেজি বলে?</div></div>
+          <div class="example-item"><span class="en">He always <span class="hl" style="background:#ffe0b2">tells</span> the truth.</span><div class="bn-ex">সে সবসময় সত্য বলে।</div></div>
+          <div class="example-item"><span class="en">My father <span class="hl" style="background:#ffe0b2">works</span> in a bank.</span><div class="bn-ex">আমার বাবা ব্যাংকে কাজ করেন।</div></div>
+          <div class="example-item"><span class="en">The train <span class="hl" style="background:#ffe0b2">leaves</span> at 7 AM.</span><div class="bn-ex">ট্রেনটি সকাল ৭টায় ছাড়ে।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#ffe0b2">studies</span> hard.</span><div class="bn-ex">সে কঠোর পরিশ্রমে পড়ে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#ffe0b2">love</span> my mother.</span><div class="bn-ex">আমি আমার মাকে ভালোবাসি।</div></div>
+          <div class="example-item"><span class="en">Dogs <span class="hl" style="background:#ffe0b2">bark</span> at strangers.</span><div class="bn-ex">কুকুর অপরিচিতদের দেখে ঘেউ ঘেউ করে।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#ffe0b2">does not eat</span> meat.</span><div class="bn-ex">সে মাংস খায় না।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#ffe0b2">plays</span> guitar well.</span><div class="bn-ex">সে গিটার ভালো বাজায়।</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRC -->
+  <div class="tense-card" id="tense-prc">
+    <div class="pos-card" style="border-top:4px solid #1e88e5;">
+      <div class="pos-header" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);">
+        <div class="pos-icon" style="background:#1e88e5;">2</div>
+        <div><h2>Present Continuous Tense</h2><div class="bn">ঘটমান বর্তমান কাল — এখন যা হচ্ছে</div></div>
+      </div>
+      <div class="pos-body">
+        <div class="info-grid">
+          <div class="info-box" style="border-color:#1e88e5">
+            <h4>📚 সংজ্ঞা</h4>
+            <p>যে কাজ এখন বা এই মুহূর্তে চলছে তা বোঝাতে Present Continuous Tense ব্যবহার হয়।</p>
+          </div>
+          <div class="info-box" style="border-color:#1e88e5">
+            <h4>🔍 চিনার উপায়</h4>
+            <ul>
+              <li>বাংলায় "করছি, করছে, করছ" থাকে</li>
+              <li>is/am/are + Verb+ing</li>
+              <li>now, at the moment, currently, right now</li>
+            </ul>
+          </div>
+        </div>
+        <div class="struct-box">
+          (+): <span>Subject + is/am/are + V+ing + Object</span><br>
+          (-): <span>Subject + is/am/are + not + V+ing</span><br>
+          (?): <span>Is/Am/Are + Subject + V+ing?</span>
+        </div>
+        <div class="trick-box"><b>মনে রাখার কৌশল:</b> "চলছে" মানেই <b>is/am/are + ing</b>। I → am, He/She/It → is, You/We/They → are। Verb-এর শেষে সবসময় "ing" যোগ করো।</div>
+        <div class="examples-title">📌 ২০টি উদাহরণ</div>
+        <div class="examples-grid">
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#bbdefb">is reading</span> a book now.</span><div class="bn-ex">সে এখন একটি বই পড়ছে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#bbdefb">am writing</span> a letter.</span><div class="bn-ex">আমি একটি চিঠি লিখছি।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#bbdefb">are playing</span> football.</span><div class="bn-ex">তারা ফুটবল খেলছে।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#bbdefb">is not coming</span> today.</span><div class="bn-ex">সে আজ আসছে না।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#bbdefb">Is</span> she <span class="hl" style="background:#bbdefb">sleeping</span>?</span><div class="bn-ex">সে কি ঘুমাচ্ছে?</div></div>
+          <div class="example-item"><span class="en">The baby <span class="hl" style="background:#bbdefb">is crying</span>.</span><div class="bn-ex">বাচ্চাটি কাঁদছে।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#bbdefb">are eating</span> lunch.</span><div class="bn-ex">আমরা দুপুরের খাবার খাচ্ছি।</div></div>
+          <div class="example-item"><span class="en">It <span class="hl" style="background:#bbdefb">is raining</span> outside.</span><div class="bn-ex">বাইরে বৃষ্টি হচ্ছে।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#bbdefb">is working</span> right now.</span><div class="bn-ex">সে এই মুহূর্তে কাজ করছে।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#bbdefb">is not listening</span>.</span><div class="bn-ex">সে শুনছে না।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#bbdefb">Are</span> you <span class="hl" style="background:#bbdefb">watching</span> TV?</span><div class="bn-ex">তুমি কি টিভি দেখছ?</div></div>
+          <div class="example-item"><span class="en">The children <span class="hl" style="background:#bbdefb">are running</span>.</span><div class="bn-ex">বাচ্চারা দৌড়াচ্ছে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#bbdefb">am studying</span> for exams.</span><div class="bn-ex">আমি পরীক্ষার জন্য পড়ছি।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#bbdefb">is cooking</span> dinner.</span><div class="bn-ex">সে রাতের খাবার রান্না করছে।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#bbdefb">is talking</span> on phone.</span><div class="bn-ex">সে ফোনে কথা বলছে।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#bbdefb">are not going</span> today.</span><div class="bn-ex">আমরা আজ যাচ্ছি না।</div></div>
+          <div class="example-item"><span class="en">The bird <span class="hl" style="background:#bbdefb">is singing</span>.</span><div class="bn-ex">পাখিটি গান গাইছে।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#bbdefb">is wearing</span> a red dress.</span><div class="bn-ex">সে লাল পোশাক পরছে।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#bbdefb">are building</span> a house.</span><div class="bn-ex">তারা একটি বাড়ি তৈরি করছে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#bbdefb">am going</span> to market.</span><div class="bn-ex">আমি বাজারে যাচ্ছি।</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRP -->
+  <div class="tense-card" id="tense-prp">
+    <div class="pos-card" style="border-top:4px solid #43a047;">
+      <div class="pos-header" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);">
+        <div class="pos-icon" style="background:#43a047;">3</div>
+        <div><h2>Present Perfect Tense</h2><div class="bn">পুরাঘটিত বর্তমান কাল — কাজ শেষ হয়েছে</div></div>
+      </div>
+      <div class="pos-body">
+        <div class="info-grid">
+          <div class="info-box" style="border-color:#43a047">
+            <h4>📚 সংজ্ঞা</h4>
+            <p>যে কাজ সম্প্রতি শেষ হয়েছে কিন্তু তার ফল এখনো বর্তমান — এটা Present Perfect।</p>
+          </div>
+          <div class="info-box" style="border-color:#43a047">
+            <h4>🔍 চিনার উপায়</h4>
+            <ul>
+              <li>বাংলায় "করেছি, করেছে" থাকে</li>
+              <li>have/has + V3 (past participle)</li>
+              <li>just, already, yet, ever, never, recently</li>
+            </ul>
+          </div>
+        </div>
+        <div class="struct-box">
+          (+): <span>Subject + have/has + V3 + Object</span><br>
+          (-): <span>Subject + have/has + not + V3</span><br>
+          (?): <span>Have/Has + Subject + V3 + Object?</span>
+        </div>
+        <div class="trick-box"><b>মনে রাখার কৌশল:</b> "আমি খেয়েছি" — কাজটা শেষ কিন্তু এখনো প্রাসঙ্গিক = Present Perfect। I/You/We/They → have, He/She/It → has। আর Verb সবসময় V3 (eaten, gone, written)।</div>
+        <div class="examples-title">📌 ২০টি উদাহরণ</div>
+        <div class="examples-grid">
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#c8e6c9">have eaten</span> lunch.</span><div class="bn-ex">আমি দুপুরের খাবার খেয়েছি।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#c8e6c9">has gone</span> home.</span><div class="bn-ex">সে বাড়ি চলে গেছে।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#c8e6c9">have arrived</span>.</span><div class="bn-ex">তারা পৌঁছে গেছে।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#c8e6c9">has just finished</span> work.</span><div class="bn-ex">সে এইমাত্র কাজ শেষ করেছে।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#c8e6c9">Have</span> you <span class="hl" style="background:#c8e6c9">seen</span> this film?</span><div class="bn-ex">তুমি কি এই ছবিটা দেখেছ?</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#c8e6c9">have never been</span> to London.</span><div class="bn-ex">আমি কখনো লন্ডনে যাইনি।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#c8e6c9">has already read</span> the book.</span><div class="bn-ex">সে বইটা ইতিমধ্যে পড়েছে।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#c8e6c9">hasn't come</span> yet.</span><div class="bn-ex">সে এখনো আসেনি।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#c8e6c9">have studied</span> all night.</span><div class="bn-ex">আমরা সারারাত পড়েছি।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#c8e6c9">has written</span> a letter.</span><div class="bn-ex">সে একটি চিঠি লিখেছে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#c8e6c9">have lost</span> my key.</span><div class="bn-ex">আমার চাবি হারিয়ে গেছে।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#c8e6c9">has won</span> the race.</span><div class="bn-ex">সে দৌড় জিতেছে।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#c8e6c9">have built</span> a new house.</span><div class="bn-ex">তারা নতুন বাড়ি বানিয়েছে।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#c8e6c9">has met</span> him before.</span><div class="bn-ex">সে আগে তার সাথে দেখা করেছে।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#c8e6c9">Has</span> he <span class="hl" style="background:#c8e6c9">called</span> you?</span><div class="bn-ex">সে কি তোমাকে ফোন করেছে?</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#c8e6c9">have just woken</span> up.</span><div class="bn-ex">আমি এইমাত্র উঠেছি।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#c8e6c9">has not replied</span> yet.</span><div class="bn-ex">সে এখনো উত্তর দেয়নি।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#c8e6c9">has broken</span> his leg.</span><div class="bn-ex">সে তার পা ভেঙেছে।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#c8e6c9">have completed</span> the task.</span><div class="bn-ex">আমরা কাজটা শেষ করেছি।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#c8e6c9">has cooked</span> rice.</span><div class="bn-ex">সে ভাত রান্না করেছে।</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRPC -->
+  <div class="tense-card" id="tense-prpc">
+    <div class="pos-card" style="border-top:4px solid #7b1fa2;">
+      <div class="pos-header" style="background:linear-gradient(135deg,#ede7f6,#d1c4e9);">
+        <div class="pos-icon" style="background:#7b1fa2;">4</div>
+        <div><h2>Present Perfect Continuous</h2><div class="bn">ঘটমান পুরাঘটিত বর্তমান — অনেকক্ষণ ধরে চলছে</div></div>
+      </div>
+      <div class="pos-body">
+        <div class="info-grid">
+          <div class="info-box" style="border-color:#7b1fa2">
+            <h4>📚 সংজ্ঞা</h4>
+            <p>যে কাজ অতীতে শুরু হয়ে এখনো চলছে বা সবে শেষ হয়েছে — Present Perfect Continuous Tense।</p>
+          </div>
+          <div class="info-box" style="border-color:#7b1fa2">
+            <h4>🔍 চিনার উপায়</h4>
+            <ul>
+              <li>বাংলায় "করছি / করে আসছি" থাকে</li>
+              <li>have/has + been + V+ing</li>
+              <li>for (duration), since (starting point)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="struct-box">
+          (+): <span>Subject + have/has + been + V+ing + for/since</span><br>
+          (-): <span>Subject + have/has + not + been + V+ing</span><br>
+          Key: <span>for = সময়ের পরিমাণ | since = শুরুর বিন্দু</span>
+        </div>
+        <div class="trick-box"><b>মনে রাখার কৌশল:</b> "for two hours" = for (duration) → কতক্ষণ ধরে। "since morning" = since (point) → কখন থেকে। দুটো পার্থক্য মনে রাখলে এই Tense সহজ।</div>
+        <div class="examples-title">📌 ২০টি উদাহরণ</div>
+        <div class="examples-grid">
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#d1c4e9">have been studying</span> for 2 hours.</span><div class="bn-ex">আমি ২ ঘন্টা ধরে পড়ছি।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#d1c4e9">has been crying</span> since morning.</span><div class="bn-ex">সে সকাল থেকে কাঁদছে।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#d1c4e9">have been working</span> all day.</span><div class="bn-ex">তারা সারাদিন ধরে কাজ করছে।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#d1c4e9">has been playing</span> since noon.</span><div class="bn-ex">সে দুপুর থেকে খেলছে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#d1c4e9">have been waiting</span> for you.</span><div class="bn-ex">আমি তোমার জন্য অপেক্ষা করছি।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#d1c4e9">has been teaching</span> for 10 years.</span><div class="bn-ex">সে ১০ বছর ধরে পড়াচ্ছে।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#d1c4e9">have been living</span> here since 2010.</span><div class="bn-ex">আমরা ২০১০ সাল থেকে এখানে থাকছি।</div></div>
+          <div class="example-item"><span class="en">It <span class="hl" style="background:#d1c4e9">has been raining</span> since yesterday.</span><div class="bn-ex">গতকাল থেকে বৃষ্টি হচ্ছে।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#d1c4e9">has been running</span> for an hour.</span><div class="bn-ex">সে এক ঘন্টা ধরে দৌড়াচ্ছে।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#d1c4e9">has been reading</span> since 9 AM.</span><div class="bn-ex">সে সকাল ৯টা থেকে পড়ছে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#d1c4e9">have been learning</span> English for 3 months.</span><div class="bn-ex">আমি ৩ মাস ধরে ইংরেজি শিখছি।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#d1c4e9">have not been sleeping</span> well.</span><div class="bn-ex">তারা ভালো ঘুমাচ্ছে না।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#d1c4e9">has been cooking</span> since 5 PM.</span><div class="bn-ex">সে বিকাল ৫টা থেকে রান্না করছে।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#d1c4e9">has been singing</span> for hours.</span><div class="bn-ex">সে ঘন্টার পর ঘন্টা গান গাইছে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#d1c4e9">have been watching</span> this show since Monday.</span><div class="bn-ex">আমি সোমবার থেকে এই শো দেখছি।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#d1c4e9">has been practicing</span> guitar daily.</span><div class="bn-ex">সে প্রতিদিন গিটার অনুশীলন করছে।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#d1c4e9">have been trying</span> to reach you.</span><div class="bn-ex">আমরা তোমার সাথে যোগাযোগ করার চেষ্টা করছি।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#d1c4e9">has been feeling</span> sick since Friday.</span><div class="bn-ex">সে শুক্রবার থেকে অসুস্থ বোধ করছে।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#d1c4e9">have been building</span> the bridge for months.</span><div class="bn-ex">তারা মাসের পর মাস ধরে সেতু নির্মাণ করছে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#d1c4e9">have been looking</span> for this book for days.</span><div class="bn-ex">আমি কয়েকদিন ধরে এই বইটি খুঁজছি।</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAS -->
+  <div class="tense-card" id="tense-pas">
+    <div class="pos-card" style="border-top:4px solid var(--brown);">
+      <div class="pos-header" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);">
+        <div class="pos-icon" style="background:var(--brown);">5</div>
+        <div><h2>Simple Past Tense</h2><div class="bn">সাধারণ অতীত কাল — কাজ শেষ হয়ে গেছে</div></div>
+      </div>
+      <div class="pos-body">
+        <div class="info-grid">
+          <div class="info-box" style="border-color:var(--brown)">
+            <h4>📚 সংজ্ঞা</h4>
+            <p>যে কাজ অতীতে হয়ে গেছে এবং এখন সম্পূর্ণ শেষ তা Simple Past-এ বলা হয়।</p>
+          </div>
+          <div class="info-box" style="border-color:var(--brown)">
+            <h4>🔍 চিনার উপায়</h4>
+            <ul>
+              <li>বাংলায় "করলাম, করল, করেছিলাম" থাকে</li>
+              <li>V2 (past form) ব্যবহার হয়</li>
+              <li>yesterday, last year, ago, in 2010</li>
+            </ul>
+          </div>
+        </div>
+        <div class="struct-box">
+          (+): <span>Subject + V2 + Object</span><br>
+          (-): <span>Subject + did + not + V1 + Object</span><br>
+          (?): <span>Did + Subject + V1 + Object?</span>
+        </div>
+        <div class="trick-box"><b>মনে রাখার কৌশল:</b> Positive-এ V2 দাও (went, ate, wrote)। Negative ও Question-এ "did" আসলে Verb আবার V1-তে ফিরে যায়। "Did he went?" ❌ → "Did he go?" ✅</div>
+        <div class="examples-title">📌 ২০টি উদাহরণ</div>
+        <div class="examples-grid">
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#ffe0b2">went</span> to school.</span><div class="bn-ex">সে স্কুলে গেল।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#ffe0b2">ate</span> rice yesterday.</span><div class="bn-ex">আমি গতকাল ভাত খেয়েছিলাম।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#ffe0b2">played</span> cricket last year.</span><div class="bn-ex">সে গত বছর ক্রিকেট খেলেছিল।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#ffe0b2">did not come</span> yesterday.</span><div class="bn-ex">সে গতকাল আসেনি।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#ffe0b2">Did</span> you <span class="hl" style="background:#ffe0b2">see</span> the movie?</span><div class="bn-ex">তুমি কি মুভিটা দেখেছিলে?</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#ffe0b2">wrote</span> a poem.</span><div class="bn-ex">সে একটি কবিতা লিখেছিল।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#ffe0b2">visited</span> the museum.</span><div class="bn-ex">আমরা জাদুঘর দেখতে গিয়েছিলাম।</div></div>
+          <div class="example-item"><span class="en">The baby <span class="hl" style="background:#ffe0b2">cried</span> all night.</span><div class="bn-ex">বাচ্চাটি সারারাত কাঁদল।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#ffe0b2">bought</span> a new dress.</span><div class="bn-ex">সে একটি নতুন পোশাক কিনেছিল।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#ffe0b2">won</span> the match.</span><div class="bn-ex">তারা ম্যাচ জিতেছিল।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#ffe0b2">studied</span> hard.</span><div class="bn-ex">সে কঠোর পরিশ্রমে পড়েছিল।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#ffe0b2">met</span> him at the park.</span><div class="bn-ex">আমি তার সাথে পার্কে দেখা করেছিলাম।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#ffe0b2">cooked</span> delicious food.</span><div class="bn-ex">সে সুস্বাদু খাবার রান্না করেছিল।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#ffe0b2">drove</span> to Dhaka.</span><div class="bn-ex">সে ঢাকায় গাড়ি চালিয়ে গেল।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#ffe0b2">woke up</span> late.</span><div class="bn-ex">আমি দেরি করে উঠলাম।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#ffe0b2">did not eat</span> breakfast.</span><div class="bn-ex">সে সকালের নাস্তা খায়নি।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#ffe0b2">lived</span> in Chittagong.</span><div class="bn-ex">তারা চট্টগ্রামে থাকত।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#ffe0b2">ran</span> fast.</span><div class="bn-ex">সে দ্রুত দৌড়াল।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#ffe0b2">loved</span> that song.</span><div class="bn-ex">আমি সেই গানটা পছন্দ করতাম।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#ffe0b2">passed</span> the exam.</span><div class="bn-ex">সে পরীক্ষায় পাস করল।</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAC -->
+  <div class="tense-card" id="tense-pac">
+    <div class="pos-card" style="border-top:4px solid #5d4037;">
+      <div class="pos-header" style="background:linear-gradient(135deg,#efebe9,#d7ccc8);">
+        <div class="pos-icon" style="background:#5d4037;">6</div>
+        <div><h2>Past Continuous Tense</h2><div class="bn">ঘটমান অতীত কাল — তখন চলছিল</div></div>
+      </div>
+      <div class="pos-body">
+        <div class="info-grid">
+          <div class="info-box" style="border-color:#5d4037">
+            <h4>📚 সংজ্ঞা</h4>
+            <p>অতীতে নির্দিষ্ট সময়ে কোনো কাজ চলছিল তা বোঝাতে Past Continuous Tense ব্যবহার হয়।</p>
+          </div>
+          <div class="info-box" style="border-color:#5d4037">
+            <h4>🔍 চিনার উপায়</h4>
+            <ul>
+              <li>বাংলায় "করছিলাম, করছিল" থাকে</li>
+              <li>was/were + V+ing</li>
+              <li>while, when, at that time</li>
+            </ul>
+          </div>
+        </div>
+        <div class="struct-box">
+          (+): <span>Subject + was/were + V+ing + Object</span><br>
+          (-): <span>Subject + was/were + not + V+ing</span><br>
+          I/He/She/It → <span>was</span> | You/We/They → <span>were</span>
+        </div>
+        <div class="trick-box"><b>মনে রাখার কৌশল:</b> "When he came, I was sleeping" — যখন কেউ এলো (Simple Past), তখন অন্য কাজ চলছিল (Past Continuous)। "When" দিয়ে দুটি কাজ — ছোট কাজ Simple Past, বড়/চলমান কাজ Past Continuous।</div>
+        <div class="examples-title">📌 ২০টি উদাহরণ</div>
+        <div class="examples-grid">
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#d7ccc8">was sleeping</span> when he came.</span><div class="bn-ex">সে যখন এল আমি ঘুমাচ্ছিলাম।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#d7ccc8">was cooking</span> at 7 PM.</span><div class="bn-ex">রাত ৭টায় সে রান্না করছিল।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#d7ccc8">were playing</span> football.</span><div class="bn-ex">তারা ফুটবল খেলছিল।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#d7ccc8">was reading</span> a book.</span><div class="bn-ex">সে একটি বই পড়ছিল।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#d7ccc8">were watching</span> TV.</span><div class="bn-ex">আমরা টিভি দেখছিলাম।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#d7ccc8">was not listening</span>.</span><div class="bn-ex">সে শুনছিল না।</div></div>
+          <div class="example-item"><span class="en">It <span class="hl" style="background:#d7ccc8">was raining</span> heavily.</span><div class="bn-ex">প্রচুর বৃষ্টি হচ্ছিল।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#d7ccc8">was studying</span> all night.</span><div class="bn-ex">আমি সারারাত পড়ছিলাম।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#d7ccc8">was singing</span> a song.</span><div class="bn-ex">সে একটি গান গাইছিল।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#d7ccc8">was running</span> fast.</span><div class="bn-ex">সে দ্রুত দৌড়াচ্ছিল।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#d7ccc8">Were</span> they <span class="hl" style="background:#d7ccc8">working</span>?</span><div class="bn-ex">তারা কি কাজ করছিল?</div></div>
+          <div class="example-item"><span class="en">The dog <span class="hl" style="background:#d7ccc8">was barking</span> loudly.</span><div class="bn-ex">কুকুরটি জোরে ডাকছিল।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#d7ccc8">was wearing</span> a blue sari.</span><div class="bn-ex">সে নীল শাড়ি পরছিল।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#d7ccc8">was walking</span> in the park.</span><div class="bn-ex">আমি পার্কে হাঁটছিলাম।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#d7ccc8">were not playing</span>.</span><div class="bn-ex">তারা খেলছিল না।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#d7ccc8">was talking</span> on the phone.</span><div class="bn-ex">সে ফোনে কথা বলছিল।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#d7ccc8">were having</span> dinner.</span><div class="bn-ex">আমরা রাতের খাবার খাচ্ছিলাম।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#d7ccc8">was crying</span> at night.</span><div class="bn-ex">সে রাতে কাঁদছিল।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#d7ccc8">was writing</span> a letter.</span><div class="bn-ex">সে একটি চিঠি লিখছিল।</div></div>
+          <div class="example-item"><span class="en">The children <span class="hl" style="background:#d7ccc8">were sleeping</span>.</span><div class="bn-ex">বাচ্চারা ঘুমাচ্ছিল।</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAP -->
+  <div class="tense-card" id="tense-pap">
+    <div class="pos-card" style="border-top:4px solid #00695c;">
+      <div class="pos-header" style="background:linear-gradient(135deg,#e0f2f1,#b2dfdb);">
+        <div class="pos-icon" style="background:#00695c;">7</div>
+        <div><h2>Past Perfect Tense</h2><div class="bn">পুরাঘটিত অতীত — দুটো অতীত কাজের মধ্যে আগেরটা</div></div>
+      </div>
+      <div class="pos-body">
+        <div class="info-grid">
+          <div class="info-box" style="border-color:#00695c">
+            <h4>📚 সংজ্ঞা</h4>
+            <p>অতীতে দুটো কাজ হলে, যেটা আগে হয়েছে সেটা Past Perfect-এ এবং যেটা পরে সেটা Simple Past-এ লেখা হয়।</p>
+          </div>
+          <div class="info-box" style="border-color:#00695c">
+            <h4>🔍 চিনার উপায়</h4>
+            <ul>
+              <li>বাংলায় "করেছিলাম আগেই" বোঝায়</li>
+              <li>had + V3 (past participle)</li>
+              <li>before, after, when, already, by the time</li>
+            </ul>
+          </div>
+        </div>
+        <div class="struct-box">
+          (+): <span>Subject + had + V3 + Object</span><br>
+          Formula: <span>আগের কাজ (had+V3) + পরের কাজ (V2)</span><br>
+          Example: She <span>had left</span> before he <span>came</span>.
+        </div>
+        <div class="trick-box"><b>মনে রাখার কৌশল:</b> "আগে হওয়া = had + V3"। "Before he came, she had eaten" — she ate FIRST। মনে রাখো: Before-এর আগের কাজ = Past Perfect।</div>
+        <div class="examples-title">📌 ২০টি উদাহরণ</div>
+        <div class="examples-grid">
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#b2dfdb">had left</span> before he came.</span><div class="bn-ex">সে চলে যাওয়ার আগেই সে এসেছিল।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#b2dfdb">had eaten</span> before he arrived.</span><div class="bn-ex">সে আসার আগেই আমি খেয়েছিলাম।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#b2dfdb">had finished</span> the work.</span><div class="bn-ex">সে কাজ শেষ করেছিল।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#b2dfdb">had not come</span> home.</span><div class="bn-ex">সে বাড়ি আসেনি ছিল।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#b2dfdb">Had</span> you <span class="hl" style="background:#b2dfdb">seen</span> him before?</span><div class="bn-ex">তুমি কি আগে তাকে দেখেছিলে?</div></div>
+          <div class="example-item"><span class="en">When I reached, the train <span class="hl" style="background:#b2dfdb">had left</span>.</span><div class="bn-ex">আমি পৌঁছানোর আগেই ট্রেন চলে গিয়েছিল।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#b2dfdb">had already gone</span>.</span><div class="bn-ex">সে ইতিমধ্যে চলে গিয়েছিল।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#b2dfdb">had written</span> the letter.</span><div class="bn-ex">সে চিঠিটা লিখেছিল।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#b2dfdb">had won</span> before.</span><div class="bn-ex">তারা আগেই জিতেছিল।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#b2dfdb">had never seen</span> her before.</span><div class="bn-ex">আমি তাকে আগে কখনো দেখিনি।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#b2dfdb">had cooked</span> dinner before he came.</span><div class="bn-ex">সে আসার আগেই ডিনার রান্না হয়ে গিয়েছিল।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#b2dfdb">had studied</span> hard.</span><div class="bn-ex">সে কঠোর পড়াশোনা করেছিল।</div></div>
+          <div class="example-item"><span class="en">The movie <span class="hl" style="background:#b2dfdb">had started</span> before we came.</span><div class="bn-ex">আমরা আসার আগেই মুভি শুরু হয়ে গিয়েছিল।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#b2dfdb">had not eaten</span> anything.</span><div class="bn-ex">সে কিছু খায়নি ছিল।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#b2dfdb">had done</span> the homework.</span><div class="bn-ex">আমি হোমওয়ার্ক করেছিলাম।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#b2dfdb">had met</span> her before.</span><div class="bn-ex">সে আগে তার সাথে দেখা করেছিল।</div></div>
+          <div class="example-item"><span class="en">By 10 AM, she <span class="hl" style="background:#b2dfdb">had left</span>.</span><div class="bn-ex">সকাল ১০টার মধ্যে সে চলে গিয়েছিল।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#b2dfdb">had lived</span> there for years.</span><div class="bn-ex">তারা সেখানে বছরের পর বছর থেকেছিল।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#b2dfdb">had bought</span> the ticket.</span><div class="bn-ex">সে টিকেট কিনেছিল।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#b2dfdb">had read</span> the book twice.</span><div class="bn-ex">সে বইটি দুবার পড়েছিল।</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAPC -->
+  <div class="tense-card" id="tense-papc">
+    <div class="pos-card" style="border-top:4px solid #6a1b9a;">
+      <div class="pos-header" style="background:linear-gradient(135deg,#f3e5f5,#e1bee7);">
+        <div class="pos-icon" style="background:#6a1b9a;">8</div>
+        <div><h2>Past Perfect Continuous</h2><div class="bn">ঘটমান পুরাঘটিত অতীত — অতীতে অনেকক্ষণ ধরে চলছিল</div></div>
+      </div>
+      <div class="pos-body">
+        <div class="info-grid">
+          <div class="info-box" style="border-color:#6a1b9a">
+            <h4>📚 সংজ্ঞা</h4>
+            <p>অতীতের কোনো নির্দিষ্ট সময়ের আগে থেকে শুরু হয়ে সেই সময় পর্যন্ত চলছিল।</p>
+          </div>
+          <div class="info-box" style="border-color:#6a1b9a">
+            <h4>🔍 চিনার উপায়</h4>
+            <ul>
+              <li>বাংলায় "তখন পর্যন্ত চলছিল"</li>
+              <li>had + been + V+ing</li>
+              <li>for, since (অতীত সময়ের পরিপ্রেক্ষিতে)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="struct-box">
+          (+): <span>Subject + had + been + V+ing + for/since</span><br>
+          Example: He <span>had been working</span> for 5 hours when she called.
+        </div>
+        <div class="trick-box"><b>মনে রাখার কৌশল:</b> Present Perfect Continuous-এ have/has ছিল, এখানে সব Subject-এ <b>had been</b>। "তখন পর্যন্ত কতক্ষণ ধরে করছিল" = Past Perfect Continuous।</div>
+        <div class="examples-title">📌 ২০টি উদাহরণ</div>
+        <div class="examples-grid">
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#e1bee7">had been waiting</span> for an hour.</span><div class="bn-ex">আমি এক ঘন্টা ধরে অপেক্ষা করছিলাম।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#e1bee7">had been crying</span> since morning.</span><div class="bn-ex">সে সকাল থেকে কাঁদছিল।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#e1bee7">had been sleeping</span> for hours.</span><div class="bn-ex">সে ঘন্টার পর ঘন্টা ঘুমাচ্ছিল।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#e1bee7">had been playing</span> all day.</span><div class="bn-ex">তারা সারাদিন খেলছিল।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#e1bee7">had been studying</span> since 9 AM.</span><div class="bn-ex">আমরা সকাল ৯টা থেকে পড়ছিলাম।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#e1bee7">had been working</span> when I arrived.</span><div class="bn-ex">আমি পৌঁছানোর সময় সে কাজ করছিল।</div></div>
+          <div class="example-item"><span class="en">It <span class="hl" style="background:#e1bee7">had been raining</span> for 2 days.</span><div class="bn-ex">২ দিন ধরে বৃষ্টি হচ্ছিল।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#e1bee7">had been running</span> before the race.</span><div class="bn-ex">রেসের আগে সে দৌড়াচ্ছিল।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#e1bee7">had been reading</span> for 3 hours.</span><div class="bn-ex">সে ৩ ঘন্টা ধরে পড়ছিল।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#e1bee7">had been living</span> there since 2005.</span><div class="bn-ex">তারা ২০০৫ সাল থেকে সেখানে থাকছিল।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#e1bee7">had been learning</span> English for years.</span><div class="bn-ex">আমি বছরের পর বছর ইংরেজি শিখছিলাম।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#e1bee7">had been teaching</span> for 20 years.</span><div class="bn-ex">সে ২০ বছর ধরে পড়াচ্ছিল।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#e1bee7">had been singing</span> when they came.</span><div class="bn-ex">তারা আসার সময় সে গান গাইছিল।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#e1bee7">had been waiting</span> since noon.</span><div class="bn-ex">আমরা দুপুর থেকে অপেক্ষা করছিলাম।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#e1bee7">had been driving</span> for 5 hours.</span><div class="bn-ex">সে ৫ ঘন্টা ধরে গাড়ি চালাচ্ছিল।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#e1bee7">had been cooking</span> when the power went out.</span><div class="bn-ex">বিদ্যুৎ চলে যাওয়ার সময় সে রান্না করছিল।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#e1bee7">had been watching</span> TV for hours.</span><div class="bn-ex">আমি ঘন্টার পর ঘন্টা টিভি দেখছিলাম।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#e1bee7">had been practicing</span> all week.</span><div class="bn-ex">তারা সারা সপ্তাহ অনুশীলন করছিল।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#e1bee7">had been feeling</span> sick for days.</span><div class="bn-ex">সে কয়েকদিন ধরে অসুস্থ ছিল।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#e1bee7">had been playing</span> when she called.</span><div class="bn-ex">সে ফোন করার সময় সে খেলছিল।</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FTS -->
+  <div class="tense-card" id="tense-fts">
+    <div class="pos-card" style="border-top:4px solid #1565c0;">
+      <div class="pos-header" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);">
+        <div class="pos-icon" style="background:#1565c0;">9</div>
+        <div><h2>Simple Future Tense</h2><div class="bn">সাধারণ ভবিষ্যৎ কাল — যা হবে</div></div>
+      </div>
+      <div class="pos-body">
+        <div class="info-grid">
+          <div class="info-box" style="border-color:#1565c0">
+            <h4>📚 সংজ্ঞা</h4>
+            <p>ভবিষ্যতে কোনো কাজ হবে বা করার ইচ্ছা আছে তা Simple Future-এ বলা হয়।</p>
+          </div>
+          <div class="info-box" style="border-color:#1565c0">
+            <h4>🔍 চিনার উপায়</h4>
+            <ul>
+              <li>বাংলায় "করব, করবে, করবেন" থাকে</li>
+              <li>will/shall + V1</li>
+              <li>tomorrow, next year, soon, in the future</li>
+            </ul>
+          </div>
+        </div>
+        <div class="struct-box">
+          (+): <span>Subject + will + V1 + Object</span><br>
+          (-): <span>Subject + will + not + V1</span><br>
+          (?): <span>Will + Subject + V1 + Object?</span>
+        </div>
+        <div class="trick-box"><b>মনে রাখার কৌশল:</b> Future = will। সব Subject-এর ক্ষেত্রেই "will" ব্যবহার করো। আনুষ্ঠানিক লেখায় I/We → shall, বাকি সব → will। তবে কথ্য ভাষায় সবার জন্য will।</div>
+        <div class="examples-title">📌 ২০টি উদাহরণ</div>
+        <div class="examples-grid">
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#bbdefb">will go</span> to school tomorrow.</span><div class="bn-ex">আমি আগামীকাল স্কুলে যাব।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#bbdefb">will cook</span> dinner.</span><div class="bn-ex">সে রাতের খাবার রান্না করবে।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#bbdefb">will play</span> cricket next week.</span><div class="bn-ex">তারা পরের সপ্তাহে ক্রিকেট খেলবে।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#bbdefb">will not come</span> today.</span><div class="bn-ex">সে আজ আসবে না।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#bbdefb">Will</span> you <span class="hl" style="background:#bbdefb">help</span> me?</span><div class="bn-ex">তুমি কি আমাকে সাহায্য করবে?</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#bbdefb">will study</span> English.</span><div class="bn-ex">আমি ইংরেজি পড়ব।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#bbdefb">will become</span> a doctor.</span><div class="bn-ex">সে ডাক্তার হবে।</div></div>
+          <div class="example-item"><span class="en">It <span class="hl" style="background:#bbdefb">will rain</span> tomorrow.</span><div class="bn-ex">আগামীকাল বৃষ্টি হবে।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#bbdefb">will go</span> on a trip.</span><div class="bn-ex">আমরা ভ্রমণে যাব।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#bbdefb">will finish</span> the work.</span><div class="bn-ex">সে কাজ শেষ করবে।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#bbdefb">will not eat</span> sweets.</span><div class="bn-ex">সে মিষ্টি খাবে না।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#bbdefb">will call</span> you later.</span><div class="bn-ex">আমি পরে তোমাকে ফোন করব।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#bbdefb">Will</span> she <span class="hl" style="background:#bbdefb">come</span> to the party?</span><div class="bn-ex">সে কি পার্টিতে আসবে?</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#bbdefb">will buy</span> a new phone.</span><div class="bn-ex">সে নতুন ফোন কিনবে।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#bbdefb">will win</span> the match.</span><div class="bn-ex">তারা ম্যাচ জিতবে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#bbdefb">will try</span> my best.</span><div class="bn-ex">আমি সর্বোচ্চ চেষ্টা করব।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#bbdefb">will write</span> to him.</span><div class="bn-ex">সে তাকে চিঠি লিখবে।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#bbdefb">will not fail</span>.</span><div class="bn-ex">আমরা ব্যর্থ হব না।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#bbdefb">will speak</span> at the event.</span><div class="bn-ex">সে অনুষ্ঠানে বক্তব্য দেবে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#bbdefb">will learn</span> to drive.</span><div class="bn-ex">আমি গাড়ি চালানো শিখব।</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FTC -->
+  <div class="tense-card" id="tense-ftc">
+    <div class="pos-card" style="border-top:4px solid #0097a7;">
+      <div class="pos-header" style="background:linear-gradient(135deg,#e0f7fa,#b2ebf2);">
+        <div class="pos-icon" style="background:#0097a7;">10</div>
+        <div><h2>Future Continuous Tense</h2><div class="bn">ঘটমান ভবিষ্যৎ — তখন চলছে থাকবে</div></div>
+      </div>
+      <div class="pos-body">
+        <div class="info-grid">
+          <div class="info-box" style="border-color:#0097a7">
+            <h4>📚 সংজ্ঞা</h4>
+            <p>ভবিষ্যতের নির্দিষ্ট সময়ে কোনো কাজ চলছে থাকবে তা Future Continuous-এ বলা হয়।</p>
+          </div>
+          <div class="info-box" style="border-color:#0097a7">
+            <h4>🔍 চিনার উপায়</h4>
+            <ul>
+              <li>বাংলায় "করতে থাকব, করছে থাকবে"</li>
+              <li>will + be + V+ing</li>
+              <li>at this time tomorrow, next Monday at 5 PM</li>
+            </ul>
+          </div>
+        </div>
+        <div class="struct-box">
+          (+): <span>Subject + will + be + V+ing + Object</span><br>
+          Example: At 8 PM, I <span>will be eating</span> dinner.
+        </div>
+        <div class="trick-box"><b>মনে রাখার কৌশল:</b> Future Continuous = will + be + ing। "এই সময়ে (ভবিষ্যতে) আমি কী করছে থাকব?" — এই প্রশ্নের উত্তরই Future Continuous।</div>
+        <div class="examples-title">📌 ২০টি উদাহরণ</div>
+        <div class="examples-grid">
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#b2ebf2">will be sleeping</span> at midnight.</span><div class="bn-ex">মাঝরাতে আমি ঘুমাচ্ছে থাকব।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#b2ebf2">will be cooking</span> at 7 PM.</span><div class="bn-ex">রাত ৭টায় সে রান্না করছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#b2ebf2">will be playing</span> tomorrow morning.</span><div class="bn-ex">আগামীকাল সকালে তারা খেলছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#b2ebf2">will be studying</span> at noon.</span><div class="bn-ex">দুপুরে সে পড়ছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#b2ebf2">will be traveling</span> next week.</span><div class="bn-ex">পরের সপ্তাহে আমরা ভ্রমণ করছে থাকব।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#b2ebf2">will be working</span> when you arrive.</span><div class="bn-ex">তুমি আসার সময় আমি কাজ করছে থাকব।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#b2ebf2">will be waiting</span> for you.</span><div class="bn-ex">সে তোমার জন্য অপেক্ষা করছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">It <span class="hl" style="background:#b2ebf2">will be raining</span> then.</span><div class="bn-ex">তখন বৃষ্টি হচ্ছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#b2ebf2">will be driving</span> at 9 AM.</span><div class="bn-ex">সকাল ৯টায় সে গাড়ি চালাচ্ছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#b2ebf2">will be dancing</span> all night.</span><div class="bn-ex">তারা সারারাত নাচছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#b2ebf2">will be reading</span> tomorrow morning.</span><div class="bn-ex">আগামীকাল সকালে আমি পড়ছে থাকব।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#b2ebf2">will not be watching</span> TV.</span><div class="bn-ex">সে টিভি দেখছে থাকবে না।</div></div>
+          <div class="example-item"><span class="en"><span class="hl" style="background:#b2ebf2">Will</span> you <span class="hl" style="background:#b2ebf2">be working</span> then?</span><div class="bn-ex">তুমি কি তখন কাজ করছে থাকবে?</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#b2ebf2">will be speaking</span> at the event.</span><div class="bn-ex">সে অনুষ্ঠানে বক্তব্য দিচ্ছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#b2ebf2">will be having</span> a meeting.</span><div class="bn-ex">আমরা মিটিং করছে থাকব।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#b2ebf2">will be singing</span> at the concert.</span><div class="bn-ex">সে কনসার্টে গান গাইছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#b2ebf2">will be thinking</span> of you.</span><div class="bn-ex">আমি তোমার কথা ভাবছে থাকব।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#b2ebf2">will be running</span> the race.</span><div class="bn-ex">সে দৌড়ে দৌড়াচ্ছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#b2ebf2">will be celebrating</span> tomorrow.</span><div class="bn-ex">তারা আগামীকাল উদযাপন করছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#b2ebf2">will be resting</span> at home.</span><div class="bn-ex">সে বাড়িতে বিশ্রাম নিচ্ছে থাকবে।</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FTP -->
+  <div class="tense-card" id="tense-ftp">
+    <div class="pos-card" style="border-top:4px solid #2e7d32;">
+      <div class="pos-header" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);">
+        <div class="pos-icon" style="background:#2e7d32;">11</div>
+        <div><h2>Future Perfect Tense</h2><div class="bn">পুরাঘটিত ভবিষ্যৎ — ঐ সময়ের মধ্যে শেষ হয়ে যাবে</div></div>
+      </div>
+      <div class="pos-body">
+        <div class="info-grid">
+          <div class="info-box" style="border-color:#2e7d32">
+            <h4>📚 সংজ্ঞা</h4>
+            <p>ভবিষ্যতের নির্দিষ্ট একটি সময়ের আগেই কোনো কাজ সম্পন্ন হয়ে যাবে — Future Perfect।</p>
+          </div>
+          <div class="info-box" style="border-color:#2e7d32">
+            <h4>🔍 চিনার উপায়</h4>
+            <ul>
+              <li>বাংলায় "ততক্ষণে শেষ হয়ে যাবে"</li>
+              <li>will + have + V3</li>
+              <li>by, by the time, before (ভবিষ্যৎ)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="struct-box">
+          (+): <span>Subject + will + have + V3 + Object</span><br>
+          Example: By 8 PM, I <span>will have finished</span> my work.
+        </div>
+        <div class="trick-box"><b>মনে রাখার কৌশল:</b> "By tomorrow" দেখলেই Future Perfect মনে আসবে। "By the time you come, I will have cooked." — তুমি আসার আগেই রান্না শেষ হবে।</div>
+        <div class="examples-title">📌 ২০টি উদাহরণ</div>
+        <div class="examples-grid">
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#c8e6c9">will have finished</span> by 9 PM.</span><div class="bn-ex">রাত ৯টার মধ্যে আমি শেষ করে ফেলব।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#c8e6c9">will have cooked</span> before he arrives.</span><div class="bn-ex">সে আসার আগেই রান্না শেষ হবে।</div></div>
+          <div class="example-item"><span class="en">By Monday, they <span class="hl" style="background:#c8e6c9">will have built</span> the house.</span><div class="bn-ex">সোমবারের মধ্যে তারা বাড়ি তৈরি করে ফেলবে।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#c8e6c9">will have read</span> the book.</span><div class="bn-ex">সে বইটা পড়ে ফেলবে।</div></div>
+          <div class="example-item"><span class="en">By 2030, she <span class="hl" style="background:#c8e6c9">will have graduated</span>.</span><div class="bn-ex">২০৩০ সালের মধ্যে সে গ্র্যাজুয়েট হয়ে যাবে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#c8e6c9">will have eaten</span> before noon.</span><div class="bn-ex">দুপুরের আগেই আমি খেয়ে নেব।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#c8e6c9">will have completed</span> the task.</span><div class="bn-ex">আমরা কাজটা শেষ করে ফেলব।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#c8e6c9">will have gone</span> by then.</span><div class="bn-ex">ততক্ষণে সে চলে গিয়ে থাকবে।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#c8e6c9">will have won</span> the race.</span><div class="bn-ex">সে রেস জিতে ফেলবে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#c8e6c9">will have written</span> the letter.</span><div class="bn-ex">আমি চিঠিটা লিখে ফেলব।</div></div>
+          <div class="example-item"><span class="en">By evening, it <span class="hl" style="background:#c8e6c9">will have stopped</span> raining.</span><div class="bn-ex">সন্ধ্যার মধ্যে বৃষ্টি থেমে যাবে।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#c8e6c9">will have learned</span> English.</span><div class="bn-ex">সে ইংরেজি শিখে ফেলবে।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#c8e6c9">will have arrived</span> by noon.</span><div class="bn-ex">দুপুরের মধ্যে তারা পৌঁছে যাবে।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#c8e6c9">will have slept</span> by midnight.</span><div class="bn-ex">মাঝরাতের মধ্যে সে ঘুমিয়ে যাবে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#c8e6c9">will not have done</span> it.</span><div class="bn-ex">আমি এটা করে ফেলব না।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#c8e6c9">will have spoken</span> to him.</span><div class="bn-ex">সে তার সাথে কথা বলে ফেলবে।</div></div>
+          <div class="example-item"><span class="en">By next year, we <span class="hl" style="background:#c8e6c9">will have saved</span> enough.</span><div class="bn-ex">পরের বছরের মধ্যে আমরা যথেষ্ট সঞ্চয় করব।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#c8e6c9">will have fixed</span> the car.</span><div class="bn-ex">সে গাড়ি ঠিক করে ফেলবে।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#c8e6c9">will have eaten</span> before we come.</span><div class="bn-ex">আমরা আসার আগেই তারা খেয়ে নেবে।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#c8e6c9">will have packed</span> her bags.</span><div class="bn-ex">সে তার ব্যাগ গুছিয়ে ফেলবে।</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FTPC -->
+  <div class="tense-card" id="tense-ftpc">
+    <div class="pos-card" style="border-top:4px solid #880e4f;">
+      <div class="pos-header" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);">
+        <div class="pos-icon" style="background:#880e4f;">12</div>
+        <div><h2>Future Perfect Continuous</h2><div class="bn">ঘটমান পুরাঘটিত ভবিষ্যৎ — ততক্ষণে এতক্ষণ ধরে চলছে থাকবে</div></div>
+      </div>
+      <div class="pos-body">
+        <div class="info-grid">
+          <div class="info-box" style="border-color:#880e4f">
+            <h4>📚 সংজ্ঞা</h4>
+            <p>ভবিষ্যতে কোনো নির্দিষ্ট সময়ে একটি কাজ নির্দিষ্ট সময় ধরে চলছে থাকবে।</p>
+          </div>
+          <div class="info-box" style="border-color:#880e4f">
+            <h4>🔍 চিনার উপায়</h4>
+            <ul>
+              <li>will + have + been + V+ing</li>
+              <li>by the time, for (future duration)</li>
+              <li>সবচেয়ে জটিল Tense — কম ব্যবহৃত</li>
+            </ul>
+          </div>
+        </div>
+        <div class="struct-box">
+          (+): <span>Subject + will + have + been + V+ing + for/since</span><br>
+          Example: By 2030, I <span>will have been teaching</span> for 20 years.
+        </div>
+        <div class="trick-box"><b>মনে রাখার কৌশল:</b> এটা ১২ Tense-এর মধ্যে সবচেয়ে জটিল। মনে রাখো: will + have + been + ing = ভবিষ্যতে "ততক্ষণে এতক্ষণ ধরে করছে থাকব"।</div>
+        <div class="examples-title">📌 ২০টি উদাহরণ</div>
+        <div class="examples-grid">
+          <div class="example-item"><span class="en">By 2030, I <span class="hl" style="background:#f8bbd0">will have been teaching</span> for 10 years.</span><div class="bn-ex">২০৩০ সালে আমি ১০ বছর ধরে পড়াচ্ছে থাকব।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#f8bbd0">will have been working</span> for 5 hours.</span><div class="bn-ex">সে ৫ ঘন্টা ধরে কাজ করছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">By noon, he <span class="hl" style="background:#f8bbd0">will have been studying</span> for 3 hours.</span><div class="bn-ex">দুপুর নাগাদ সে ৩ ঘন্টা ধরে পড়ছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#f8bbd0">will have been waiting</span> for an hour.</span><div class="bn-ex">আমি এক ঘন্টা ধরে অপেক্ষা করছে থাকব।</div></div>
+          <div class="example-item"><span class="en">They <span class="hl" style="background:#f8bbd0">will have been living</span> here for 20 years.</span><div class="bn-ex">তারা ২০ বছর ধরে এখানে থাকছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#f8bbd0">will have been singing</span> for 2 hours.</span><div class="bn-ex">সে ২ ঘন্টা ধরে গান গাইছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">By March, we <span class="hl" style="background:#f8bbd0">will have been building</span> for a year.</span><div class="bn-ex">মার্চ নাগাদ আমরা এক বছর ধরে নির্মাণ করছে থাকব।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#f8bbd0">will have been running</span> for an hour.</span><div class="bn-ex">সে এক ঘন্টা ধরে দৌড়াচ্ছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">By evening, it <span class="hl" style="background:#f8bbd0">will have been raining</span> for 3 hours.</span><div class="bn-ex">সন্ধ্যা নাগাদ ৩ ঘন্টা ধরে বৃষ্টি হচ্ছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#f8bbd0">will have been sleeping</span> for 8 hours.</span><div class="bn-ex">সে ৮ ঘন্টা ধরে ঘুমাচ্ছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#f8bbd0">will have been learning</span> for 6 months.</span><div class="bn-ex">আমি ৬ মাস ধরে শিখছে থাকব।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#f8bbd0">will have been playing</span> all day.</span><div class="bn-ex">সে সারাদিন ধরে খেলছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">By then, she <span class="hl" style="background:#f8bbd0">will have been cooking</span> for hours.</span><div class="bn-ex">ততক্ষণে সে ঘন্টার পর ঘন্টা রান্না করছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#f8bbd0">will have been practicing</span> for weeks.</span><div class="bn-ex">আমরা সপ্তাহ ধরে অনুশীলন করছে থাকব।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#f8bbd0">will have been writing</span> since morning.</span><div class="bn-ex">সে সকাল থেকে লিখছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">I <span class="hl" style="background:#f8bbd0">will have been working</span> here for 5 years.</span><div class="bn-ex">আমি এখানে ৫ বছর ধরে কাজ করছে থাকব।</div></div>
+          <div class="example-item"><span class="en">He <span class="hl" style="background:#f8bbd0">will have been driving</span> for 10 hours.</span><div class="bn-ex">সে ১০ ঘন্টা ধরে গাড়ি চালাচ্ছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">By Friday, they <span class="hl" style="background:#f8bbd0">will have been working</span> for a week.</span><div class="bn-ex">শুক্রবার নাগাদ তারা এক সপ্তাহ ধরে কাজ করছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">She <span class="hl" style="background:#f8bbd0">will have been reading</span> for 4 hours.</span><div class="bn-ex">সে ৪ ঘন্টা ধরে পড়ছে থাকবে।</div></div>
+          <div class="example-item"><span class="en">We <span class="hl" style="background:#f8bbd0">will have been waiting</span> for 2 hours.</span><div class="bn-ex">আমরা ২ ঘন্টা ধরে অপেক্ষা করছে থাকব।</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end tense page -->
+
+<!-- ===== EXAM PAGE ===== -->
+<div class="page" id="page-exam">
+  <h2 class="sec-title">📝 পরীক্ষা দাও</h2>
+  <p style="margin-bottom:30px;color:var(--text-soft);line-height:1.7;">Parts of Speech ও Tense শিখেছ? এবার যাচাই করার পালা! MCQ-তে সঠিক উত্তর বাছাই করো এবং Fill-in-the-Blank পূরণ করো।</p>
+
+  <!-- MCQ Section -->
+  <div class="exam-section">
+    <div class="exam-title">🎯 MCQ — সঠিক উত্তর বেছে নাও</div>
+
+    <div class="q-card" id="mcq1">
+      <div class="q-text"><span class="q-num">Q1.</span> "The <b>beautiful</b> flower is in the garden." —밑줄টা কোন Parts of Speech?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMCQ('mcq1',this,'wrong')">Noun</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq1',this,'wrong')">Verb</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq1',this,'correct')">Adjective</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq1',this,'wrong')">Adverb</button>
+      </div>
+    </div>
+
+    <div class="q-card" id="mcq2">
+      <div class="q-text"><span class="q-num">Q2.</span> "She goes to school every day." — এই Tense কোনটি?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMCQ('mcq2',this,'wrong')">Past Continuous</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq2',this,'correct')">Simple Present</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq2',this,'wrong')">Present Perfect</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq2',this,'wrong')">Simple Future</button>
+      </div>
+    </div>
+
+    <div class="q-card" id="mcq3">
+      <div class="q-text"><span class="q-num">Q3.</span> "Wow! What a beautiful view!" — "Wow" কোন Parts of Speech?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMCQ('mcq3',this,'wrong')">Conjunction</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq3',this,'wrong')">Preposition</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq3',this,'wrong')">Adverb</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq3',this,'correct')">Interjection</button>
+      </div>
+    </div>
+
+    <div class="q-card" id="mcq4">
+      <div class="q-text"><span class="q-num">Q4.</span> "I have been studying for 2 hours." — এই Tense কোনটি?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMCQ('mcq4',this,'correct')">Present Perfect Continuous</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq4',this,'wrong')">Past Perfect</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq4',this,'wrong')">Simple Present</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq4',this,'wrong')">Future Continuous</button>
+      </div>
+    </div>
+
+    <div class="q-card" id="mcq5">
+      <div class="q-text"><span class="q-num">Q5.</span> "The cat is <b>on</b> the table." — "on" কোন Parts of Speech?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMCQ('mcq5',this,'wrong')">Adverb</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq5',this,'wrong')">Conjunction</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq5',this,'correct')">Preposition</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq5',this,'wrong')">Adjective</button>
+      </div>
+    </div>
+
+    <div class="q-card" id="mcq6">
+      <div class="q-text"><span class="q-num">Q6.</span> "She had left before he came." — এই Tense কোনটি?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMCQ('mcq6',this,'wrong')">Simple Past</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq6',this,'wrong')">Past Continuous</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq6',this,'correct')">Past Perfect</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq6',this,'wrong')">Present Perfect</button>
+      </div>
+    </div>
+
+    <div class="q-card" id="mcq7">
+      <div class="q-text"><span class="q-num">Q7.</span> "I like tea <b>and</b> coffee." — "and" কোন Parts of Speech?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMCQ('mcq7',this,'wrong')">Preposition</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq7',this,'correct')">Conjunction</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq7',this,'wrong')">Adverb</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq7',this,'wrong')">Pronoun</button>
+      </div>
+    </div>
+
+    <div class="q-card" id="mcq8">
+      <div class="q-text"><span class="q-num">Q8.</span> "She <b>quickly</b> finished the work." — "quickly" কোন Parts of Speech?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMCQ('mcq8',this,'wrong')">Adjective</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq8',this,'correct')">Adverb</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq8',this,'wrong')">Noun</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq8',this,'wrong')">Verb</button>
+      </div>
+    </div>
+
+    <div class="q-card" id="mcq9">
+      <div class="q-text"><span class="q-num">Q9.</span> "By 9 PM, I will have finished my work." — কোন Tense?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMCQ('mcq9',this,'wrong')">Future Continuous</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq9',this,'wrong')">Simple Future</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq9',this,'correct')">Future Perfect</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq9',this,'wrong')">Present Perfect</button>
+      </div>
+    </div>
+
+    <div class="q-card" id="mcq10">
+      <div class="q-text"><span class="q-num">Q10.</span> "<b>Dhaka</b> is the capital of Bangladesh." — "Dhaka" কোন ধরনের Noun?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMCQ('mcq10',this,'wrong')">Common Noun</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq10',this,'correct')">Proper Noun</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq10',this,'wrong')">Abstract Noun</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq10',this,'wrong')">Collective Noun</button>
+      </div>
+    </div>
+
+    <div class="q-card" id="mcq11">
+      <div class="q-text"><span class="q-num">Q11.</span> "I was sleeping when he came." — "was sleeping" কোন Tense?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMCQ('mcq11',this,'wrong')">Simple Past</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq11',this,'correct')">Past Continuous</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq11',this,'wrong')">Present Continuous</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq11',this,'wrong')">Past Perfect</button>
+      </div>
+    </div>
+
+    <div class="q-card" id="mcq12">
+      <div class="q-text"><span class="q-num">Q12.</span> "<b>She</b> is a doctor." — "She" কোন Parts of Speech?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMCQ('mcq12',this,'wrong')">Noun</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq12',this,'correct')">Pronoun</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq12',this,'wrong')">Adjective</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq12',this,'wrong')">Verb</button>
+      </div>
+    </div>
+
+    <div class="q-card" id="mcq13">
+      <div class="q-text"><span class="q-num">Q13.</span> Simple Present-এ He/She/It দিয়ে Verb-এ কী যোগ হয়?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMCQ('mcq13',this,'wrong')">ed</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq13',this,'correct')">s/es</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq13',this,'wrong')">ing</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq13',this,'wrong')">কিছুই না</button>
+      </div>
+    </div>
+
+    <div class="q-card" id="mcq14">
+      <div class="q-text"><span class="q-num">Q14.</span> Present Perfect Tense-এ কোন Auxiliary Verb ব্যবহার হয়?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMCQ('mcq14',this,'wrong')">was/were</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq14',this,'wrong')">will</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq14',this,'correct')">have/has</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq14',this,'wrong')">do/does</button>
+      </div>
+    </div>
+
+    <div class="q-card" id="mcq15">
+      <div class="q-text"><span class="q-num">Q15.</span> "Honesty is the best policy." — "Honesty" কোন ধরনের Noun?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMCQ('mcq15',this,'wrong')">Proper Noun</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq15',this,'wrong')">Common Noun</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq15',this,'correct')">Abstract Noun</button>
+        <button class="opt-btn" onclick="checkMCQ('mcq15',this,'wrong')">Collective Noun</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Fill in the blank -->
+  <div class="exam-section">
+    <div class="exam-title">✏️ Fill in the Blank — সঠিক শব্দ বসাও</div>
+
+    <div class="q-card">
+      <div class="q-text"><span class="q-num">B1.</span> She _____ (go) to school every day. <span style="font-size:.85rem;color:var(--text-soft)">[Simple Present, He/She/It]</span></div>
+      <input class="fill-blank" id="fb1" placeholder="উত্তর লেখো...">
+      <button class="check-btn" onclick="checkFill('fb1','goes')">যাচাই করো</button>
+      <div class="feedback" id="fb1-fb"></div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-text"><span class="q-num">B2.</span> I _____ (eat) rice when he called. <span style="font-size:.85rem;color:var(--text-soft)">[Past Continuous]</span></div>
+      <input class="fill-blank" id="fb2" placeholder="উত্তর লেখো...">
+      <button class="check-btn" onclick="checkFill('fb2','was eating')">যাচাই করো</button>
+      <div class="feedback" id="fb2-fb"></div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-text"><span class="q-num">B3.</span> They _____ (arrive) already. <span style="font-size:.85rem;color:var(--text-soft)">[Present Perfect]</span></div>
+      <input class="fill-blank" id="fb3" placeholder="উত্তর লেখো...">
+      <button class="check-btn" onclick="checkFill('fb3','have arrived')">যাচাই করো</button>
+      <div class="feedback" id="fb3-fb"></div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-text"><span class="q-num">B4.</span> She _____ (study) for 3 hours by the time he came. <span style="font-size:.85rem;color:var(--text-soft)">[Past Perfect Continuous]</span></div>
+      <input class="fill-blank" id="fb4" placeholder="উত্তর লেখো...">
+      <button class="check-btn" onclick="checkFill('fb4','had been studying')">যাচাই করো</button>
+      <div class="feedback" id="fb4-fb"></div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-text"><span class="q-num">B5.</span> He _____ (go) to Dhaka tomorrow. <span style="font-size:.85rem;color:var(--text-soft)">[Simple Future]</span></div>
+      <input class="fill-blank" id="fb5" placeholder="উত্তর লেখো...">
+      <button class="check-btn" onclick="checkFill('fb5','will go')">যাচাই করো</button>
+      <div class="feedback" id="fb5-fb"></div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-text"><span class="q-num">B6.</span> The dog barked. "Barked" কোন Parts of Speech? <span style="font-size:.85rem;color:var(--text-soft)">[এক শব্দে]</span></div>
+      <input class="fill-blank" id="fb6" placeholder="উত্তর লেখো...">
+      <button class="check-btn" onclick="checkFill('fb6','verb')">যাচাই করো</button>
+      <div class="feedback" id="fb6-fb"></div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-text"><span class="q-num">B7.</span> "I _____ (wait) here since morning." — Present Perfect Continuous ব্যবহার করো।</div>
+      <input class="fill-blank" id="fb7" placeholder="উত্তর লেখো...">
+      <button class="check-btn" onclick="checkFill('fb7','have been waiting')">যাচাই করো</button>
+      <div class="feedback" id="fb7-fb"></div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-text"><span class="q-num">B8.</span> She _____ (leave) before he arrived. <span style="font-size:.85rem;color:var(--text-soft)">[Past Perfect]</span></div>
+      <input class="fill-blank" id="fb8" placeholder="উত্তর লেখো...">
+      <button class="check-btn" onclick="checkFill('fb8','had left')">যাচাই করো</button>
+      <div class="feedback" id="fb8-fb"></div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-text"><span class="q-num">B9.</span> "Alas! He is dead." — "Alas" কোন Parts of Speech?</div>
+      <input class="fill-blank" id="fb9" placeholder="উত্তর লেখো...">
+      <button class="check-btn" onclick="checkFill('fb9','interjection')">যাচাই করো</button>
+      <div class="feedback" id="fb9-fb"></div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-text"><span class="q-num">B10.</span> By 9 PM, I _____ (finish) my homework. <span style="font-size:.85rem;color:var(--text-soft)">[Future Perfect]</span></div>
+      <input class="fill-blank" id="fb10" placeholder="উত্তর লেখো...">
+      <button class="check-btn" onclick="checkFill('fb10','will have finished')">যাচাই করো</button>
+      <div class="feedback" id="fb10-fb"></div>
+    </div>
+
+  </div>
+
+  <button class="exam-submit" onclick="showResult()">📊 ফলাফল দেখো</button>
+
+  <div class="score-board" id="scoreboard">
+    <h3>🎉 তোমার স্কোর</h3>
+    <div class="score-big" id="score-text">--</div>
+    <p id="score-msg" style="margin-top:12px;font-size:1rem;"></p>
+    <button onclick="resetExam()" style="margin-top:16px;padding:10px 24px;border-radius:8px;background:#fff;color:var(--brown-dark);border:none;cursor:pointer;font-size:.95rem;font-weight:600;">🔄 আবার চেষ্টা করো</button>
+  </div>
+</div>
+
+<script>
+  // Navigation
+  function showPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+    const tabs = document.querySelectorAll('.nav-tab');
+    const map = {home:0,pos:1,tense:2,exam:3};
+    tabs[map[name]].classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  // Tense tabs
+  function showTense(id) {
+    document.querySelectorAll('.tense-card').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.tense-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tense-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // MCQ checking
+  let mcqScore = 0;
+  let mcqDone = {};
+
+  function checkMCQ(qid, btn, result) {
+    if (mcqDone[qid]) return;
+    mcqDone[qid] = true;
+    const card = document.getElementById(qid);
+    card.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
+    if (result === 'correct') {
+      btn.classList.add('correct');
+      btn.innerHTML += ' ✓';
+      mcqScore++;
+    } else {
+      btn.classList.add('wrong');
+      btn.innerHTML += ' ✗';
+      // find correct
+      card.querySelectorAll('.opt-btn').forEach(b => {
+        if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'correct'")) {
+          b.classList.add('correct');
+          b.innerHTML += ' ✓';
+        }
+      });
+    }
+  }
+
+  // Fill in blank
+  let fillAnswers = {};
+
+  function checkFill(id, answer) {
+    const inp = document.getElementById(id);
+    const fb = document.getElementById(id + '-fb');
+    if (fillAnswers[id]) return;
+    fillAnswers[id] = true;
+    const userAns = inp.value.trim().toLowerCase();
+    const correct = answer.toLowerCase();
+    if (userAns === correct) {
+      inp.classList.add('correct');
+      fb.classList.add('ok');
+      fb.textContent = '✓ সঠিক! উত্তর: ' + answer;
+    } else {
+      inp.classList.add('wrong');
+      fb.classList.add('no');
+      fb.textContent = '✗ ভুল। সঠিক উত্তর: ' + answer;
+      inp.value = answer;
+    }
+  }
+
+  function showResult() {
+    let fillScore = 0;
+    const fills = ['fb1','fb2','fb3','fb4','fb5','fb6','fb7','fb8','fb9','fb10'];
+    const correctFills = ['goes','was eating','have arrived','had been studying','will go','verb','have been waiting','had left','interjection','will have finished'];
+    fills.forEach((id, i) => {
+      const inp = document.getElementById(id);
+      if (!fillAnswers[id]) {
+        checkFill(id, correctFills[i]);
+      }
+      if (inp.classList.contains('correct')) fillScore++;
+    });
+
+    const total = mcqScore + fillScore;
+    const max = 25;
+    const percent = Math.round((total/max)*100);
+
+    document.getElementById('score-text').textContent = total + ' / ' + max;
+    let msg = '';
+    if (percent >= 90) msg = '🏆 অসাধারণ! তুমি ইংরেজিতে দারুণ দক্ষ!';
+    else if (percent >= 70) msg = '👍 ভালো করেছ! আরো একটু অনুশীলন করো।';
+    else if (percent >= 50) msg = '📚 মোটামুটি ভালো। আবার পড়ে এসো।';
+    else msg = '💪 হতাশ হয়ো না! আবার শুরু থেকে পড়ো।';
+    document.getElementById('score-msg').textContent = msg;
+
+    const board = document.getElementById('scoreboard');
+    board.style.display = 'block';
+    board.scrollIntoView({behavior:'smooth'});
+  }
+
+  function resetExam() {
+    mcqScore = 0; mcqDone = {}; fillAnswers = {};
+    document.querySelectorAll('.opt-btn').forEach(b => {
+      b.disabled = false;
+      b.classList.remove('correct','wrong');
+      b.textContent = b.textContent.replace(' ✓','').replace(' ✗','');
+    });
+    document.querySelectorAll('.fill-blank').forEach(inp => {
+      inp.value = '';
+      inp.classList.remove('correct','wrong');
+    });
+    document.querySelectorAll('.feedback').forEach(fb => {
+      fb.textContent = '';
+      fb.className = 'feedback';
+    });
+    document.getElementById('scoreboard').style.display = 'none';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  // ===== EXTRA MCQ & FILL =====
+
+
+</script>
+
+<!-- ===== TENSE QUICK REFERENCE TABLE (added to tense page) ===== -->
+<style>
+.tense-table-wrap { overflow-x:auto; margin-top:40px; }
+.tense-table {
+  width:100%; border-collapse:collapse;
+  font-size:.82rem; background:#fff;
+  border-radius:12px; overflow:hidden;
+  box-shadow:0 3px 16px rgba(90,50,10,.12);
+}
+.tense-table th {
+  background:var(--brown-dark); color:#fff;
+  padding:10px 12px; text-align:left;
+  font-family:'Playfair Display',serif;
+}
+.tense-table td { padding:9px 12px; border-bottom:1px solid var(--cream3); vertical-align:top; }
+.tense-table tr:last-child td { border-bottom:none; }
+.tense-table tr:nth-child(even) td { background:var(--cream); }
+.t-num { font-weight:700; color:var(--accent); }
+.t-form { font-family:monospace; font-size:.8rem; background:var(--brown-dark); color:#fff; padding:2px 6px; border-radius:4px; white-space:nowrap; }
+.t-signal { color:var(--accent2); font-size:.8rem; }
+
+/* Extra MCQ section */
+.exam-extra-title {
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem; color:var(--accent2);
+  margin:30px 0 16px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg,#e8f5e9,#c8e6c9);
+  border-radius:10px;
+  display:inline-block;
+}
+</style>
+
+<!-- inject table into tense page via JS, and extra questions into exam page -->
+<script>
+// ---- Tense Reference Table ----
+const tenseData = [
+  ['1','Simple Present','করি/করে/করেন','V1 (+s/es)','always, usually, every day'],
+  ['2','Present Continuous','করছি/করছে','is/am/are + V+ing','now, at the moment, currently'],
+  ['3','Present Perfect','করেছি/করেছে','have/has + V3','just, already, yet, ever, never'],
+  ['4','Pres. Perfect Cont.','করছি (অনেকক্ষণ)','have/has + been + V+ing','for, since (বর্তমান থেকে)'],
+  ['5','Simple Past','করলাম/করল','V2','yesterday, ago, last year'],
+  ['6','Past Continuous','করছিলাম/করছিল','was/were + V+ing','while, when, at that time'],
+  ['7','Past Perfect','করেছিলাম (আগে)','had + V3','before, after, already, by the time'],
+  ['8','Past Perf. Cont.','তখন পর্যন্ত চলছিল','had + been + V+ing','for, since (অতীত প্রেক্ষাপটে)'],
+  ['9','Simple Future','করব/করবে','will + V1','tomorrow, next year, soon'],
+  ['10','Future Continuous','করছে থাকব','will + be + V+ing','at this time tomorrow, when you come'],
+  ['11','Future Perfect','শেষ হয়ে যাবে','will + have + V3','by, by the time, before (ভবিষ্যৎ)'],
+  ['12','Future Perf. Cont.','এতক্ষণ ধরে করছে থাকব','will + have + been + V+ing','by then, for (ভবিষ্যৎ duration)'],
+];
+
+const tableHTML = `
+<div style="margin-top:48px;">
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--brown-dark);margin-bottom:16px;border-bottom:3px solid var(--gold);padding-bottom:8px;display:inline-block;">⚡ ১২ Tense — দ্রুত রেফারেন্স</h3>
+  <div class="tense-table-wrap">
+    <table class="tense-table">
+      <thead>
+        <tr>
+          <th>#</th><th>Tense</th><th>বাংলা অর্থ</th><th>Structure</th><th>Signal Words</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${tenseData.map(r => `<tr>
+          <td class="t-num">${r[0]}</td>
+          <td style="font-weight:600">${r[1]}</td>
+          <td style="color:var(--text-soft)">${r[2]}</td>
+          <td><span class="t-form">${r[3]}</span></td>
+          <td class="t-signal">${r[4]}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table>
+  </div>
+</div>`;
+
+// Append table to tense page
+document.getElementById('page-tense').insertAdjacentHTML('beforeend', tableHTML);
+
+// ---- Extra MCQ questions (inject into exam page) ----
+const extraMCQ = [
+  {
+    q: 'Q16. "She <b>runs</b> every morning." — "runs" কোন Parts of Speech?',
+    opts: ['Noun','Adjective','Verb','Adverb'],
+    ans: 2
+  },
+  {
+    q: 'Q17. Simple Past Tense-এ Negative বানাতে কী ব্যবহার হয়?',
+    opts: ['does not','did not','have not','will not'],
+    ans: 1
+  },
+  {
+    q: 'Q18. "I <b>will be sleeping</b> at midnight." — এটা কোন Tense?',
+    opts: ['Simple Future','Future Perfect','Future Continuous','Present Continuous'],
+    ans: 2
+  },
+  {
+    q: 'Q19. "The book is <b>under</b> the desk." — "under" কোন Parts of Speech?',
+    opts: ['Adverb','Adjective','Conjunction','Preposition'],
+    ans: 3
+  },
+  {
+    q: 'Q20. "Both Rima and Tina came." — "Both...and" কোন ধরনের Conjunction?',
+    opts: ['Coordinating','Subordinating','Correlative','None'],
+    ans: 2
+  },
+  {
+    q: 'Q21. Present Continuous-এ I-এর সাথে কোন Auxiliary Verb বসে?',
+    opts: ['is','are','was','am'],
+    ans: 3
+  },
+  {
+    q: 'Q22. "He had been working for 5 hours." — কোন Tense?',
+    opts: ['Present Perfect Continuous','Past Perfect Continuous','Past Continuous','Future Perfect'],
+    ans: 1
+  },
+  {
+    q: 'Q23. "Quickly" কোন শব্দ থেকে এসেছে এবং কীভাবে Adverb হলো?',
+    opts: ['Quick + ness','Quick + ly','Quick + er','Quick + ful'],
+    ans: 1
+  },
+  {
+    q: 'Q24. "The team won the match." — "team" কোন ধরনের Noun?',
+    opts: ['Proper','Common','Abstract','Collective'],
+    ans: 3
+  },
+  {
+    q: 'Q25. "By 2030, I will have been teaching for 10 years." — কোন Tense?',
+    opts: ['Future Perfect','Future Continuous','Future Perfect Continuous','Present Perfect Continuous'],
+    ans: 2
+  },
+  {
+    q: 'Q26. Past Perfect Tense-এ সব Subject-এ কোন Auxiliary Verb ব্যবহার হয়?',
+    opts: ['have','has','had','was'],
+    ans: 2
+  },
+  {
+    q: 'Q27. "Although he is poor, he is happy." — "Although" কোন ধরনের Conjunction?',
+    opts: ['Coordinating','Subordinating','Correlative','None'],
+    ans: 1
+  },
+  {
+    q: 'Q28. Adjective-এর তিনটি Degree কী কী?',
+    opts: ['Simple, Complex, Compound','Positive, Comparative, Superlative','First, Second, Third','Good, Better, Best শুধু'],
+    ans: 1
+  },
+  {
+    q: 'Q29. "She has been crying since morning." — "since" মানে কী?',
+    opts: ['কতক্ষণ ধরে (duration)','কখন থেকে (starting point)','কেন (reason)','কোথায় (place)'],
+    ans: 1
+  },
+  {
+    q: 'Q30. Reflexive Pronoun-এর উদাহরণ কোনটি?',
+    opts: ['He','His','Him','Himself'],
+    ans: 3
+  },
+];
+
+let extraMCQDone = {};
+
+function checkExtraMCQ(qid, btnEl, isCorrect) {
+  if (extraMCQDone[qid]) return;
+  extraMCQDone[qid] = true;
+  const card = document.getElementById('eq-' + qid);
+  card.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
+  if (isCorrect) {
+    btnEl.classList.add('correct');
+    btnEl.innerHTML += ' ✓';
+    mcqScore++;
+  } else {
+    btnEl.classList.add('wrong');
+    btnEl.innerHTML += ' ✗';
+    card.querySelectorAll('.opt-btn').forEach(b => {
+      if (b.dataset.correct === 'true') { b.classList.add('correct'); b.innerHTML += ' ✓'; }
+    });
+  }
+}
+
+// Render extra MCQs
+const examPage = document.getElementById('page-exam');
+const submitBtn = examPage.querySelector('.exam-submit');
+
+const extraWrap = document.createElement('div');
+extraWrap.className = 'exam-section';
+extraWrap.innerHTML = '<div class="exam-title">🎯 আরো MCQ — Parts of Speech ও Tense</div>';
+
+extraMCQ.forEach((item, i) => {
+  const card = document.createElement('div');
+  card.className = 'q-card';
+  card.id = 'eq-' + i;
+
+  const qtext = document.createElement('div');
+  qtext.className = 'q-text';
+  qtext.innerHTML = '<span class="q-num">' + item.q.split('.')[0] + '.</span> ' + item.q.split('.').slice(1).join('.');
+  card.appendChild(qtext);
+
+  const opts = document.createElement('div');
+  opts.className = 'options';
+  item.opts.forEach((opt, j) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn';
+    btn.textContent = opt;
+    const isCorrect = j === item.ans;
+    if (isCorrect) btn.dataset.correct = 'true';
+    btn.onclick = function() { checkExtraMCQ(i, this, isCorrect); };
+    opts.appendChild(btn);
+  });
+  card.appendChild(opts);
+  extraWrap.appendChild(card);
+});
+
+examPage.insertBefore(extraWrap, submitBtn);
+
+// ---- Extra Fill in the Blank ----
+const extraFills = [
+  { q: 'B11. Water _____ (boil) at 100°C. [Simple Present]', id: 'efb1', ans: 'boils' },
+  { q: 'B12. She _____ (not come) yesterday. [Simple Past, Negative]', id: 'efb2', ans: 'did not come' },
+  { q: 'B13. I _____ (read) a book when he called. [Past Continuous]', id: 'efb3', ans: 'was reading' },
+  { q: 'B14. He _____ (study) for 2 hours by noon tomorrow. [Future Perfect Continuous]', id: 'efb4', ans: 'will have been studying' },
+  { q: 'B15. "Honesty" কোন Parts of Speech? [এক শব্দে]', id: 'efb5', ans: 'noun' },
+  { q: 'B16. She _____ (sleep) now. [Present Continuous]', id: 'efb6', ans: 'is sleeping' },
+  { q: 'B17. They _____ (win) three matches so far. [Present Perfect]', id: 'efb7', ans: 'have won' },
+  { q: 'B18. "Beautiful" কোন Parts of Speech? [এক শব্দে]', id: 'efb8', ans: 'adjective' },
+  { q: 'B19. At 8 PM, I _____ (eat) dinner. [Future Continuous]', id: 'efb9', ans: 'will be eating' },
+  { q: 'B20. "In, on, at, by" — এগুলো কোন Parts of Speech? [এক শব্দে]', id: 'efb10', ans: 'preposition' },
+];
+
+let extraFillAnswers = {};
+
+function checkExtraFill(id, answer) {
+  const inp = document.getElementById(id);
+  const fb = document.getElementById(id + '-fb');
+  if (extraFillAnswers[id]) return;
+  extraFillAnswers[id] = true;
+  const userAns = inp.value.trim().toLowerCase();
+  if (userAns === answer.toLowerCase()) {
+    inp.classList.add('correct');
+    fb.className = 'feedback ok';
+    fb.textContent = '✓ সঠিক! উত্তর: ' + answer;
+  } else {
+    inp.classList.add('wrong');
+    fb.className = 'feedback no';
+    fb.textContent = '✗ ভুল। সঠিক উত্তর: ' + answer;
+    inp.value = answer;
+  }
+}
+
+const fillWrap = document.createElement('div');
+fillWrap.className = 'exam-section';
+fillWrap.innerHTML = '<div class="exam-title">✏️ আরো Fill in the Blank</div>';
+
+extraFills.forEach(item => {
+  const card = document.createElement('div');
+  card.className = 'q-card';
+  card.innerHTML = `
+    <div class="q-text"><span class="q-num">${item.q.split('.')[0]}.</span> ${item.q.split('.').slice(1).join('.')}</div>
+    <input class="fill-blank" id="${item.id}" placeholder="উত্তর লেখো...">
+    <button class="check-btn" onclick="checkExtraFill('${item.id}', '${item.ans}')">যাচাই করো</button>
+    <div class="feedback" id="${item.id}-fb"></div>
+  `;
+  fillWrap.appendChild(card);
+});
+
+examPage.insertBefore(fillWrap, submitBtn);
+
+// ---- Override showResult to count all ----
+const _origShowResult = showResult;
+showResult = function() {
+  // count extra MCQ
+  // already counted via mcqScore
+  // count extra fills
+  extraFills.forEach(item => {
+    if (!extraFillAnswers[item.id]) {
+      checkExtraFill(item.id, item.ans);
+    }
+  });
+  // count original fills
+  const fills = ['fb1','fb2','fb3','fb4','fb5','fb6','fb7','fb8','fb9','fb10'];
+  const correctFills = ['goes','was eating','have arrived','had been studying','will go','verb','have been waiting','had left','interjection','will have finished'];
+  let fillScore = 0;
+  fills.forEach((id, i) => {
+    if (!fillAnswers[id]) checkFill(id, correctFills[i]);
+    if (document.getElementById(id).classList.contains('correct')) fillScore++;
+  });
+  let extraFillScore = 0;
+  extraFills.forEach(item => {
+    if (document.getElementById(item.id).classList.contains('correct')) extraFillScore++;
+  });
+
+  const total = mcqScore + fillScore + extraFillScore;
+  const max = 45; // 15 orig MCQ + 15 extra MCQ + 10 orig fill + 10 extra fill - already counted via mcqScore
+  // Recount all MCQ
+  let totalMCQ = 0;
+  document.querySelectorAll('.opt-btn.correct').length; // not accurate
+  // Use tracked scores
+  const allFill = fillScore + extraFillScore;
+  const grandTotal = mcqScore + allFill;
+  const grandMax = 45;
+  const pct = Math.round((grandTotal/grandMax)*100);
+
+  document.getElementById('score-text').textContent = grandTotal + ' / ' + grandMax;
+  let msg = '';
+  if (pct >= 90) msg = '🏆 অসাধারণ! তুমি ইংরেজি গ্র্যামারে মাস্টার!';
+  else if (pct >= 75) msg = '🌟 দারুণ! তুমি খুব ভালো করেছ। অনুশীলন চালিয়ে যাও।';
+  else if (pct >= 60) msg = '👍 ভালো! আরো একটু মনোযোগ দিলেই আরো ভালো করবে।';
+  else if (pct >= 45) msg = '📚 মোটামুটি। আবার পড়ে এসে পরীক্ষা দাও।';
+  else msg = '💪 হতাশ হয়ো না! শুরু থেকে পড়ো, তুমি পারবে।';
+  document.getElementById('score-msg').textContent = msg + ' (' + pct + '%)';
+
+  const board = document.getElementById('scoreboard');
+  board.style.display = 'block';
+  board.scrollIntoView({behavior:'smooth'});
+};
+
+// Override resetExam to also reset extras
+const _origReset = resetExam;
+resetExam = function() {
+  mcqScore = 0; mcqDone = {}; fillAnswers = {}; extraMCQDone = {}; extraFillAnswers = {};
+  document.querySelectorAll('.opt-btn').forEach(b => {
+    b.disabled = false;
+    b.classList.remove('correct','wrong');
+    b.textContent = b.textContent.replace(' ✓','').replace(' ✗','');
+  });
+  document.querySelectorAll('.fill-blank').forEach(inp => {
+    inp.value = '';
+    inp.classList.remove('correct','wrong');
+  });
+  document.querySelectorAll('.feedback').forEach(fb => {
+    fb.textContent = '';
+    fb.className = 'feedback';
+  });
+  document.getElementById('scoreboard').style.display = 'none';
+  window.scrollTo({top:0,behavior:'smooth'});
+};
+
+</script>
+</body>
+</html>

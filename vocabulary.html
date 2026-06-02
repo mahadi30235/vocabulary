@@ -1,0 +1,2626 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>৩০ দিনের ইংরেজি Vocabulary কোর্স</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Playfair+Display:wght@700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #ffffff;
+    --off-white: #f8f8f6;
+    --light-gray: #f0f0ed;
+    --mid-gray: #e0dfd8;
+    --border: #d5d4cc;
+    --text-dark: #1a1a18;
+    --text-mid: #3d3d38;
+    --text-light: #7a7a72;
+    --accent: #2a5c8a;
+    --accent-light: #ddeaf5;
+    --accent-mid: #4a7faf;
+    --green: #2d7a4f;
+    --green-light: #d6f0e2;
+    --red: #c0392b;
+    --red-light: #fde8e6;
+    --gold: #b8860b;
+    --gold-light: #fdf6dc;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.06);
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans Bengali', sans-serif;
+    background: var(--off-white);
+    color: var(--text-dark);
+    min-height: 100vh;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    background: var(--white);
+    border-bottom: 2px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-icon {
+    width: 40px; height: 40px;
+    background: var(--accent);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 20px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+  }
+
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+    letter-spacing: -0.3px;
+  }
+
+  .logo-sub {
+    font-size: 11px;
+    color: var(--text-light);
+    font-family: 'Noto Sans Bengali', sans-serif;
+    display: block;
+    margin-top: -4px;
+  }
+
+  .nav-tabs {
+    display: flex;
+    gap: 4px;
+    background: var(--light-gray);
+    padding: 4px;
+    border-radius: 10px;
+  }
+
+  .nav-tab {
+    padding: 8px 20px;
+    border-radius: 7px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-light);
+    transition: all 0.2s;
+  }
+
+  .nav-tab.active {
+    background: var(--white);
+    color: var(--accent);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .nav-tab:hover:not(.active) {
+    color: var(--text-mid);
+    background: var(--mid-gray);
+  }
+
+  .header-actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  .btn-backup {
+    padding: 8px 14px;
+    border-radius: 7px;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    cursor: pointer;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 13px;
+    color: var(--text-mid);
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+
+  .btn-backup:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ===== PAGES ===== */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ===== LEARN PAGE ===== */
+  .learn-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 28px 24px;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 24px;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    position: sticky;
+    top: 88px;
+    height: calc(100vh - 110px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+  .sidebar-header {
+    font-family: 'Merriweather', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    padding-left: 4px;
+  }
+
+  .day-list { display: flex; flex-direction: column; gap: 3px; }
+
+  .day-btn {
+    width: 100%;
+    text-align: left;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: none;
+    background: var(--white);
+    cursor: pointer;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 13px;
+    color: var(--text-mid);
+    transition: all 0.18s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .day-btn:hover { background: var(--accent-light); color: var(--accent); }
+  .day-btn.active { background: var(--accent); color: white; box-shadow: var(--shadow-md); }
+
+  .day-num {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    min-width: 28px;
+    height: 20px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(0,0,0,0.07);
+    border-radius: 4px;
+  }
+
+  .day-btn.active .day-num { background: rgba(255,255,255,0.2); }
+
+  .day-progress-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    margin-left: auto;
+    display: none;
+  }
+
+  .day-btn.completed .day-progress-dot { display: block; }
+  .day-btn.active .day-progress-dot { background: rgba(255,255,255,0.6); }
+
+  /* Main Content */
+  .main-content {}
+
+  .day-header-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .day-title-area {}
+
+  .day-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .day-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.3;
+  }
+
+  .day-subtitle {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 6px;
+  }
+
+  .day-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .progress-ring-wrap {
+    width: 64px; height: 64px;
+    position: relative;
+  }
+
+  .progress-ring-wrap svg {
+    transform: rotate(-90deg);
+  }
+
+  .ring-bg { fill: none; stroke: var(--light-gray); stroke-width: 5; }
+  .ring-fill { fill: none; stroke: var(--accent); stroke-width: 5; stroke-linecap: round; transition: stroke-dashoffset 0.4s; }
+
+  .ring-text {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Source Code Pro', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .mark-done-btn {
+    padding: 8px 16px;
+    background: var(--green);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .mark-done-btn:hover { background: #245f3e; }
+  .mark-done-btn.done { background: var(--green-light); color: var(--green); }
+
+  /* Vocab Grid */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .vocab-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vocab-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .vocab-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+  .vocab-card:hover::before { opacity: 1; }
+
+  .vocab-word {
+    font-family: 'Merriweather', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 2px;
+  }
+
+  .vocab-type {
+    font-size: 10px;
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 6px;
+    font-family: 'Merriweather', serif;
+  }
+
+  .vocab-bn {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+  }
+
+  .vocab-example {
+    font-size: 12px;
+    color: var(--text-light);
+    font-style: italic;
+    line-height: 1.5;
+    border-top: 1px solid var(--light-gray);
+    padding-top: 8px;
+    margin-top: 8px;
+  }
+
+  .vocab-example em { color: var(--accent); font-style: normal; font-weight: 600; }
+  .vocab-pron {
+    font-size: 0.78rem;
+    color: #7c3aed;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    margin: 2px 0 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .vocab-pron::before { content: '🔊'; font-size: 0.7rem; }
+
+  /* Level Badge */
+  .level-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 2px 7px;
+    border-radius: 20px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  .level-basic { background: var(--green-light); color: var(--green); }
+  .level-intermediate { background: var(--gold-light); color: var(--gold); }
+  .level-advanced { background: var(--accent-light); color: var(--accent); }
+
+  /* ===== QUIZ PAGE ===== */
+  .quiz-layout {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 28px 24px;
+  }
+
+  .quiz-hero {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .quiz-hero-text {}
+
+  .quiz-hero-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-light);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .quiz-hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+
+  .quiz-hero-desc {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 6px;
+    max-width: 400px;
+  }
+
+  .quiz-day-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  .quiz-day-select {
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 14px;
+    background: var(--white);
+    color: var(--text-dark);
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .quiz-day-select:focus { border-color: var(--accent); }
+
+  .btn-start-quiz {
+    padding: 11px 28px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .btn-start-quiz:hover { background: #1e4a72; box-shadow: var(--shadow-md); }
+
+  /* Quiz Area */
+  .quiz-area { display: none; }
+  .quiz-area.active { display: block; }
+
+  .quiz-progress-bar {
+    background: var(--light-gray);
+    height: 6px;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+
+  .quiz-progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 10px;
+    transition: width 0.4s ease;
+  }
+
+  .quiz-stats-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .stat-pill {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-mid);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .stat-pill span { color: var(--accent); }
+
+  .question-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 16px;
+    animation: slideIn 0.25s ease;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .q-type-badge {
+    display: inline-block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+
+  .q-type-fill { background: var(--gold-light); color: var(--gold); }
+  .q-type-mcq { background: var(--accent-light); color: var(--accent); }
+
+  .q-number {
+    font-size: 11px;
+    color: var(--text-light);
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .q-text {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .fill-input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    font-family: 'Source Code Pro', monospace;
+    font-size: 16px;
+    color: var(--text-dark);
+    background: var(--off-white);
+    outline: none;
+    transition: border-color 0.2s;
+    letter-spacing: 1px;
+  }
+
+  .fill-input:focus { border-color: var(--accent); background: var(--white); }
+  .fill-input.correct { border-color: var(--green); background: var(--green-light); }
+  .fill-input.wrong { border-color: var(--red); background: var(--red-light); }
+
+  .mcq-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .mcq-opt {
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    background: var(--off-white);
+    cursor: pointer;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 14px;
+    color: var(--text-dark);
+    font-weight: 600;
+    transition: all 0.18s;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .mcq-opt:hover:not(:disabled) {
+    border-color: var(--accent);
+    background: var(--accent-light);
+    color: var(--accent);
+  }
+
+  .mcq-opt.correct { border-color: var(--green); background: var(--green-light); color: var(--green); }
+  .mcq-opt.wrong { border-color: var(--red); background: var(--red-light); color: var(--red); }
+  .mcq-opt:disabled { cursor: default; }
+
+  .opt-letter {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 700;
+    flex-shrink: 0;
+    transition: all 0.18s;
+  }
+
+  .mcq-opt:hover:not(:disabled) .opt-letter { background: var(--accent); color: white; }
+  .mcq-opt.correct .opt-letter { background: var(--green); color: white; }
+  .mcq-opt.wrong .opt-letter { background: var(--red); color: white; }
+
+  .feedback-msg {
+    margin-top: 14px;
+    padding: 10px 16px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    display: none;
+  }
+
+  .feedback-msg.correct { background: var(--green-light); color: var(--green); display: block; }
+  .feedback-msg.wrong { background: var(--red-light); color: var(--red); display: block; }
+
+  .q-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .btn-next {
+    padding: 11px 28px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-next:hover { background: #1e4a72; }
+  .btn-next:disabled { background: var(--mid-gray); color: var(--text-light); cursor: default; }
+
+  .btn-submit-fill {
+    padding: 11px 22px;
+    background: var(--gold);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-submit-fill:hover { background: #9a7009; }
+
+  /* Result Card */
+  .result-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 36px 40px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+    display: none;
+  }
+
+  .result-card.active { display: block; animation: slideIn 0.3s ease; }
+
+  .result-emoji { font-size: 56px; margin-bottom: 16px; }
+
+  .result-grade {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .grade-A { color: var(--green); }
+  .grade-B { color: var(--accent); }
+  .grade-C { color: var(--gold); }
+  .grade-D { color: var(--red); }
+
+  .result-score {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+  }
+
+  .result-msg {
+    font-size: 15px;
+    color: var(--text-light);
+    margin-bottom: 28px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .result-breakdown {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+
+  .breakdown-item {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 20px;
+    min-width: 110px;
+  }
+
+  .bi-val {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .bi-label {
+    font-size: 12px;
+    color: var(--text-light);
+  }
+
+  .result-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+  .btn-retry {
+    padding: 11px 24px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-retry:hover { background: #1e4a72; }
+
+  .btn-history {
+    padding: 11px 24px;
+    background: var(--off-white);
+    color: var(--text-mid);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-history:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* History Section */
+  .history-section {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    margin-top: 20px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .history-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .history-table th {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text-light);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .history-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--light-gray);
+    color: var(--text-mid);
+    font-weight: 500;
+  }
+
+  .history-table tr:last-child td { border-bottom: none; }
+  .history-table tr:hover td { background: var(--off-white); }
+
+  .grade-pill {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 12px;
+  }
+
+  .gp-A { background: var(--green-light); color: var(--green); }
+  .gp-B { background: var(--accent-light); color: var(--accent); }
+  .gp-C { background: var(--gold-light); color: var(--gold); }
+  .gp-D { background: var(--red-light); color: var(--red); }
+
+  /* Backup/Restore Modal */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+  }
+
+  .modal-overlay.active { display: flex; }
+
+  .modal-box {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 32px;
+    max-width: 460px;
+    width: 90%;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+  }
+
+  .modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .modal-btn {
+    padding: 13px 20px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    background: var(--off-white);
+    cursor: pointer;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-mid);
+    text-align: left;
+    transition: all 0.18s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .modal-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+
+  .modal-btn-icon { font-size: 18px; }
+
+  .modal-close {
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    text-decoration: underline;
+    transition: color 0.18s;
+  }
+
+  .modal-close:hover { color: var(--red); }
+
+  textarea.restore-input {
+    width: 100%;
+    height: 120px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    font-family: 'Source Code Pro', monospace;
+    font-size: 12px;
+    resize: vertical;
+    margin-bottom: 12px;
+    outline: none;
+  }
+
+  textarea.restore-input:focus { border-color: var(--accent); }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    background: var(--text-dark);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: var(--shadow-lg);
+    z-index: 300;
+    transform: translateY(80px);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast.success { background: var(--green); }
+  .toast.error { background: var(--red); }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .learn-layout { grid-template-columns: 1fr; }
+    .sidebar { position: static; height: auto; }
+    .day-list { flex-direction: row; flex-wrap: wrap; }
+    .day-btn { min-width: 120px; }
+    .mcq-options { grid-template-columns: 1fr; }
+    .header-inner { flex-wrap: wrap; height: auto; padding: 12px 16px; gap: 10px; }
+    .quiz-hero { flex-direction: column; gap: 16px; }
+    .quiz-day-selector { align-items: flex-start; }
+    .logo-text { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon">E</div>
+      <div>
+        <div class="logo-text">VocabMaster</div>
+        <span class="logo-sub">৩০ দিনের ইংরেজি শিক্ষা কোর্স</span>
+      </div>
+    </div>
+    <div class="nav-tabs">
+      <button class="nav-tab active" onclick="showPage('learn')">📚 শিখুন</button>
+      <button class="nav-tab" onclick="showPage('quiz')">✏️ পরীক্ষা দিন</button>
+    </div>
+    <div class="header-actions">
+      <button class="btn-backup" onclick="openModal()">💾 ব্যাকআপ / রিস্টোর</button>
+    </div>
+  </div>
+</header>
+
+<!-- LEARN PAGE -->
+<div id="page-learn" class="page active">
+  <div class="learn-layout">
+    <div class="sidebar">
+      <div class="sidebar-header">৩০ দিনের পাঠ্যক্রম</div>
+      <div class="day-list" id="dayList"></div>
+    </div>
+    <div class="main-content" id="mainContent"></div>
+  </div>
+</div>
+
+<!-- QUIZ PAGE -->
+<div id="page-quiz" class="page">
+  <div class="quiz-layout">
+    <div class="quiz-hero">
+      <div class="quiz-hero-text">
+        <div class="quiz-hero-label">পরীক্ষা কেন্দ্র</div>
+        <div class="quiz-hero-title">আজকের পরীক্ষা</div>
+        <div class="quiz-hero-desc">প্রতিদিনের পরীক্ষায় আগের দিনগুলোর কিছু শব্দও আসবে, যাতে আপনার স্মৃতি তাজা থাকে।</div>
+      </div>
+      <div class="quiz-day-selector">
+        <select class="quiz-day-select" id="quizDaySelect"></select>
+        <button class="btn-start-quiz" onclick="startQuiz()">পরীক্ষা শুরু করুন →</button>
+      </div>
+    </div>
+
+    <div id="quizArea" class="quiz-area">
+      <div class="quiz-progress-bar">
+        <div class="quiz-progress-fill" id="quizProgressFill"></div>
+      </div>
+      <div class="quiz-stats-row">
+        <div class="stat-pill">প্রশ্ন: <span id="statCurrent">0</span>/<span id="statTotal">0</span></div>
+        <div class="stat-pill">সঠিক: <span id="statCorrect">0</span></div>
+        <div class="stat-pill">ভুল: <span id="statWrong">0</span></div>
+      </div>
+      <div id="questionContainer"></div>
+      <div class="q-nav">
+        <button class="btn-submit-fill" id="btnSubmit" onclick="submitAnswer()" style="display:none">উত্তর জমা দিন</button>
+        <button class="btn-next" id="btnNext" onclick="nextQuestion()" disabled>পরবর্তী →</button>
+      </div>
+    </div>
+
+    <div class="result-card" id="resultCard">
+      <div class="result-emoji" id="resultEmoji"></div>
+      <div class="result-grade" id="resultGrade"></div>
+      <div class="result-score" id="resultScore"></div>
+      <div class="result-msg" id="resultMsg"></div>
+      <div class="result-breakdown">
+        <div class="breakdown-item"><div class="bi-val" id="rbCorrect">0</div><div class="bi-label">সঠিক উত্তর</div></div>
+        <div class="breakdown-item"><div class="bi-val" id="rbWrong">0</div><div class="bi-label">ভুল উত্তর</div></div>
+        <div class="breakdown-item"><div class="bi-val" id="rbTotal">0</div><div class="bi-label">মোট প্রশ্ন</div></div>
+        <div class="breakdown-item"><div class="bi-val" id="rbPct">0%</div><div class="bi-label">সাফল্যের হার</div></div>
+      </div>
+      <div class="result-actions">
+        <button class="btn-retry" onclick="retryQuiz()">🔄 আবার পরীক্ষা দিন</button>
+        <button class="btn-history" onclick="toggleHistory()">📊 ইতিহাস দেখুন</button>
+        <button class="btn-retry" style="background:var(--green)" onclick="showPage('learn')">📚 পড়তে যান</button>
+      </div>
+    </div>
+
+    <div class="history-section" id="historySection" style="display:none">
+      <div class="section-title">পরীক্ষার ইতিহাস</div>
+      <table class="history-table" id="historyTable">
+        <thead><tr><th>তারিখ</th><th>দিন</th><th>মোট প্রশ্ন</th><th>সঠিক</th><th>নম্বর</th><th>গ্রেড</th></tr></thead>
+        <tbody id="historyBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- BACKUP MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <div class="modal-title">💾 ডেটা ব্যাকআপ ও রিস্টোর</div>
+    <div id="modalMain">
+      <div class="modal-actions">
+        <button class="modal-btn" onclick="doBackup()">
+          <span class="modal-btn-icon">⬇️</span>
+          <div><strong>ডেটা ব্যাকআপ করুন</strong><br><small>আপনার অগ্রগতি ও পরীক্ষার ফলাফল ডাউনলোড করুন</small></div>
+        </button>
+        <button class="modal-btn" onclick="showRestoreInput()">
+          <span class="modal-btn-icon">⬆️</span>
+          <div><strong>ডেটা রিস্টোর করুন</strong><br><small>আগের ব্যাকআপ থেকে ডেটা ফিরিয়ে আনুন</small></div>
+        </button>
+        <button class="modal-btn" onclick="clearAllData()" style="border-color:var(--red-light);color:var(--red)">
+          <span class="modal-btn-icon">🗑️</span>
+          <div><strong>সব ডেটা মুছুন</strong><br><small>সকল অগ্রগতি ও ইতিহাস মুছে ফেলুন</small></div>
+        </button>
+      </div>
+    </div>
+    <div id="restoreArea" style="display:none">
+      <p style="font-size:13px;color:var(--text-light);margin-bottom:12px;">নিচে ব্যাকআপ কোড পেস্ট করুন:</p>
+      <textarea class="restore-input" id="restoreInput" placeholder="এখানে ব্যাকআপ কোড পেস্ট করুন..."></textarea>
+      <button class="btn-start-quiz" onclick="doRestore()" style="width:100%">রিস্টোর করুন</button>
+    </div>
+    <button class="modal-close" onclick="closeModal()">বন্ধ করুন</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ============================
+// VOCABULARY DATA - 30 DAYS
+// ============================
+
+// ============================
+// VOCABULARY DATA - 30 DAYS
+// ============================
+const COURSE_DATA = [
+  {
+    day: 1, topic: "দৈনন্দিন অভিবাদন ও পরিচয়", level: "basic",
+    words: [
+      {en:"Hello",pron:"হেলো",bn:"হ্যালো / নমস্কার",type:"excl.",ex:"<em>Hello</em>, how are you?"},
+      {en:"Goodbye",pron:"গুডবাই",bn:"বিদায়",type:"excl.",ex:"<em>Goodbye</em>, see you tomorrow!"},
+      {en:"Please",pron:"প্লিজ",bn:"দয়া করে",type:"adv.",ex:"<em>Please</em> help me."},
+      {en:"Thank you",pron:"থ্যাংক ইউ",bn:"ধন্যবাদ",type:"phrase",ex:"<em>Thank you</em> very much."},
+      {en:"Sorry",pron:"সরি",bn:"দুঃখিত / মাফ করবেন",type:"excl.",ex:"I am <em>sorry</em> for being late."},
+      {en:"Welcome",pron:"ওয়েলকাম",bn:"স্বাগতম",type:"excl.",ex:"<em>Welcome</em> to our school."},
+      {en:"Yes",pron:"ইয়েস",bn:"হ্যাঁ",type:"adv.",ex:"<em>Yes</em>, I understand."},
+      {en:"No",pron:"নো",bn:"না",type:"adv.",ex:"<em>No</em>, I don't agree."},
+      {en:"Name",pron:"নেইম",bn:"নাম",type:"n.",ex:"My <em>name</em> is Rahim."},
+      {en:"Age",pron:"এইজ",bn:"বয়স",type:"n.",ex:"My <em>age</em> is twenty."},
+      {en:"Address",pron:"অ্যাড্রেস",bn:"ঠিকানা",type:"n.",ex:"What is your <em>address</em>?"},
+      {en:"Friend",pron:"ফ্রেন্ড",bn:"বন্ধু",type:"n.",ex:"She is my best <em>friend</em>."},
+      {en:"Family",pron:"ফ্যামিলি",bn:"পরিবার",type:"n.",ex:"I love my <em>family</em>."},
+      {en:"Home",pron:"হোম",bn:"বাড়ি",type:"n.",ex:"Let's go <em>home</em>."},
+      {en:"Introduce",pron:"ইন্ট্রোডিউস",bn:"পরিচয় করিয়ে দেওয়া",type:"v.",ex:"Let me <em>introduce</em> myself."},
+      {en:"Meet",pron:"মিট",bn:"দেখা হওয়া",type:"v.",ex:"Nice to <em>meet</em> you."},
+      {en:"Know",pron:"নো",bn:"জানা / চেনা",type:"v.",ex:"Do you <em>know</em> him?"},
+      {en:"Call",pron:"কল",bn:"ডাকা / ফোন করা",type:"v.",ex:"<em>Call</em> me later."},
+      {en:"Ask",pron:"আস্ক",bn:"জিজ্ঞেস করা",type:"v.",ex:"Don't be afraid to <em>ask</em>."},
+      {en:"Reply",pron:"রিপ্লাই",bn:"উত্তর দেওয়া",type:"v.",ex:"Please <em>reply</em> soon."},
+      {en:"Polite",pron:"পোলাইট",bn:"ভদ্র",type:"adj.",ex:"Always be <em>polite</em>."},
+      {en:"Nationality",pron:"ন্যাশনালিটি",bn:"জাতীয়তা",type:"n.",ex:"What is your <em>nationality</em>?"},
+      {en:"Occupation",pron:"অকুপেশন",bn:"পেশা",type:"n.",ex:"What is your <em>occupation</em>?"},
+      {en:"Neighbor",pron:"নেইবার",bn:"প্রতিবেশী",type:"n.",ex:"My <em>neighbor</em> is very kind."},
+      {en:"Guest",pron:"গেস্ট",bn:"অতিথি",type:"n.",ex:"We have a <em>guest</em> today."},
+      {en:"Host",pron:"হোস্ট",bn:"আতিথেয়",type:"n.",ex:"The <em>host</em> welcomed everyone."},
+      {en:"Conversation",pron:"কনভার্সেশন",bn:"কথোপকথন",type:"n.",ex:"We had a great <em>conversation</em>."},
+      {en:"Greet",pron:"গ্রিট",bn:"শুভেচ্ছা জানানো",type:"v.",ex:"<em>Greet</em> your elders respectfully."},
+      {en:"Stranger",pron:"স্ট্রেঞ্জার",bn:"অপরিচিত ব্যক্তি",type:"n.",ex:"Don't talk to <em>strangers</em>."},
+      {en:"Shake hands",pron:"শেইক হ্যান্ডস",bn:"হাত মেলানো",type:"phrase",ex:"They <em>shook hands</em> warmly."},
+    ]
+  },
+  {
+    day: 2, topic: "খাবার ও পানীয়", level: "basic",
+    words: [
+      {en:"Rice",pron:"রাইস",bn:"ভাত / চাল",type:"n.",ex:"I eat <em>rice</em> every day."},
+      {en:"Bread",pron:"ব্রেড",bn:"রুটি / পাউরুটি",type:"n.",ex:"She had <em>bread</em> for breakfast."},
+      {en:"Water",pron:"ওয়াটার",bn:"পানি",type:"n.",ex:"Drink plenty of <em>water</em>."},
+      {en:"Milk",pron:"মিল্ক",bn:"দুধ",type:"n.",ex:"Children need <em>milk</em> daily."},
+      {en:"Egg",pron:"এগ",bn:"ডিম",type:"n.",ex:"I boiled an <em>egg</em> for lunch."},
+      {en:"Fish",pron:"ফিশ",bn:"মাছ",type:"n.",ex:"We had <em>fish</em> for dinner."},
+      {en:"Meat",pron:"মিট",bn:"মাংস",type:"n.",ex:"He prefers <em>meat</em> over vegetables."},
+      {en:"Vegetable",pron:"ভেজিটেবল",bn:"সবজি",type:"n.",ex:"Eat more <em>vegetables</em>."},
+      {en:"Fruit",pron:"ফ্রুট",bn:"ফল",type:"n.",ex:"An apple is a healthy <em>fruit</em>."},
+      {en:"Sugar",pron:"শুগার",bn:"চিনি",type:"n.",ex:"Add a spoon of <em>sugar</em>."},
+      {en:"Salt",pron:"সল্ট",bn:"লবণ",type:"n.",ex:"Don't add too much <em>salt</em>."},
+      {en:"Oil",pron:"অয়েল",bn:"তেল",type:"n.",ex:"Use less <em>oil</em> while cooking."},
+      {en:"Cook",pron:"কুক",bn:"রান্না করা",type:"v.",ex:"She can <em>cook</em> very well."},
+      {en:"Eat",pron:"ইট",bn:"খাওয়া",type:"v.",ex:"Let's <em>eat</em> together."},
+      {en:"Drink",pron:"ড্রিংক",bn:"পান করা",type:"v.",ex:"<em>Drink</em> the juice slowly."},
+      {en:"Hungry",pron:"হাংগ্রি",bn:"ক্ষুধার্ত",type:"adj.",ex:"I am very <em>hungry</em>."},
+      {en:"Thirsty",pron:"থার্স্টি",bn:"তৃষ্ণার্ত",type:"adj.",ex:"He is <em>thirsty</em> after running."},
+      {en:"Delicious",pron:"ডিলিশাস",bn:"সুস্বাদু",type:"adj.",ex:"This food is <em>delicious</em>!"},
+      {en:"Breakfast",pron:"ব্রেকফাস্ট",bn:"সকালের নাস্তা",type:"n.",ex:"Don't skip <em>breakfast</em>."},
+      {en:"Lunch",pron:"লাঞ্চ",bn:"দুপুরের খাবার",type:"n.",ex:"We had <em>lunch</em> at noon."},
+      {en:"Dinner",pron:"ডিনার",bn:"রাতের খাবার",type:"n.",ex:"<em>Dinner</em> is ready."},
+      {en:"Snack",pron:"স্ন্যাক",bn:"হালকা নাস্তা",type:"n.",ex:"She had a light <em>snack</em>."},
+      {en:"Spicy",pron:"স্পাইসি",bn:"ঝাল",type:"adj.",ex:"The curry is very <em>spicy</em>."},
+      {en:"Sweet",pron:"সুইট",bn:"মিষ্টি",type:"adj.",ex:"She loves <em>sweet</em> food."},
+      {en:"Bitter",pron:"বিটার",bn:"তিক্ত / কষা",type:"adj.",ex:"Medicine tastes <em>bitter</em>."},
+      {en:"Sour",pron:"সাওয়ার",bn:"টক",type:"adj.",ex:"Lemons are <em>sour</em>."},
+      {en:"Boil",pron:"বয়েল",bn:"সিদ্ধ করা",type:"v.",ex:"<em>Boil</em> the eggs for ten minutes."},
+      {en:"Fry",pron:"ফ্রাই",bn:"ভাজা",type:"v.",ex:"<em>Fry</em> the onions until golden."},
+      {en:"Plate",pron:"প্লেট",bn:"থালা",type:"n.",ex:"Put the food on the <em>plate</em>."},
+      {en:"Spoon",pron:"স্পুন",bn:"চামচ",type:"n.",ex:"Use a <em>spoon</em> to eat soup."},
+    ]
+  },
+  {
+    day: 3, topic: "রং ও আকার", level: "basic",
+    words: [
+      {en:"Red",pron:"রেড",bn:"লাল",type:"adj.",ex:"She wore a <em>red</em> dress."},
+      {en:"Blue",pron:"ব্লু",bn:"নীল",type:"adj.",ex:"The <em>blue</em> sky is clear."},
+      {en:"Green",pron:"গ্রিন",bn:"সবুজ",type:"adj.",ex:"The leaves are <em>green</em>."},
+      {en:"Yellow",pron:"ইয়েলো",bn:"হলুদ",type:"adj.",ex:"Sunflowers are <em>yellow</em>."},
+      {en:"White",pron:"হোয়াইট",bn:"সাদা",type:"adj.",ex:"Snow is <em>white</em>."},
+      {en:"Black",pron:"ব্ল্যাক",bn:"কালো",type:"adj.",ex:"He has a <em>black</em> cat."},
+      {en:"Orange",pron:"অরেঞ্জ",bn:"কমলা",type:"adj.",ex:"The sunset is <em>orange</em>."},
+      {en:"Purple",pron:"পার্পল",bn:"বেগুনি",type:"adj.",ex:"She likes <em>purple</em> flowers."},
+      {en:"Brown",pron:"ব্রাউন",bn:"বাদামী",type:"adj.",ex:"The soil is <em>brown</em>."},
+      {en:"Pink",pron:"পিংক",bn:"গোলাপি",type:"adj.",ex:"She wore a <em>pink</em> shirt."},
+      {en:"Grey",pron:"গ্রে",bn:"ধূসর",type:"adj.",ex:"The clouds are <em>grey</em>."},
+      {en:"Golden",pron:"গোল্ডেন",bn:"সোনালি",type:"adj.",ex:"The field was <em>golden</em>."},
+      {en:"Circle",pron:"সার্কেল",bn:"বৃত্ত",type:"n.",ex:"Draw a <em>circle</em>."},
+      {en:"Square",pron:"স্কয়ার",bn:"বর্গক্ষেত্র",type:"n.",ex:"A <em>square</em> has four equal sides."},
+      {en:"Triangle",pron:"ট্রাইঅ্যাঙ্গেল",bn:"ত্রিভুজ",type:"n.",ex:"A <em>triangle</em> has three angles."},
+      {en:"Rectangle",pron:"রেক্ট্যাঙ্গেল",bn:"আয়তক্ষেত্র",type:"n.",ex:"A door is shaped like a <em>rectangle</em>."},
+      {en:"Oval",pron:"ওভাল",bn:"ডিম্বাকৃতি",type:"n.",ex:"An egg is <em>oval</em>."},
+      {en:"Round",pron:"রাউন্ড",bn:"গোল",type:"adj.",ex:"The earth is <em>round</em>."},
+      {en:"Flat",pron:"ফ্ল্যাট",bn:"সমতল / চ্যাপ্টা",type:"adj.",ex:"This road is <em>flat</em>."},
+      {en:"Curved",pron:"কার্ভড",bn:"বাঁকানো",type:"adj.",ex:"The river has a <em>curved</em> path."},
+      {en:"Sharp",pron:"শার্প",bn:"তীক্ষ্ণ / ধারালো",type:"adj.",ex:"Be careful with the <em>sharp</em> knife."},
+      {en:"Thick",pron:"থিক",bn:"মোটা",type:"adj.",ex:"This is a <em>thick</em> book."},
+      {en:"Thin",pron:"থিন",bn:"পাতলা",type:"adj.",ex:"She has <em>thin</em> fingers."},
+      {en:"Wide",pron:"ওয়াইড",bn:"প্রশস্ত",type:"adj.",ex:"The road is very <em>wide</em>."},
+      {en:"Narrow",pron:"ন্যারো",bn:"সরু",type:"adj.",ex:"The lane is too <em>narrow</em>."},
+      {en:"Tall",pron:"টল",bn:"লম্বা",type:"adj.",ex:"He is very <em>tall</em>."},
+      {en:"Short",pron:"শর্ট",bn:"খাটো",type:"adj.",ex:"She is <em>short</em> but strong."},
+      {en:"Large",pron:"লার্জ",bn:"বড়",type:"adj.",ex:"They live in a <em>large</em> house."},
+      {en:"Small",pron:"স্মল",bn:"ছোট",type:"adj.",ex:"She has a <em>small</em> bag."},
+      {en:"Diagonal",pron:"ডায়াগোনাল",bn:"তির্যক",type:"adj.",ex:"Draw a <em>diagonal</em> line."},
+    ]
+  },
+  {
+    day: 4, topic: "পরিবার ও সম্পর্ক", level: "basic",
+    words: [
+      {en:"Father",pron:"ফাদার",bn:"বাবা",type:"n.",ex:"My <em>father</em> is a teacher."},
+      {en:"Mother",pron:"মাদার",bn:"মা",type:"n.",ex:"My <em>mother</em> cooks well."},
+      {en:"Brother",pron:"ব্রাদার",bn:"ভাই",type:"n.",ex:"I have an elder <em>brother</em>."},
+      {en:"Sister",pron:"সিস্টার",bn:"বোন",type:"n.",ex:"My <em>sister</em> is very kind."},
+      {en:"Son",pron:"সান",bn:"ছেলে / পুত্র",type:"n.",ex:"He has two <em>sons</em>."},
+      {en:"Daughter",pron:"ডটার",bn:"মেয়ে / কন্যা",type:"n.",ex:"She is a loving <em>daughter</em>."},
+      {en:"Husband",pron:"হাজব্যান্ড",bn:"স্বামী",type:"n.",ex:"Her <em>husband</em> is a doctor."},
+      {en:"Wife",pron:"ওয়াইফ",bn:"স্ত্রী",type:"n.",ex:"His <em>wife</em> is a nurse."},
+      {en:"Uncle",pron:"আংকেল",bn:"চাচা / মামা",type:"n.",ex:"My <em>uncle</em> lives abroad."},
+      {en:"Aunt",pron:"আন্ট",bn:"চাচি / মামি / খালা",type:"n.",ex:"My <em>aunt</em> bakes cakes."},
+      {en:"Grandfather",pron:"গ্র্যান্ডফাদার",bn:"দাদা / নানা",type:"n.",ex:"My <em>grandfather</em> is very wise."},
+      {en:"Grandmother",pron:"গ্র্যান্ডমাদার",bn:"দাদি / নানি",type:"n.",ex:"My <em>grandmother</em> tells stories."},
+      {en:"Cousin",pron:"কাজিন",bn:"চাচাতো/মামাতো ভাই-বোন",type:"n.",ex:"My <em>cousin</em> visited us."},
+      {en:"Nephew",pron:"নেফিউ",bn:"ভাতিজা / ভাগ্নে",type:"n.",ex:"My <em>nephew</em> is very smart."},
+      {en:"Niece",pron:"নিস",bn:"ভাতিজি / ভাগ্নি",type:"n.",ex:"I love my <em>niece</em> very much."},
+      {en:"Relative",pron:"রিলেটিভ",bn:"আত্মীয়",type:"n.",ex:"We have many <em>relatives</em>."},
+      {en:"Parents",pron:"প্যারেন্টস",bn:"বাবা-মা",type:"n.",ex:"Respect your <em>parents</em>."},
+      {en:"Children",pron:"চিলড্রেন",bn:"সন্তানেরা",type:"n.",ex:"The <em>children</em> are playing."},
+      {en:"Baby",pron:"বেবি",bn:"শিশু",type:"n.",ex:"The <em>baby</em> is sleeping."},
+      {en:"Twins",pron:"টুইন্স",bn:"যমজ",type:"n.",ex:"They are <em>twins</em>."},
+      {en:"Elder",pron:"এলডার",bn:"বয়োজ্যেষ্ঠ",type:"adj.",ex:"Respect your <em>elders</em>."},
+      {en:"Younger",pron:"ইয়ংগার",bn:"ছোট",type:"adj.",ex:"She is my <em>younger</em> sister."},
+      {en:"Marriage",pron:"ম্যারেজ",bn:"বিবাহ",type:"n.",ex:"Their <em>marriage</em> was last year."},
+      {en:"Widow",pron:"উইডো",bn:"বিধবা",type:"n.",ex:"She is a <em>widow</em>."},
+      {en:"Orphan",pron:"অরফান",bn:"এতিম",type:"n.",ex:"He grew up as an <em>orphan</em>."},
+      {en:"Ancestor",pron:"অ্যান্সেস্টর",bn:"পূর্বপুরুষ",type:"n.",ex:"Our <em>ancestors</em> were farmers."},
+      {en:"Descendant",pron:"ডিসেন্ড্যান্ট",bn:"উত্তরসূরি",type:"n.",ex:"They are <em>descendants</em> of kings."},
+      {en:"Stepfather",pron:"স্টেপফাদার",bn:"সৎ বাবা",type:"n.",ex:"He was raised by a <em>stepfather</em>."},
+      {en:"Guardian",pron:"গার্ডিয়ান",bn:"অভিভাবক",type:"n.",ex:"The school called her <em>guardian</em>."},
+      {en:"Divorce",pron:"ডিভোর্স",bn:"তালাক / বিচ্ছেদ",type:"n.",ex:"<em>Divorce</em> affects children badly."},
+    ]
+  },
+  {
+    day: 5, topic: "ফুল ও গাছপালা", level: "basic",
+    words: [
+      {en:"Rose",pron:"রোজ",bn:"গোলাপ",type:"n.",ex:"She gave me a red <em>rose</em>."},
+      {en:"Lily",pron:"লিলি",bn:"লিলি ফুল",type:"n.",ex:"White <em>lilies</em> smell sweet."},
+      {en:"Jasmine",pron:"জ্যাসমিন",bn:"জুঁই / বেলি ফুল",type:"n.",ex:"<em>Jasmine</em> blooms at night."},
+      {en:"Sunflower",pron:"সানফ্লাওয়ার",bn:"সূর্যমুখী ফুল",type:"n.",ex:"<em>Sunflowers</em> face the sun."},
+      {en:"Lotus",pron:"লোটাস",bn:"পদ্মফুল",type:"n.",ex:"The <em>lotus</em> grows in water."},
+      {en:"Marigold",pron:"ম্যারিগোল্ড",bn:"গাঁদা ফুল",type:"n.",ex:"<em>Marigold</em> is used in festivals."},
+      {en:"Tree",pron:"ট্রি",bn:"গাছ / বৃক্ষ",type:"n.",ex:"We should plant more <em>trees</em>."},
+      {en:"Leaf",pron:"লিফ",bn:"পাতা",type:"n.",ex:"The <em>leaves</em> turned yellow."},
+      {en:"Root",pron:"রুট",bn:"শিকড়",type:"n.",ex:"The <em>roots</em> go deep."},
+      {en:"Branch",pron:"ব্র্যাঞ্চ",bn:"শাখা / ডাল",type:"n.",ex:"A bird sat on the <em>branch</em>."},
+      {en:"Seed",pron:"সিড",bn:"বীজ",type:"n.",ex:"Plant the <em>seed</em> carefully."},
+      {en:"Bloom",pron:"ব্লুম",bn:"ফোটা / প্রস্ফুটিত হওয়া",type:"v.",ex:"Flowers <em>bloom</em> in spring."},
+      {en:"Garden",pron:"গার্ডেন",bn:"বাগান",type:"n.",ex:"She waters her <em>garden</em> daily."},
+      {en:"Petal",pron:"পেটাল",bn:"পাপড়ি",type:"n.",ex:"Rose <em>petals</em> are soft."},
+      {en:"Thorn",pron:"থর্ন",bn:"কাঁটা",type:"n.",ex:"Be careful of the <em>thorns</em>."},
+      {en:"Fragrance",pron:"ফ্রেগ্র্যান্স",bn:"সুগন্ধ",type:"n.",ex:"The <em>fragrance</em> of jasmine is sweet."},
+      {en:"Grass",pron:"গ্রাস",bn:"ঘাস",type:"n.",ex:"The children played on the <em>grass</em>."},
+      {en:"Soil",pron:"সয়েল",bn:"মাটি",type:"n.",ex:"The <em>soil</em> is fertile here."},
+      {en:"Trunk",pron:"ট্রাংক",bn:"গাছের কাণ্ড",type:"n.",ex:"The <em>trunk</em> of the tree is wide."},
+      {en:"Bamboo",pron:"ব্যাম্বু",bn:"বাঁশ",type:"n.",ex:"<em>Bamboo</em> grows very fast."},
+      {en:"Cactus",pron:"ক্যাক্টাস",bn:"ক্যাকটাস",type:"n.",ex:"<em>Cactus</em> grows in dry areas."},
+      {en:"Vine",pron:"ভাইন",bn:"লতা",type:"n.",ex:"The <em>vine</em> climbed the wall."},
+      {en:"Blossom",pron:"ব্লসম",bn:"ফুল ফোটা",type:"v.",ex:"Cherry trees <em>blossom</em> in spring."},
+      {en:"Harvest",pron:"হার্ভেস্ট",bn:"ফসল কাটা",type:"n.",ex:"Farmers <em>harvest</em> in autumn."},
+      {en:"Weed",pron:"উইড",bn:"আগাছা",type:"n.",ex:"Remove the <em>weeds</em> from the field."},
+      {en:"Sprout",pron:"স্প্রাউট",bn:"অঙ্কুর",type:"n.",ex:"A new <em>sprout</em> grew from the seed."},
+      {en:"Fertilizer",pron:"ফার্টিলাইজার",bn:"সার",type:"n.",ex:"Use <em>fertilizer</em> to grow crops."},
+      {en:"Forest",pron:"ফরেস্ট",bn:"বন",type:"n.",ex:"The <em>forest</em> is full of life."},
+      {en:"Plantation",pron:"প্ল্যান্টেশন",bn:"বাগান / আবাদ",type:"n.",ex:"Bangladesh has tea <em>plantations</em>."},
+      {en:"Jungle",pron:"জাঙ্গেল",bn:"জঙ্গল",type:"n.",ex:"Wild animals live in the <em>jungle</em>."},
+    ]
+  },
+  {
+    day: 6, topic: "শরীর ও স্বাস্থ্য", level: "basic",
+    words: [
+      {en:"Head",pron:"হেড",bn:"মাথা",type:"n.",ex:"She had a <em>head</em>ache."},
+      {en:"Eye",pron:"আই",bn:"চোখ",type:"n.",ex:"She has beautiful <em>eyes</em>."},
+      {en:"Ear",pron:"ইয়ার",bn:"কান",type:"n.",ex:"He hurt his <em>ear</em>."},
+      {en:"Nose",pron:"নোজ",bn:"নাক",type:"n.",ex:"The <em>nose</em> smells fragrance."},
+      {en:"Mouth",pron:"মাউথ",bn:"মুখ",type:"n.",ex:"Open your <em>mouth</em>."},
+      {en:"Hand",pron:"হ্যান্ড",bn:"হাত",type:"n.",ex:"Wash your <em>hands</em> before eating."},
+      {en:"Foot",pron:"ফুট",bn:"পা",type:"n.",ex:"My <em>foot</em> is hurting."},
+      {en:"Heart",pron:"হার্ট",bn:"হৃদয় / হার্ট",type:"n.",ex:"Exercise keeps the <em>heart</em> healthy."},
+      {en:"Stomach",pron:"স্টমাক",bn:"পেট",type:"n.",ex:"My <em>stomach</em> is full."},
+      {en:"Fever",pron:"ফিভার",bn:"জ্বর",type:"n.",ex:"He has a high <em>fever</em>."},
+      {en:"Pain",pron:"পেইন",bn:"ব্যথা",type:"n.",ex:"I feel <em>pain</em> in my back."},
+      {en:"Medicine",pron:"মেডিসিন",bn:"ওষুধ",type:"n.",ex:"Take this <em>medicine</em> twice a day."},
+      {en:"Doctor",pron:"ডক্টর",bn:"ডাক্তার",type:"n.",ex:"See a <em>doctor</em> immediately."},
+      {en:"Healthy",pron:"হেলদি",bn:"সুস্থ",type:"adj.",ex:"Eat well to stay <em>healthy</em>."},
+      {en:"Sick",pron:"সিক",bn:"অসুস্থ",type:"adj.",ex:"She is <em>sick</em> today."},
+      {en:"Breathe",pron:"ব্রিদ",bn:"শ্বাস নেওয়া",type:"v.",ex:"<em>Breathe</em> in the fresh air."},
+      {en:"Bone",pron:"বোন",bn:"হাড়",type:"n.",ex:"He broke his <em>bone</em>."},
+      {en:"Skin",pron:"স্কিন",bn:"চামড়া",type:"n.",ex:"Protect your <em>skin</em> from the sun."},
+      {en:"Blood",pron:"ব্লাড",bn:"রক্ত",type:"n.",ex:"<em>Blood</em> carries oxygen."},
+      {en:"Lung",pron:"লাং",bn:"ফুসফুস",type:"n.",ex:"Smoking damages the <em>lungs</em>."},
+      {en:"Brain",pron:"ব্রেইন",bn:"মস্তিষ্ক",type:"n.",ex:"Exercise is good for the <em>brain</em>."},
+      {en:"Throat",pron:"থ্রোট",bn:"গলা",type:"n.",ex:"She has a sore <em>throat</em>."},
+      {en:"Shoulder",pron:"শোল্ডার",bn:"কাঁধ",type:"n.",ex:"He injured his <em>shoulder</em>."},
+      {en:"Knee",pron:"নি",bn:"হাঁটু",type:"n.",ex:"She hurt her <em>knee</em> while running."},
+      {en:"Wrist",pron:"রিস্ট",bn:"কব্জি",type:"n.",ex:"He wears a watch on his <em>wrist</em>."},
+      {en:"Finger",pron:"ফিংগার",bn:"আঙুল",type:"n.",ex:"She cut her <em>finger</em>."},
+      {en:"Tongue",pron:"টাং",bn:"জিহ্বা",type:"n.",ex:"He burned his <em>tongue</em>."},
+      {en:"Lip",pron:"লিপ",bn:"ঠোঁট",type:"n.",ex:"She put lipstick on her <em>lips</em>."},
+      {en:"Cheek",pron:"চিক",bn:"গাল",type:"n.",ex:"She kissed his <em>cheek</em>."},
+      {en:"Forehead",pron:"ফোরহেড",bn:"কপাল",type:"n.",ex:"She touched his <em>forehead</em>."},
+    ]
+  },
+  {
+    day: 7, topic: "সময় ও দিন", level: "basic",
+    words: [
+      {en:"Morning",pron:"মর্নিং",bn:"সকাল",type:"n.",ex:"I wake up early in the <em>morning</em>."},
+      {en:"Afternoon",pron:"আফটারনুন",bn:"দুপুর / বিকাল",type:"n.",ex:"We rest in the <em>afternoon</em>."},
+      {en:"Evening",pron:"ইভনিং",bn:"সন্ধ্যা",type:"n.",ex:"The sky is pink in the <em>evening</em>."},
+      {en:"Night",pron:"নাইট",bn:"রাত",type:"n.",ex:"I study at <em>night</em>."},
+      {en:"Today",pron:"টুডে",bn:"আজ",type:"adv.",ex:"What are you doing <em>today</em>?"},
+      {en:"Yesterday",pron:"ইয়েস্টারডে",bn:"গতকাল",type:"adv.",ex:"It rained <em>yesterday</em>."},
+      {en:"Tomorrow",pron:"টুমরো",bn:"আগামীকাল",type:"adv.",ex:"I will go <em>tomorrow</em>."},
+      {en:"Week",pron:"উইক",bn:"সপ্তাহ",type:"n.",ex:"There are seven days in a <em>week</em>."},
+      {en:"Month",pron:"মান্থ",bn:"মাস",type:"n.",ex:"This <em>month</em> is busy."},
+      {en:"Year",pron:"ইয়ার",bn:"বছর",type:"n.",ex:"A new <em>year</em> is coming."},
+      {en:"Hour",pron:"আওয়ার",bn:"ঘন্টা",type:"n.",ex:"Wait for one <em>hour</em>."},
+      {en:"Minute",pron:"মিনিট",bn:"মিনিট",type:"n.",ex:"I'll be ready in five <em>minutes</em>."},
+      {en:"Second",pron:"সেকেন্ড",bn:"সেকেন্ড",type:"n.",ex:"Wait a <em>second</em>."},
+      {en:"Early",pron:"আর্লি",bn:"আগে / তাড়াতাড়ি",type:"adv.",ex:"Come <em>early</em> to the class."},
+      {en:"Late",pron:"লেইট",bn:"দেরিতে",type:"adv.",ex:"He arrived <em>late</em>."},
+      {en:"Now",pron:"নাউ",bn:"এখন",type:"adv.",ex:"I need it <em>now</em>."},
+      {en:"Always",pron:"অলওয়েজ",bn:"সবসময়",type:"adv.",ex:"She is <em>always</em> on time."},
+      {en:"Never",pron:"নেভার",bn:"কখনো না",type:"adv.",ex:"He <em>never</em> gives up."},
+      {en:"Often",pron:"অফেন",bn:"প্রায়ই",type:"adv.",ex:"She <em>often</em> reads books."},
+      {en:"Sometimes",pron:"সামটাইমস",bn:"মাঝে মাঝে",type:"adv.",ex:"I <em>sometimes</em> walk to work."},
+      {en:"Daily",pron:"ডেইলি",bn:"প্রতিদিন",type:"adv.",ex:"Exercise <em>daily</em>."},
+      {en:"Weekly",pron:"উইকলি",bn:"সাপ্তাহিক",type:"adv.",ex:"We have <em>weekly</em> meetings."},
+      {en:"Midnight",pron:"মিডনাইট",bn:"মধ্যরাত",type:"n.",ex:"He called me at <em>midnight</em>."},
+      {en:"Dawn",pron:"ডন",bn:"ভোর",type:"n.",ex:"She woke up at <em>dawn</em>."},
+      {en:"Dusk",pron:"ডাস্ক",bn:"গোধূলি",type:"n.",ex:"The birds return at <em>dusk</em>."},
+      {en:"Century",pron:"সেঞ্চুরি",bn:"শতাব্দী",type:"n.",ex:"It happened a <em>century</em> ago."},
+      {en:"Decade",pron:"ডিকেড",bn:"দশক",type:"n.",ex:"A lot changed in a <em>decade</em>."},
+      {en:"Past",pron:"পাস্ট",bn:"অতীত",type:"n.",ex:"Learn from the <em>past</em>."},
+      {en:"Future",pron:"ফিউচার",bn:"ভবিষ্যৎ",type:"n.",ex:"Plan for the <em>future</em>."},
+      {en:"Present",pron:"প্রেজেন্ট",bn:"বর্তমান",type:"n.",ex:"Live in the <em>present</em>."},
+    ]
+  },
+  {
+    day: 8, topic: "স্থান ও যাতায়াত", level: "basic",
+    words: [
+      {en:"Road",pron:"রোড",bn:"রাস্তা",type:"n.",ex:"The <em>road</em> is very long."},
+      {en:"Bridge",pron:"ব্রিজ",bn:"সেতু / পুল",type:"n.",ex:"We crossed the <em>bridge</em>."},
+      {en:"Market",pron:"মার্কেট",bn:"বাজার",type:"n.",ex:"I go to the <em>market</em> weekly."},
+      {en:"School",pron:"স্কুল",bn:"বিদ্যালয়",type:"n.",ex:"Children go to <em>school</em>."},
+      {en:"Hospital",pron:"হসপিটাল",bn:"হাসপাতাল",type:"n.",ex:"The <em>hospital</em> is nearby."},
+      {en:"Station",pron:"স্টেশন",bn:"স্টেশন",type:"n.",ex:"We waited at the <em>station</em>."},
+      {en:"Bus",pron:"বাস",bn:"বাস",type:"n.",ex:"I take the <em>bus</em> to work."},
+      {en:"Train",pron:"ট্রেইন",bn:"ট্রেন",type:"n.",ex:"The <em>train</em> was on time."},
+      {en:"Car",pron:"কার",bn:"গাড়ি",type:"n.",ex:"He drives his <em>car</em> carefully."},
+      {en:"Walk",pron:"ওয়ক",bn:"হাঁটা",type:"v.",ex:"Let's <em>walk</em> to the park."},
+      {en:"Drive",pron:"ড্রাইভ",bn:"গাড়ি চালানো",type:"v.",ex:"She can <em>drive</em> a car."},
+      {en:"Travel",pron:"ট্র্যাভেল",bn:"ভ্রমণ করা",type:"v.",ex:"I love to <em>travel</em>."},
+      {en:"Near",pron:"নিয়ার",bn:"কাছে",type:"adv.",ex:"The shop is <em>near</em> here."},
+      {en:"Far",pron:"ফার",bn:"দূরে",type:"adv.",ex:"The village is <em>far</em> from here."},
+      {en:"Left",pron:"লেফট",bn:"বাম দিক",type:"n.",ex:"Turn <em>left</em> at the corner."},
+      {en:"Right",pron:"রাইট",bn:"ডান দিক",type:"n.",ex:"Turn <em>right</em> at the signal."},
+      {en:"Straight",pron:"স্ট্রেইট",bn:"সোজা",type:"adv.",ex:"Go <em>straight</em> ahead."},
+      {en:"Park",pron:"পার্ক",bn:"উদ্যান / পার্ক",type:"n.",ex:"Children play in the <em>park</em>."},
+      {en:"Library",pron:"লাইব্রেরি",bn:"গ্রন্থাগার",type:"n.",ex:"I study at the <em>library</em>."},
+      {en:"Airport",pron:"এয়ারপোর্ট",bn:"বিমানবন্দর",type:"n.",ex:"The <em>airport</em> is far away."},
+      {en:"Plane",pron:"প্লেইন",bn:"বিমান",type:"n.",ex:"The <em>plane</em> took off."},
+      {en:"Ship",pron:"শিপ",bn:"জাহাজ",type:"n.",ex:"The <em>ship</em> sailed the ocean."},
+      {en:"Rickshaw",pron:"রিকশা",bn:"রিকশা",type:"n.",ex:"Take a <em>rickshaw</em> to school."},
+      {en:"Motorcycle",pron:"মোটরসাইকেল",bn:"মোটরসাইকেল",type:"n.",ex:"He rides a <em>motorcycle</em>."},
+      {en:"Bicycle",pron:"বাইসাইকেল",bn:"সাইকেল",type:"n.",ex:"She rides a <em>bicycle</em> daily."},
+      {en:"Traffic",pron:"ট্র্যাফিক",bn:"যানজট / যানবাহন",type:"n.",ex:"There is heavy <em>traffic</em>."},
+      {en:"Destination",pron:"ডেস্টিনেশন",bn:"গন্তব্য",type:"n.",ex:"What is your <em>destination</em>?"},
+      {en:"Direction",pron:"ডিরেকশন",bn:"দিক-নির্দেশনা",type:"n.",ex:"Give me <em>directions</em>."},
+      {en:"Post office",pron:"পোস্ট অফিস",bn:"ডাকঘর",type:"n.",ex:"Send it from the <em>post office</em>."},
+      {en:"Police station",pron:"পুলিস স্টেশন",bn:"থানা",type:"n.",ex:"Report at the <em>police station</em>."},
+    ]
+  },
+  {
+    day: 9, topic: "আবেগ ও অনুভূতি", level: "basic",
+    words: [
+      {en:"Happy",pron:"হ্যাপি",bn:"সুখী / আনন্দিত",type:"adj.",ex:"I feel <em>happy</em> today."},
+      {en:"Sad",pron:"স্যাড",bn:"দুঃখী",type:"adj.",ex:"She looks <em>sad</em>."},
+      {en:"Angry",pron:"অ্যাংগ্রি",bn:"রাগান্বিত",type:"adj.",ex:"He was <em>angry</em> with me."},
+      {en:"Scared",pron:"স্কেয়ার্ড",bn:"ভয় পাওয়া",type:"adj.",ex:"She was <em>scared</em> of the dark."},
+      {en:"Excited",pron:"এক্সাইটেড",bn:"উত্তেজিত",type:"adj.",ex:"The children were <em>excited</em>."},
+      {en:"Tired",pron:"টায়ার্ড",bn:"ক্লান্ত",type:"adj.",ex:"I am very <em>tired</em> after work."},
+      {en:"Bored",pron:"বোর্ড",bn:"বিরক্ত",type:"adj.",ex:"He was <em>bored</em> at home."},
+      {en:"Surprised",pron:"সারপ্রাইজড",bn:"অবাক",type:"adj.",ex:"She was <em>surprised</em> by the gift."},
+      {en:"Love",pron:"লাভ",bn:"ভালোবাসা",type:"n./v.",ex:"I <em>love</em> my parents."},
+      {en:"Hope",pron:"হোপ",bn:"আশা",type:"n./v.",ex:"I <em>hope</em> for a better future."},
+      {en:"Fear",pron:"ফিয়ার",bn:"ভয়",type:"n.",ex:"He overcame his <em>fear</em>."},
+      {en:"Joy",pron:"জয়",bn:"আনন্দ",type:"n.",ex:"The <em>joy</em> of winning is great."},
+      {en:"Proud",pron:"প্রাউড",bn:"গর্বিত",type:"adj.",ex:"She is <em>proud</em> of her son."},
+      {en:"Calm",pron:"কাম",bn:"শান্ত",type:"adj.",ex:"Stay <em>calm</em> in difficult times."},
+      {en:"Nervous",pron:"নার্ভাস",bn:"উদ্বিগ্ন",type:"adj.",ex:"I was <em>nervous</em> before the exam."},
+      {en:"Confident",pron:"কনফিডেন্ট",bn:"আত্মবিশ্বাসী",type:"adj.",ex:"Be <em>confident</em> in yourself."},
+      {en:"Lonely",pron:"লোনলি",bn:"একাকী",type:"adj.",ex:"He felt <em>lonely</em> in the city."},
+      {en:"Jealous",pron:"জেলাস",bn:"ঈর্ষান্বিত",type:"adj.",ex:"Don't be <em>jealous</em>."},
+      {en:"Embarrassed",pron:"এমব্যারাসড",bn:"লজ্জিত",type:"adj.",ex:"She was <em>embarrassed</em>."},
+      {en:"Grateful",pron:"গ্রেটফুল",bn:"কৃতজ্ঞ",type:"adj.",ex:"I am very <em>grateful</em>."},
+      {en:"Worried",pron:"ওয়ারিড",bn:"চিন্তিত",type:"adj.",ex:"He looked <em>worried</em>."},
+      {en:"Relieved",pron:"রিলিভড",bn:"স্বস্তি পাওয়া",type:"adj.",ex:"She felt <em>relieved</em> after the exam."},
+      {en:"Frustrated",pron:"ফ্রাস্ট্রেটেড",bn:"হতাশ",type:"adj.",ex:"He was <em>frustrated</em> by the delay."},
+      {en:"Cheerful",pron:"চিয়ারফুল",bn:"প্রফুল্ল",type:"adj.",ex:"She has a <em>cheerful</em> personality."},
+      {en:"Anxious",pron:"অ্যাংশাস",bn:"উদ্বিগ্ন",type:"adj.",ex:"I am <em>anxious</em> about the results."},
+      {en:"Affection",pron:"অ্যাফেকশন",bn:"স্নেহ / ভালোবাসা",type:"n.",ex:"She shows great <em>affection</em>."},
+      {en:"Anger",pron:"অ্যাংগার",bn:"রাগ",type:"n.",ex:"Control your <em>anger</em>."},
+      {en:"Grief",pron:"গ্রিফ",bn:"শোক / বেদনা",type:"n.",ex:"He was overcome by <em>grief</em>."},
+      {en:"Delight",pron:"ডিলাইট",bn:"আনন্দ / তৃপ্তি",type:"n.",ex:"It was a <em>delight</em> to meet you."},
+      {en:"Disgust",pron:"ডিসগাস্ট",bn:"বিতৃষ্ণা",type:"n.",ex:"She felt <em>disgust</em> at the sight."},
+    ]
+  },
+  {
+    day: 10, topic: "পশু-পাখি ও প্রাণী", level: "basic",
+    words: [
+      {en:"Dog",pron:"ডগ",bn:"কুকুর",type:"n.",ex:"The <em>dog</em> barked loudly."},
+      {en:"Cat",pron:"ক্যাট",bn:"বিড়াল",type:"n.",ex:"A <em>cat</em> sat on the roof."},
+      {en:"Bird",pron:"বার্ড",bn:"পাখি",type:"n.",ex:"The <em>bird</em> sang sweetly."},
+      {en:"Fish",pron:"ফিশ",bn:"মাছ (প্রাণী)",type:"n.",ex:"The <em>fish</em> swims fast."},
+      {en:"Cow",pron:"কাউ",bn:"গরু",type:"n.",ex:"A <em>cow</em> gives milk."},
+      {en:"Goat",pron:"গোট",bn:"ছাগল",type:"n.",ex:"A <em>goat</em> eats grass."},
+      {en:"Chicken",pron:"চিকেন",bn:"মুরগি",type:"n.",ex:"The <em>chicken</em> laid an egg."},
+      {en:"Tiger",pron:"টাইগার",bn:"বাঘ",type:"n.",ex:"The <em>tiger</em> is our national animal."},
+      {en:"Lion",pron:"লায়ন",bn:"সিংহ",type:"n.",ex:"The <em>lion</em> is called the king."},
+      {en:"Elephant",pron:"এলিফ্যান্ট",bn:"হাতি",type:"n.",ex:"An <em>elephant</em> has a long trunk."},
+      {en:"Snake",pron:"স্নেইক",bn:"সাপ",type:"n.",ex:"A <em>snake</em> has no legs."},
+      {en:"Monkey",pron:"মাংকি",bn:"বানর",type:"n.",ex:"The <em>monkey</em> climbed the tree."},
+      {en:"Butterfly",pron:"বাটারফ্লাই",bn:"প্রজাপতি",type:"n.",ex:"A <em>butterfly</em> landed on the flower."},
+      {en:"Parrot",pron:"প্যারট",bn:"টিয়া পাখি",type:"n.",ex:"The <em>parrot</em> can speak."},
+      {en:"Domestic",pron:"ডমেস্টিক",bn:"গৃহপালিত",type:"adj.",ex:"Cows are <em>domestic</em> animals."},
+      {en:"Wild",pron:"ওয়াইল্ড",bn:"বন্য",type:"adj.",ex:"Tigers are <em>wild</em> animals."},
+      {en:"Horse",pron:"হর্স",bn:"ঘোড়া",type:"n.",ex:"The <em>horse</em> ran fast."},
+      {en:"Duck",pron:"ডাক",bn:"হাঁস",type:"n.",ex:"The <em>duck</em> swam in the pond."},
+      {en:"Rabbit",pron:"র‍্যাবিট",bn:"খরগোশ",type:"n.",ex:"A <em>rabbit</em> has long ears."},
+      {en:"Bear",pron:"বেয়ার",bn:"ভাল্লুক",type:"n.",ex:"The <em>bear</em> lives in the forest."},
+      {en:"Deer",pron:"ডিয়ার",bn:"হরিণ",type:"n.",ex:"A <em>deer</em> ran across the road."},
+      {en:"Fox",pron:"ফক্স",bn:"শিয়াল",type:"n.",ex:"The <em>fox</em> is very clever."},
+      {en:"Crocodile",pron:"ক্রকোডাইল",bn:"কুমির",type:"n.",ex:"A <em>crocodile</em> lives near water."},
+      {en:"Frog",pron:"ফ্রগ",bn:"ব্যাঙ",type:"n.",ex:"Frogs croak after rain."},
+      {en:"Owl",pron:"আউল",bn:"পেঁচা",type:"n.",ex:"The <em>owl</em> hunts at night."},
+      {en:"Pigeon",pron:"পিজন",bn:"কবুতর",type:"n.",ex:"A <em>pigeon</em> sat on the roof."},
+      {en:"Crow",pron:"ক্রো",bn:"কাক",type:"n.",ex:"A <em>crow</em> is a clever bird."},
+      {en:"Eagle",pron:"ঈগল",bn:"ঈগল পাখি",type:"n.",ex:"The <em>eagle</em> soared high."},
+      {en:"Mosquito",pron:"মস্কিটো",bn:"মশা",type:"n.",ex:"A <em>mosquito</em> bit me."},
+      {en:"Insect",pron:"ইনসেক্ট",bn:"পোকামাকড়",type:"n.",ex:"Many <em>insects</em> live in the soil."},
+    ]
+  },
+  {
+    day: 11, topic: "শিক্ষা ও পাঠ্যক্রম", level: "intermediate",
+    words: [
+      {en:"Study",pron:"স্টাডি",bn:"পড়াশোনা করা",type:"v.",ex:"I <em>study</em> every evening."},
+      {en:"Learn",pron:"লার্ন",bn:"শেখা",type:"v.",ex:"She loves to <em>learn</em> new things."},
+      {en:"Teach",pron:"টিচ",bn:"শেখানো",type:"v.",ex:"He wants to <em>teach</em> mathematics."},
+      {en:"Exam",pron:"এগজ্যাম",bn:"পরীক্ষা",type:"n.",ex:"The <em>exam</em> is next week."},
+      {en:"Result",pron:"রেজাল্ট",bn:"ফলাফল",type:"n.",ex:"The <em>result</em> will be published soon."},
+      {en:"Pass",pron:"পাস",bn:"পাস করা",type:"v.",ex:"She <em>passed</em> the exam easily."},
+      {en:"Fail",pron:"ফেইল",bn:"ফেল করা",type:"v.",ex:"He <em>failed</em> but didn't give up."},
+      {en:"Knowledge",pron:"নলেজ",bn:"জ্ঞান",type:"n.",ex:"<em>Knowledge</em> is power."},
+      {en:"Skill",pron:"স্কিল",bn:"দক্ষতা",type:"n.",ex:"He has great writing <em>skills</em>."},
+      {en:"Subject",pron:"সাবজেক্ট",bn:"বিষয়",type:"n.",ex:"My favorite <em>subject</em> is science."},
+      {en:"Lesson",pron:"লেসন",bn:"পাঠ",type:"n.",ex:"Today's <em>lesson</em> was interesting."},
+      {en:"Homework",pron:"হোমওয়ার্ক",bn:"বাড়ির কাজ",type:"n.",ex:"Did you finish your <em>homework</em>?"},
+      {en:"Certificate",pron:"সার্টিফিকেট",bn:"সার্টিফিকেট",type:"n.",ex:"She got a <em>certificate</em>."},
+      {en:"Scholarship",pron:"স্কলারশিপ",bn:"বৃত্তি",type:"n.",ex:"He won a <em>scholarship</em>."},
+      {en:"Degree",pron:"ডিগ্রি",bn:"ডিগ্রি",type:"n.",ex:"She has a <em>degree</em> in English."},
+      {en:"Curriculum",pron:"কারিকুলাম",bn:"পাঠ্যক্রম",type:"n.",ex:"The new <em>curriculum</em> is challenging."},
+      {en:"Classroom",pron:"ক্লাসরুম",bn:"শ্রেণিকক্ষ",type:"n.",ex:"The <em>classroom</em> is clean."},
+      {en:"Teacher",pron:"টিচার",bn:"শিক্ষক",type:"n.",ex:"The <em>teacher</em> explained clearly."},
+      {en:"Student",pron:"স্টুডেন্ট",bn:"ছাত্র/ছাত্রী",type:"n.",ex:"The <em>student</em> raised his hand."},
+      {en:"University",pron:"ইউনিভার্সিটি",bn:"বিশ্ববিদ্যালয়",type:"n.",ex:"She studies at a <em>university</em>."},
+      {en:"College",pron:"কলেজ",bn:"কলেজ",type:"n.",ex:"He got admitted to a <em>college</em>."},
+      {en:"Textbook",pron:"টেক্সটবুক",bn:"পাঠ্যপুস্তক",type:"n.",ex:"Open your <em>textbook</em>."},
+      {en:"Notebook",pron:"নোটবুক",bn:"খাতা",type:"n.",ex:"Write in your <em>notebook</em>."},
+      {en:"Pen",pron:"পেন",bn:"কলম",type:"n.",ex:"Lend me your <em>pen</em>."},
+      {en:"Pencil",pron:"পেন্সিল",bn:"পেন্সিল",type:"n.",ex:"Draw with a <em>pencil</em> first."},
+      {en:"Assignment",pron:"অ্যাসাইনমেন্ট",bn:"অ্যাসাইনমেন্ট",type:"n.",ex:"Submit your <em>assignment</em> by Friday."},
+      {en:"Grade",pron:"গ্রেড",bn:"গ্রেড / নম্বর",type:"n.",ex:"She got a good <em>grade</em>."},
+      {en:"Concentration",pron:"কনসেন্ট্রেশন",bn:"মনোযোগ",type:"n.",ex:"Good <em>concentration</em> helps learning."},
+      {en:"Practice",pron:"প্র্যাকটিস",bn:"অনুশীলন",type:"n.",ex:"Daily <em>practice</em> makes perfect."},
+      {en:"Tuition",pron:"টিউশন",bn:"টিউশন / প্রাইভেট পড়া",type:"n.",ex:"She goes for <em>tuition</em> after school."},
+    ]
+  },
+  {
+    day: 12, topic: "পেশা ও কর্মজীবন", level: "intermediate",
+    words: [
+      {en:"Job",pron:"জব",bn:"চাকরি",type:"n.",ex:"He got a new <em>job</em>."},
+      {en:"Work",pron:"ওয়ার্ক",bn:"কাজ",type:"n./v.",ex:"She <em>works</em> hard every day."},
+      {en:"Office",pron:"অফিস",bn:"অফিস",type:"n.",ex:"I go to the <em>office</em> by bus."},
+      {en:"Salary",pron:"স্যালারি",bn:"বেতন",type:"n.",ex:"His <em>salary</em> increased this year."},
+      {en:"Business",pron:"বিজনেস",bn:"ব্যবসা",type:"n.",ex:"She started her own <em>business</em>."},
+      {en:"Manager",pron:"ম্যানেজার",bn:"ম্যানেজার",type:"n.",ex:"The <em>manager</em> is very strict."},
+      {en:"Employee",pron:"এমপ্লয়ি",bn:"কর্মচারী",type:"n.",ex:"He is a loyal <em>employee</em>."},
+      {en:"Engineer",pron:"ইঞ্জিনিয়ার",bn:"প্রকৌশলী",type:"n.",ex:"She is a software <em>engineer</em>."},
+      {en:"Lawyer",pron:"লইয়ার",bn:"আইনজীবী",type:"n.",ex:"He became a successful <em>lawyer</em>."},
+      {en:"Accountant",pron:"অ্যাকাউন্ট্যান্ট",bn:"হিসাবরক্ষক",type:"n.",ex:"The <em>accountant</em> checked the records."},
+      {en:"Experience",pron:"এক্সপেরিয়েন্স",bn:"অভিজ্ঞতা",type:"n.",ex:"She has ten years of <em>experience</em>."},
+      {en:"Interview",pron:"ইন্টারভিউ",bn:"ইন্টারভিউ",type:"n.",ex:"He passed the <em>interview</em>."},
+      {en:"Promote",pron:"প্রোমোট",bn:"পদোন্নতি দেওয়া",type:"v.",ex:"She was <em>promoted</em> to senior level."},
+      {en:"Resign",pron:"রিজাইন",bn:"পদত্যাগ করা",type:"v.",ex:"He decided to <em>resign</em>."},
+      {en:"Profession",pron:"প্রফেশন",bn:"পেশা",type:"n.",ex:"Teaching is a noble <em>profession</em>."},
+      {en:"Career",pron:"ক্যারিয়ার",bn:"ক্যারিয়ার",type:"n.",ex:"Build a successful <em>career</em>."},
+      {en:"Employer",pron:"এমপ্লয়ার",bn:"নিয়োগকর্তা",type:"n.",ex:"The <em>employer</em> offered good pay."},
+      {en:"Colleague",pron:"কলিগ",bn:"সহকর্মী",type:"n.",ex:"My <em>colleague</em> helped me."},
+      {en:"Department",pron:"ডিপার্টমেন্ট",bn:"বিভাগ",type:"n.",ex:"She works in the HR <em>department</em>."},
+      {en:"Deadline",pron:"ডেডলাইন",bn:"সময়সীমা",type:"n.",ex:"Meet the <em>deadline</em>."},
+      {en:"Meeting",pron:"মিটিং",bn:"সভা / মিটিং",type:"n.",ex:"We have a <em>meeting</em> at noon."},
+      {en:"Project",pron:"প্রজেক্ট",bn:"প্রকল্প",type:"n.",ex:"The <em>project</em> was completed on time."},
+      {en:"Teamwork",pron:"টিমওয়ার্ক",bn:"দলগত কাজ",type:"n.",ex:"<em>Teamwork</em> makes the dream work."},
+      {en:"Overtime",pron:"ওভারটাইম",bn:"অতিরিক্ত সময়",type:"n.",ex:"She worked <em>overtime</em> this week."},
+      {en:"Training",pron:"ট্রেনিং",bn:"প্রশিক্ষণ",type:"n.",ex:"Attend the <em>training</em> session."},
+      {en:"Performance",pron:"পার্ফরম্যান্স",bn:"কর্মদক্ষতা",type:"n.",ex:"Her <em>performance</em> is excellent."},
+      {en:"Bonus",pron:"বোনাস",bn:"বোনাস",type:"n.",ex:"He received a year-end <em>bonus</em>."},
+      {en:"Retirement",pron:"রিটায়ারমেন্ট",bn:"অবসর",type:"n.",ex:"He is planning for <em>retirement</em>."},
+      {en:"Freelance",pron:"ফ্রিল্যান্স",bn:"মুক্ত পেশাজীবী",type:"adj.",ex:"She works as a <em>freelance</em> writer."},
+      {en:"Recruit",pron:"রিক্রুট",bn:"নিয়োগ করা",type:"v.",ex:"They <em>recruited</em> ten new staff."},
+    ]
+  },
+  {
+    day: 13, topic: "প্রকৃতি ও আবহাওয়া", level: "intermediate",
+    words: [
+      {en:"Rain",pron:"রেইন",bn:"বৃষ্টি",type:"n.",ex:"It will <em>rain</em> today."},
+      {en:"Storm",pron:"স্টর্ম",bn:"ঝড়",type:"n.",ex:"A big <em>storm</em> is coming."},
+      {en:"Wind",pron:"উইন্ড",bn:"বাতাস",type:"n.",ex:"The <em>wind</em> blew strongly."},
+      {en:"Cloud",pron:"ক্লাউড",bn:"মেঘ",type:"n.",ex:"Dark <em>clouds</em> filled the sky."},
+      {en:"Sunlight",pron:"সানলাইট",bn:"সূর্যালোক",type:"n.",ex:"<em>Sunlight</em> gives us energy."},
+      {en:"Shadow",pron:"শ্যাডো",bn:"ছায়া",type:"n.",ex:"Rest in the <em>shadow</em> of a tree."},
+      {en:"River",pron:"রিভার",bn:"নদী",type:"n.",ex:"The <em>river</em> flooded the fields."},
+      {en:"Mountain",pron:"মাউন্টেন",bn:"পাহাড় / পর্বত",type:"n.",ex:"We hiked up the <em>mountain</em>."},
+      {en:"Forest",pron:"ফরেস্ট",bn:"বন / অরণ্য",type:"n.",ex:"The <em>forest</em> is full of trees."},
+      {en:"Ocean",pron:"ওশান",bn:"মহাসমুদ্র",type:"n.",ex:"Ships sail across the <em>ocean</em>."},
+      {en:"Temperature",pron:"টেম্পারেচার",bn:"তাপমাত্রা",type:"n.",ex:"The <em>temperature</em> dropped last night."},
+      {en:"Humid",pron:"হিউমিড",bn:"আর্দ্র",type:"adj.",ex:"The weather is <em>humid</em>."},
+      {en:"Drought",pron:"ড্রাউট",bn:"খরা",type:"n.",ex:"The <em>drought</em> killed the crops."},
+      {en:"Flood",pron:"ফ্লাড",bn:"বন্যা",type:"n.",ex:"The <em>flood</em> destroyed many homes."},
+      {en:"Earthquake",pron:"আর্থকোয়েক",bn:"ভূমিকম্প",type:"n.",ex:"An <em>earthquake</em> hit the city."},
+      {en:"Climate",pron:"ক্লাইমেট",bn:"জলবায়ু",type:"n.",ex:"<em>Climate</em> change is a serious issue."},
+      {en:"Snow",pron:"স্নো",bn:"তুষার / বরফ",type:"n.",ex:"It snowed heavily last night."},
+      {en:"Thunder",pron:"থান্ডার",bn:"বজ্রপাত",type:"n.",ex:"The <em>thunder</em> was very loud."},
+      {en:"Lightning",pron:"লাইটনিং",bn:"বিদ্যুৎ চমক",type:"n.",ex:"<em>Lightning</em> struck the tree."},
+      {en:"Fog",pron:"ফগ",bn:"কুয়াশা",type:"n.",ex:"Thick <em>fog</em> covered the road."},
+      {en:"Dew",pron:"ডিউ",bn:"শিশির",type:"n.",ex:"The grass was wet with <em>dew</em>."},
+      {en:"Tide",pron:"টাইড",bn:"জোয়ার-ভাটা",type:"n.",ex:"The <em>tide</em> came in at night."},
+      {en:"Volcano",pron:"ভলক্যানো",bn:"আগ্নেয়গিরি",type:"n.",ex:"The <em>volcano</em> erupted."},
+      {en:"Desert",pron:"ডেজার্ট",bn:"মরুভূমি",type:"n.",ex:"A <em>desert</em> has very little water."},
+      {en:"Horizon",pron:"হরাইজন",bn:"দিগন্ত",type:"n.",ex:"The sun set at the <em>horizon</em>."},
+      {en:"Atmosphere",pron:"অ্যাটমোস্ফেয়ার",bn:"বায়ুমণ্ডল",type:"n.",ex:"The <em>atmosphere</em> protects us."},
+      {en:"Season",pron:"সিজন",bn:"ঋতু",type:"n.",ex:"Summer is my favorite <em>season</em>."},
+      {en:"Cyclone",pron:"সাইক্লোন",bn:"ঘূর্ণিঝড়",type:"n.",ex:"A <em>cyclone</em> hit the coast."},
+      {en:"Rainbow",pron:"রেইনবো",bn:"রংধনু",type:"n.",ex:"A <em>rainbow</em> appeared after the rain."},
+      {en:"Waterfall",pron:"ওয়াটারফল",bn:"জলপ্রপাত",type:"n.",ex:"The <em>waterfall</em> was beautiful."},
+    ]
+  },
+  {
+    day: 14, topic: "কেনাকাটা ও অর্থ", level: "intermediate",
+    words: [
+      {en:"Buy",pron:"বাই",bn:"কেনা",type:"v.",ex:"I want to <em>buy</em> a book."},
+      {en:"Sell",pron:"সেল",bn:"বেচা",type:"v.",ex:"He <em>sells</em> vegetables."},
+      {en:"Price",pron:"প্রাইস",bn:"দাম",type:"n.",ex:"What is the <em>price</em> of this?"},
+      {en:"Cheap",pron:"চিপ",bn:"সস্তা",type:"adj.",ex:"This shirt is very <em>cheap</em>."},
+      {en:"Expensive",pron:"এক্সপেন্সিভ",bn:"দামী / ব্যয়বহুল",type:"adj.",ex:"That car is too <em>expensive</em>."},
+      {en:"Discount",pron:"ডিসকাউন্ট",bn:"ছাড়",type:"n.",ex:"They gave a 20% <em>discount</em>."},
+      {en:"Receipt",pron:"রিসিট",bn:"রসিদ",type:"n.",ex:"Keep the <em>receipt</em> safely."},
+      {en:"Currency",pron:"কারেন্সি",bn:"মুদ্রা",type:"n.",ex:"What is the local <em>currency</em>?"},
+      {en:"Bank",pron:"ব্যাংক",bn:"ব্যাংক",type:"n.",ex:"I went to the <em>bank</em>."},
+      {en:"Loan",pron:"লোন",bn:"ঋণ",type:"n.",ex:"He took a <em>loan</em> for his business."},
+      {en:"Savings",pron:"সেভিংস",bn:"সঞ্চয়",type:"n.",ex:"She has good <em>savings</em>."},
+      {en:"Budget",pron:"বাজেট",bn:"বাজেট",type:"n.",ex:"Plan your monthly <em>budget</em>."},
+      {en:"Invest",pron:"ইনভেস্ট",bn:"বিনিয়োগ করা",type:"v.",ex:"<em>Invest</em> wisely for the future."},
+      {en:"Profit",pron:"প্রফিট",bn:"লাভ",type:"n.",ex:"The shop made good <em>profit</em>."},
+      {en:"Loss",pron:"লস",bn:"ক্ষতি",type:"n.",ex:"He suffered a big <em>loss</em>."},
+      {en:"Transaction",pron:"ট্র্যানজেকশন",bn:"লেনদেন",type:"n.",ex:"The <em>transaction</em> was successful."},
+      {en:"Cash",pron:"ক্যাশ",bn:"নগদ টাকা",type:"n.",ex:"Pay in <em>cash</em>."},
+      {en:"ATM",pron:"এটিএম",bn:"এটিএম",type:"n.",ex:"Withdraw money from the <em>ATM</em>."},
+      {en:"Credit",pron:"ক্রেডিট",bn:"ক্রেডিট / ধার",type:"n.",ex:"She has a good <em>credit</em> score."},
+      {en:"Invoice",pron:"ইনভয়েস",bn:"চালান",type:"n.",ex:"Send the <em>invoice</em> by email."},
+      {en:"Tax",pron:"ট্যাক্স",bn:"কর",type:"n.",ex:"Pay your <em>tax</em> on time."},
+      {en:"Refund",pron:"রিফান্ড",bn:"ফেরত",type:"n.",ex:"She got a <em>refund</em>."},
+      {en:"Bargain",pron:"বার্গেইন",bn:"দর কষাকষি",type:"n./v.",ex:"They reached a good <em>bargain</em>."},
+      {en:"Afford",pron:"অ্যাফোর্ড",bn:"সামর্থ্য থাকা",type:"v.",ex:"I can't <em>afford</em> this."},
+      {en:"Wage",pron:"ওয়েজ",bn:"মজুরি",type:"n.",ex:"The workers demanded higher <em>wages</em>."},
+      {en:"Interest",pron:"ইন্টারেস্ট",bn:"সুদ",type:"n.",ex:"The <em>interest</em> rate is high."},
+      {en:"Charity",pron:"চ্যারিটি",bn:"দাতব্য কাজ",type:"n.",ex:"Donate to a <em>charity</em>."},
+      {en:"Expense",pron:"এক্সপেন্স",bn:"খরচ",type:"n.",ex:"Reduce your monthly <em>expenses</em>."},
+      {en:"Cheque",pron:"চেক",bn:"চেক",type:"n.",ex:"He wrote a <em>cheque</em>."},
+      {en:"Subsidy",pron:"সাবসিডি",bn:"ভর্তুকি",type:"n.",ex:"The farmer got a <em>subsidy</em>."},
+    ]
+  },
+  {
+    day: 15, topic: "প্রযুক্তি ও ইন্টারনেট", level: "intermediate",
+    words: [
+      {en:"Computer",pron:"কম্পিউটার",bn:"কম্পিউটার",type:"n.",ex:"She works on a <em>computer</em>."},
+      {en:"Internet",pron:"ইন্টারনেট",bn:"ইন্টারনেট",type:"n.",ex:"The <em>internet</em> connects the world."},
+      {en:"Website",pron:"ওয়েবসাইট",bn:"ওয়েবসাইট",type:"n.",ex:"Visit our <em>website</em> for more."},
+      {en:"Download",pron:"ডাউনলোড",bn:"ডাউনলোড করা",type:"v.",ex:"<em>Download</em> the app from the store."},
+      {en:"Upload",pron:"আপলোড",bn:"আপলোড করা",type:"v.",ex:"<em>Upload</em> your documents here."},
+      {en:"Software",pron:"সফটওয়্যার",bn:"সফটওয়্যার",type:"n.",ex:"Update the <em>software</em> regularly."},
+      {en:"Password",pron:"পাসওয়ার্ড",bn:"পাসওয়ার্ড",type:"n.",ex:"Never share your <em>password</em>."},
+      {en:"Email",pron:"ই-মেইল",bn:"ই-মেইল",type:"n.",ex:"Send me an <em>email</em>."},
+      {en:"Message",pron:"মেসেজ",bn:"বার্তা",type:"n.",ex:"I got your <em>message</em>."},
+      {en:"Device",pron:"ডিভাইস",bn:"ডিভাইস / যন্ত্র",type:"n.",ex:"This is a smart <em>device</em>."},
+      {en:"Screen",pron:"স্ক্রিন",bn:"স্ক্রিন / পর্দা",type:"n.",ex:"The <em>screen</em> is cracked."},
+      {en:"Network",pron:"নেটওয়ার্ক",bn:"নেটওয়ার্ক",type:"n.",ex:"The <em>network</em> is slow."},
+      {en:"Digital",pron:"ডিজিটাল",bn:"ডিজিটাল",type:"adj.",ex:"We live in a <em>digital</em> age."},
+      {en:"Artificial Intelligence",pron:"আর্টিফিশাল ইন্টেলিজেন্স",bn:"কৃত্রিম বুদ্ধিমত্তা",type:"n.",ex:"<em>AI</em> is changing the world."},
+      {en:"Data",pron:"ডেটা",bn:"তথ্য / ডেটা",type:"n.",ex:"Keep your <em>data</em> safe."},
+      {en:"Algorithm",pron:"অ্যালগরিদম",bn:"অ্যালগরিদম",type:"n.",ex:"An <em>algorithm</em> solves the problem."},
+      {en:"Application",pron:"অ্যাপ্লিকেশন",bn:"অ্যাপ",type:"n.",ex:"Install the <em>application</em>."},
+      {en:"Keyboard",pron:"কিবোর্ড",bn:"কিবোর্ড",type:"n.",ex:"Type on the <em>keyboard</em>."},
+      {en:"Server",pron:"সার্ভার",bn:"সার্ভার",type:"n.",ex:"The <em>server</em> is down."},
+      {en:"Backup",pron:"ব্যাকআপ",bn:"ব্যাকআপ",type:"n.",ex:"Take a <em>backup</em> of your files."},
+      {en:"Virus",pron:"ভাইরাস",bn:"ভাইরাস (কম্পিউটার)",type:"n.",ex:"A <em>virus</em> damaged the system."},
+      {en:"Security",pron:"সিকিউরিটি",bn:"নিরাপত্তা",type:"n.",ex:"Enable two-factor <em>security</em>."},
+      {en:"Wireless",pron:"ওয়্যারলেস",bn:"তারবিহীন",type:"adj.",ex:"We use <em>wireless</em> headphones."},
+      {en:"Bluetooth",pron:"ব্লুটুথ",bn:"ব্লুটুথ",type:"n.",ex:"Connect via <em>Bluetooth</em>."},
+      {en:"Charge",pron:"চার্জ",bn:"চার্জ দেওয়া",type:"v.",ex:"<em>Charge</em> your phone."},
+      {en:"Battery",pron:"ব্যাটারি",bn:"ব্যাটারি",type:"n.",ex:"The <em>battery</em> is low."},
+      {en:"Notification",pron:"নোটিফিকেশন",bn:"বিজ্ঞপ্তি",type:"n.",ex:"Turn off <em>notifications</em>."},
+      {en:"Social media",pron:"সোশ্যাল মিডিয়া",bn:"সামাজিক যোগাযোগমাধ্যম",type:"n.",ex:"Limit <em>social media</em> use."},
+      {en:"Printer",pron:"প্রিন্টার",bn:"প্রিন্টার",type:"n.",ex:"Use the <em>printer</em> to print."},
+      {en:"Mouse",pron:"মাউস",bn:"মাউস",type:"n.",ex:"Click the <em>mouse</em>."},
+    ]
+  },
+  {
+    day: 16, topic: "ভ্রমণ ও পর্যটন", level: "intermediate",
+    words: [
+      {en:"Journey",pron:"জার্নি",bn:"যাত্রা / সফর",type:"n.",ex:"The <em>journey</em> was enjoyable."},
+      {en:"Passport",pron:"পাসপোর্ট",bn:"পাসপোর্ট",type:"n.",ex:"Keep your <em>passport</em> safe."},
+      {en:"Visa",pron:"ভিসা",bn:"ভিসা",type:"n.",ex:"She applied for a <em>visa</em>."},
+      {en:"Hotel",pron:"হোটেল",bn:"হোটেল",type:"n.",ex:"We stayed at a nice <em>hotel</em>."},
+      {en:"Sightseeing",pron:"সাইটসিয়িং",bn:"দর্শনীয় স্থান পরিদর্শন",type:"n.",ex:"We went <em>sightseeing</em> all day."},
+      {en:"Tourist",pron:"টুরিস্ট",bn:"পর্যটক",type:"n.",ex:"Many <em>tourists</em> visit Cox's Bazar."},
+      {en:"Guide",pron:"গাইড",bn:"পথপ্রদর্শক",type:"n.",ex:"The <em>guide</em> showed us around."},
+      {en:"Map",pron:"ম্যাপ",bn:"মানচিত্র",type:"n.",ex:"We used a <em>map</em> to navigate."},
+      {en:"Booking",pron:"বুকিং",bn:"বুকিং",type:"n.",ex:"I made a hotel <em>booking</em>."},
+      {en:"Adventure",pron:"অ্যাডভেঞ্চার",bn:"অ্যাডভেঞ্চার",type:"n.",ex:"Trekking is a great <em>adventure</em>."},
+      {en:"Luggage",pron:"লাগেজ",bn:"মালপত্র / ব্যাগেজ",type:"n.",ex:"Don't lose your <em>luggage</em>."},
+      {en:"Accommodation",pron:"অ্যাকমোডেশন",bn:"আবাসন",type:"n.",ex:"Find cheap <em>accommodation</em>."},
+      {en:"Explore",pron:"এক্সপ্লোর",bn:"অন্বেষণ করা",type:"v.",ex:"Let's <em>explore</em> the city."},
+      {en:"Culture",pron:"কালচার",bn:"সংস্কৃতি",type:"n.",ex:"Learn about the local <em>culture</em>."},
+      {en:"Souvenir",pron:"সুভেনির",bn:"স্মারক উপহার",type:"n.",ex:"Buy a <em>souvenir</em>."},
+      {en:"Itinerary",pron:"আইটিনেরারি",bn:"সফর পরিকল্পনা",type:"n.",ex:"Plan your <em>itinerary</em>."},
+      {en:"Customs",pron:"কাস্টমস",bn:"শুল্ক বিভাগ",type:"n.",ex:"Pass through <em>customs</em>."},
+      {en:"Immigration",pron:"ইমিগ্রেশন",bn:"অভিবাসন",type:"n.",ex:"Stand in the <em>immigration</em> queue."},
+      {en:"Departure",pron:"ডিপার্চার",bn:"প্রস্থান",type:"n.",ex:"The <em>departure</em> is at 6 AM."},
+      {en:"Arrival",pron:"অ্যারাইভাল",bn:"আগমন",type:"n.",ex:"<em>Arrival</em> time is 9 PM."},
+      {en:"Transit",pron:"ট্র্যানজিট",bn:"ট্রানজিট",type:"n.",ex:"We had a <em>transit</em> in Dubai."},
+      {en:"Ticket",pron:"টিকেট",bn:"টিকেট",type:"n.",ex:"Buy a <em>ticket</em> online."},
+      {en:"Backpack",pron:"ব্যাকপ্যাক",bn:"ব্যাকপ্যাক",type:"n.",ex:"Pack your <em>backpack</em> lightly."},
+      {en:"Reservation",pron:"রিজার্ভেশন",bn:"আগাম বুকিং",type:"n.",ex:"Make a <em>reservation</em> in advance."},
+      {en:"Heritage",pron:"হেরিটেজ",bn:"ঐতিহ্য",type:"n.",ex:"Visit the <em>heritage</em> site."},
+      {en:"Landmark",pron:"ল্যান্ডমার্ক",bn:"বিখ্যাত স্থান",type:"n.",ex:"The mosque is a famous <em>landmark</em>."},
+      {en:"Photography",pron:"ফটোগ্রাফি",bn:"ফটোগ্রাফি",type:"n.",ex:"He loves travel <em>photography</em>."},
+      {en:"Currency exchange",pron:"কারেন্সি এক্সচেঞ্জ",bn:"মুদ্রা বিনিময়",type:"n.",ex:"Find a <em>currency exchange</em> counter."},
+      {en:"Destination",pron:"ডেস্টিনেশন",bn:"গন্তব্য",type:"n.",ex:"What is your final <em>destination</em>?"},
+      {en:"Trek",pron:"ট্রেক",bn:"পায়ে হেঁটে ভ্রমণ",type:"v.",ex:"We <em>trekked</em> through the hills."},
+    ]
+  },
+  {
+    day: 17, topic: "বিজ্ঞান ও গবেষণা", level: "intermediate",
+    words: [
+      {en:"Science",pron:"সায়েন্স",bn:"বিজ্ঞান",type:"n.",ex:"<em>Science</em> explains the world."},
+      {en:"Experiment",pron:"এক্সপেরিমেন্ট",bn:"পরীক্ষা-নিরীক্ষা",type:"n.",ex:"We did an <em>experiment</em> in the lab."},
+      {en:"Theory",pron:"থিওরি",bn:"তত্ত্ব",type:"n.",ex:"He developed a new <em>theory</em>."},
+      {en:"Research",pron:"রিসার্চ",bn:"গবেষণা",type:"n.",ex:"Her <em>research</em> was published."},
+      {en:"Discovery",pron:"ডিসকভারি",bn:"আবিষ্কার",type:"n.",ex:"It was a major <em>discovery</em>."},
+      {en:"Evidence",pron:"এভিডেন্স",bn:"প্রমাণ",type:"n.",ex:"There is strong <em>evidence</em>."},
+      {en:"Hypothesis",pron:"হাইপোথেসিস",bn:"অনুকল্প",type:"n.",ex:"Test your <em>hypothesis</em> carefully."},
+      {en:"Analysis",pron:"অ্যানালাইসিস",bn:"বিশ্লেষণ",type:"n.",ex:"The <em>analysis</em> was thorough."},
+      {en:"Laboratory",pron:"ল্যাবরেটরি",bn:"গবেষণাগার",type:"n.",ex:"She works in a <em>laboratory</em>."},
+      {en:"Chemical",pron:"কেমিকাল",bn:"রাসায়নিক",type:"n.",ex:"Handle <em>chemicals</em> with care."},
+      {en:"Energy",pron:"এনার্জি",bn:"শক্তি",type:"n.",ex:"Solar <em>energy</em> is clean."},
+      {en:"Evolution",pron:"ইভোলিউশন",bn:"বিবর্তন",type:"n.",ex:"Darwin's theory of <em>evolution</em>."},
+      {en:"Gravity",pron:"গ্র্যাভিটি",bn:"মাধ্যাকর্ষণ",type:"n.",ex:"<em>Gravity</em> keeps us on earth."},
+      {en:"Molecule",pron:"মলিকিউল",bn:"অণু",type:"n.",ex:"Water has two hydrogen <em>molecules</em>."},
+      {en:"Microscope",pron:"মাইক্রোস্কোপ",bn:"অণুবীক্ষণ যন্ত্র",type:"n.",ex:"Use a <em>microscope</em> to see bacteria."},
+      {en:"Atom",pron:"অ্যাটম",bn:"পরমাণু",type:"n.",ex:"An <em>atom</em> is the smallest unit."},
+      {en:"Electricity",pron:"ইলেক্ট্রিসিটি",bn:"বিদ্যুৎ",type:"n.",ex:"<em>Electricity</em> powers our homes."},
+      {en:"Magnet",pron:"ম্যাগনেট",bn:"চুম্বক",type:"n.",ex:"A <em>magnet</em> attracts iron."},
+      {en:"Telescope",pron:"টেলিস্কোপ",bn:"দূরবীক্ষণ যন্ত্র",type:"n.",ex:"He looked through the <em>telescope</em>."},
+      {en:"Biology",pron:"বায়োলজি",bn:"জীববিজ্ঞান",type:"n.",ex:"She studies <em>biology</em>."},
+      {en:"Chemistry",pron:"কেমিস্ট্রি",bn:"রসায়নবিজ্ঞান",type:"n.",ex:"<em>Chemistry</em> is fascinating."},
+      {en:"Physics",pron:"ফিজিক্স",bn:"পদার্থবিজ্ঞান",type:"n.",ex:"<em>Physics</em> explains forces."},
+      {en:"Mathematics",pron:"ম্যাথেমেটিক্স",bn:"গণিত",type:"n.",ex:"<em>Mathematics</em> is logical."},
+      {en:"Observation",pron:"অবজার্ভেশন",bn:"পর্যবেক্ষণ",type:"n.",ex:"Careful <em>observation</em> is key."},
+      {en:"Conclusion",pron:"কনক্লুশন",bn:"উপসংহার",type:"n.",ex:"Draw a <em>conclusion</em> from the data."},
+      {en:"Innovation",pron:"ইনোভেশন",bn:"উদ্ভাবন",type:"n.",ex:"<em>Innovation</em> drives progress."},
+      {en:"Genetics",pron:"জেনেটিক্স",bn:"জিনতত্ত্ব",type:"n.",ex:"<em>Genetics</em> studies heredity."},
+      {en:"Radiation",pron:"রেডিয়েশন",bn:"বিকিরণ",type:"n.",ex:"Avoid harmful <em>radiation</em>."},
+      {en:"Equation",pron:"ইকুয়েশন",bn:"সমীকরণ",type:"n.",ex:"Solve the <em>equation</em>."},
+      {en:"Nucleus",pron:"নিউক্লিয়াস",bn:"নিউক্লিয়াস",type:"n.",ex:"The <em>nucleus</em> is the cell's center."},
+    ]
+  },
+  {
+    day: 18, topic: "খেলাধুলা ও বিনোদন", level: "intermediate",
+    words: [
+      {en:"Sports",pron:"স্পোর্টস",bn:"খেলাধুলা",type:"n.",ex:"<em>Sports</em> keep us fit."},
+      {en:"Cricket",pron:"ক্রিকেট",bn:"ক্রিকেট",type:"n.",ex:"Bangladesh loves <em>cricket</em>."},
+      {en:"Football",pron:"ফুটবল",bn:"ফুটবল",type:"n.",ex:"He plays <em>football</em> every evening."},
+      {en:"Tournament",pron:"টুর্নামেন্ট",bn:"টুর্নামেন্ট",type:"n.",ex:"We won the <em>tournament</em>."},
+      {en:"Champion",pron:"চ্যাম্পিয়ন",bn:"চ্যাম্পিয়ন",type:"n.",ex:"She became the <em>champion</em>."},
+      {en:"Victory",pron:"ভিক্টরি",bn:"বিজয়",type:"n.",ex:"The team celebrated their <em>victory</em>."},
+      {en:"Defeat",pron:"ডিফিট",bn:"পরাজয়",type:"n.",ex:"Accept <em>defeat</em> with grace."},
+      {en:"Practice",pron:"প্র্যাকটিস",bn:"অনুশীলন",type:"n.",ex:"Daily <em>practice</em> makes perfect."},
+      {en:"Coach",pron:"কোচ",bn:"কোচ / প্রশিক্ষক",type:"n.",ex:"The <em>coach</em> trained the team."},
+      {en:"Music",pron:"মিউজিক",bn:"সংগীত",type:"n.",ex:"She loves classical <em>music</em>."},
+      {en:"Movie",pron:"মুভি",bn:"চলচ্চিত্র",type:"n.",ex:"Let's watch a <em>movie</em> tonight."},
+      {en:"Dance",pron:"ড্যান্স",bn:"নৃত্য",type:"n.",ex:"She <em>dances</em> beautifully."},
+      {en:"Hobby",pron:"হবি",bn:"শখ",type:"n.",ex:"Reading is my favorite <em>hobby</em>."},
+      {en:"Entertainment",pron:"এন্টারটেইনমেন্ট",bn:"বিনোদন",type:"n.",ex:"Music is a great <em>entertainment</em>."},
+      {en:"Audience",pron:"অডিয়েন্স",bn:"দর্শক/শ্রোতা",type:"n.",ex:"The <em>audience</em> clapped loudly."},
+      {en:"Performance",pron:"পার্ফরম্যান্স",bn:"পরিবেশনা",type:"n.",ex:"Her <em>performance</em> was outstanding."},
+      {en:"Stadium",pron:"স্টেডিয়াম",bn:"স্টেডিয়াম",type:"n.",ex:"Thousands filled the <em>stadium</em>."},
+      {en:"Trophy",pron:"ট্রফি",bn:"ট্রফি",type:"n.",ex:"They lifted the <em>trophy</em>."},
+      {en:"Referee",pron:"রেফারি",bn:"রেফারি",type:"n.",ex:"The <em>referee</em> blew the whistle."},
+      {en:"Team",pron:"টিম",bn:"দল",type:"n.",ex:"Our <em>team</em> played well."},
+      {en:"Player",pron:"প্লেয়ার",bn:"খেলোয়াড়",type:"n.",ex:"She is a great <em>player</em>."},
+      {en:"Athlete",pron:"অ্যাথলেট",bn:"ক্রীড়াবিদ",type:"n.",ex:"An <em>athlete</em> trains hard."},
+      {en:"Competition",pron:"কম্পিটিশন",bn:"প্রতিযোগিতা",type:"n.",ex:"Enter the <em>competition</em>."},
+      {en:"Record",pron:"রেকর্ড",bn:"রেকর্ড",type:"n.",ex:"He broke the world <em>record</em>."},
+      {en:"Swimming",pron:"সুইমিং",bn:"সাঁতার",type:"n.",ex:"She loves <em>swimming</em>."},
+      {en:"Concert",pron:"কনসার্ট",bn:"সংগীত অনুষ্ঠান",type:"n.",ex:"We went to a <em>concert</em>."},
+      {en:"Theatre",pron:"থিয়েটার",bn:"নাটকমঞ্চ",type:"n.",ex:"She acts in a <em>theatre</em>."},
+      {en:"Painting",pron:"পেইন্টিং",bn:"চিত্রকর্ম",type:"n.",ex:"He loves <em>painting</em>."},
+      {en:"Fitness",pron:"ফিটনেস",bn:"সুস্থতা / শারীরিক সক্ষমতা",type:"n.",ex:"Focus on your <em>fitness</em>."},
+      {en:"Medal",pron:"মেডেল",bn:"পদক",type:"n.",ex:"She won a gold <em>medal</em>."},
+    ]
+  },
+  {
+    day: 19, topic: "সমাজ ও রাজনীতি", level: "intermediate",
+    words: [
+      {en:"Society",pron:"সোসাইটি",bn:"সমাজ",type:"n.",ex:"We must serve our <em>society</em>."},
+      {en:"Government",pron:"গভর্নমেন্ট",bn:"সরকার",type:"n.",ex:"The <em>government</em> built new roads."},
+      {en:"Law",pron:"ল",bn:"আইন",type:"n.",ex:"Follow the <em>law</em> always."},
+      {en:"Rights",pron:"রাইটস",bn:"অধিকার",type:"n.",ex:"Everyone has basic <em>rights</em>."},
+      {en:"Justice",pron:"জাস্টিস",bn:"ন্যায়বিচার",type:"n.",ex:"We demand <em>justice</em>."},
+      {en:"Election",pron:"ইলেকশন",bn:"নির্বাচন",type:"n.",ex:"Vote in every <em>election</em>."},
+      {en:"Democracy",pron:"ডেমোক্র্যাসি",bn:"গণতন্ত্র",type:"n.",ex:"We believe in <em>democracy</em>."},
+      {en:"Freedom",pron:"ফ্রিডম",bn:"স্বাধীনতা",type:"n.",ex:"<em>Freedom</em> is priceless."},
+      {en:"Equality",pron:"ইকুয়ালিটি",bn:"সমতা",type:"n.",ex:"Fight for <em>equality</em>."},
+      {en:"Poverty",pron:"পভার্টি",bn:"দারিদ্র্য",type:"n.",ex:"We must fight <em>poverty</em>."},
+      {en:"Policy",pron:"পলিসি",bn:"নীতি",type:"n.",ex:"The new <em>policy</em> helps farmers."},
+      {en:"Protest",pron:"প্রোটেস্ট",bn:"প্রতিবাদ",type:"n.",ex:"People went out in <em>protest</em>."},
+      {en:"Citizen",pron:"সিটিজেন",bn:"নাগরিক",type:"n.",ex:"Be a responsible <em>citizen</em>."},
+      {en:"Constitution",pron:"কনস্টিটিউশন",bn:"সংবিধান",type:"n.",ex:"Respect the <em>constitution</em>."},
+      {en:"Parliament",pron:"পার্লামেন্ট",bn:"সংসদ",type:"n.",ex:"Laws are made in <em>parliament</em>."},
+      {en:"Minister",pron:"মিনিস্টার",bn:"মন্ত্রী",type:"n.",ex:"The <em>minister</em> gave a speech."},
+      {en:"President",pron:"প্রেসিডেন্ট",bn:"রাষ্ট্রপতি",type:"n.",ex:"The <em>president</em> addressed the nation."},
+      {en:"Opposition",pron:"অপোজিশন",bn:"বিরোধী দল",type:"n.",ex:"The <em>opposition</em> criticized the bill."},
+      {en:"Vote",pron:"ভোট",bn:"ভোট",type:"n./v.",ex:"Cast your <em>vote</em>."},
+      {en:"Campaign",pron:"ক্যাম্পেইন",bn:"প্রচারণা",type:"n.",ex:"The election <em>campaign</em> has started."},
+      {en:"Corruption",pron:"করাপশন",bn:"দুর্নীতি",type:"n.",ex:"Fight against <em>corruption</em>."},
+      {en:"Reform",pron:"রিফর্ম",bn:"সংস্কার",type:"n.",ex:"The country needs <em>reform</em>."},
+      {en:"Treaty",pron:"ট্রিটি",bn:"চুক্তি",type:"n.",ex:"Both countries signed a <em>treaty</em>."},
+      {en:"Nationalism",pron:"ন্যাশনালিজম",bn:"জাতীয়তাবাদ",type:"n.",ex:"<em>Nationalism</em> unites the people."},
+      {en:"Welfare",pron:"ওয়েলফেয়ার",bn:"কল্যাণ",type:"n.",ex:"The state provides <em>welfare</em>."},
+      {en:"Referendum",pron:"রেফারেন্ডাম",bn:"গণভোট",type:"n.",ex:"Hold a <em>referendum</em> on the issue."},
+      {en:"Legislation",pron:"লেজিসলেশন",bn:"আইন প্রণয়ন",type:"n.",ex:"New <em>legislation</em> was passed."},
+      {en:"Human rights",pron:"হিউম্যান রাইটস",bn:"মানবাধিকার",type:"n.",ex:"Protect <em>human rights</em>."},
+      {en:"Prime Minister",pron:"প্রাইম মিনিস্টার",bn:"প্রধানমন্ত্রী",type:"n.",ex:"The <em>Prime Minister</em> visited."},
+      {en:"Independence",pron:"ইন্ডিপেন্ডেন্স",bn:"স্বাধীনতা",type:"n.",ex:"Bangladesh gained <em>independence</em> in 1971."},
+    ]
+  },
+  {
+    day: 20, topic: "মনোভাব ও চরিত্র", level: "intermediate",
+    words: [
+      {en:"Honest",pron:"অনেস্ট",bn:"সৎ",type:"adj.",ex:"Be <em>honest</em> in all matters."},
+      {en:"Brave",pron:"ব্রেইভ",bn:"সাহসী",type:"adj.",ex:"The <em>brave</em> soldier fought well."},
+      {en:"Generous",pron:"জেনারাস",bn:"উদার",type:"adj.",ex:"She is very <em>generous</em>."},
+      {en:"Polite",pron:"পোলাইট",bn:"ভদ্র",type:"adj.",ex:"Always be <em>polite</em>."},
+      {en:"Selfish",pron:"সেলফিশ",bn:"স্বার্থপর",type:"adj.",ex:"Don't be <em>selfish</em>."},
+      {en:"Humble",pron:"হামবল",bn:"বিনয়ী",type:"adj.",ex:"Great people are always <em>humble</em>."},
+      {en:"Arrogant",pron:"অ্যারোগেন্ট",bn:"অহংকারী",type:"adj.",ex:"Nobody likes an <em>arrogant</em> person."},
+      {en:"Loyal",pron:"লয়াল",bn:"বিশ্বস্ত",type:"adj.",ex:"He is a <em>loyal</em> friend."},
+      {en:"Ambitious",pron:"অ্যাম্বিশাস",bn:"উচ্চাকাঙ্ক্ষী",type:"adj.",ex:"She is very <em>ambitious</em>."},
+      {en:"Curious",pron:"কিউরিয়াস",bn:"কৌতূহলী",type:"adj.",ex:"Children are naturally <em>curious</em>."},
+      {en:"Patient",pron:"পেশেন্ট",bn:"ধৈর্যশীল",type:"adj.",ex:"Be <em>patient</em> with others."},
+      {en:"Responsible",pron:"রেসপনসিবল",bn:"দায়িত্বশীল",type:"adj.",ex:"Be <em>responsible</em> for your actions."},
+      {en:"Trustworthy",pron:"ট্রাস্টওয়ার্দি",bn:"বিশ্বাসযোগ্য",type:"adj.",ex:"She is a <em>trustworthy</em> person."},
+      {en:"Integrity",pron:"ইন্টেগ্রিটি",bn:"সততা / নিষ্ঠা",type:"n.",ex:"He is known for his <em>integrity</em>."},
+      {en:"Compassion",pron:"কম্প্যাশন",bn:"সহানুভূতি",type:"n.",ex:"Show <em>compassion</em> to the poor."},
+      {en:"Perseverance",pron:"পার্সিভেরেন্স",bn:"অধ্যবসায়",type:"n.",ex:"<em>Perseverance</em> leads to success."},
+      {en:"Optimistic",pron:"অপটিমিস্টিক",bn:"আশাবাদী",type:"adj.",ex:"Stay <em>optimistic</em>."},
+      {en:"Pessimistic",pron:"পেসিমিস্টিক",bn:"হতাশাবাদী",type:"adj.",ex:"Don't be so <em>pessimistic</em>."},
+      {en:"Courageous",pron:"কারেজাস",bn:"সাহসী",type:"adj.",ex:"She was <em>courageous</em> in crisis."},
+      {en:"Determined",pron:"ডিটার্মিন্ড",bn:"দৃঢ়প্রতিজ্ঞ",type:"adj.",ex:"He was <em>determined</em> to succeed."},
+      {en:"Sincere",pron:"সিনসিয়ার",bn:"আন্তরিক",type:"adj.",ex:"Be <em>sincere</em> in your efforts."},
+      {en:"Dedicated",pron:"ডেডিকেটেড",bn:"নিবেদিতপ্রাণ",type:"adj.",ex:"She is a <em>dedicated</em> teacher."},
+      {en:"Discipline",pron:"ডিসিপ্লিন",bn:"শৃঙ্খলা",type:"n.",ex:"<em>Discipline</em> brings success."},
+      {en:"Tolerance",pron:"টলারেন্স",bn:"সহনশীলতা",type:"n.",ex:"Show <em>tolerance</em> to all."},
+      {en:"Kindness",pron:"কাইন্ডনেস",bn:"দয়া",type:"n.",ex:"<em>Kindness</em> costs nothing."},
+      {en:"Empathy",pron:"এম্পাথি",bn:"সহমর্মিতা",type:"n.",ex:"Show <em>empathy</em> to others."},
+      {en:"Wisdom",pron:"উইজডম",bn:"প্রজ্ঞা",type:"n.",ex:"He spoke with <em>wisdom</em>."},
+      {en:"Maturity",pron:"ম্যাচুরিটি",bn:"পরিপক্কতা",type:"n.",ex:"She showed great <em>maturity</em>."},
+      {en:"Virtue",pron:"ভার্চু",bn:"সদগুণ",type:"n.",ex:"Honesty is a great <em>virtue</em>."},
+      {en:"Willpower",pron:"উইলপাওয়ার",bn:"ইচ্ছাশক্তি",type:"n.",ex:"Strong <em>willpower</em> leads to success."},
+    ]
+  },
+  {
+    day: 21, topic: "পরিবেশ ও দূষণ", level: "advanced",
+    words: [
+      {en:"Environment",pron:"এনভায়রনমেন্ট",bn:"পরিবেশ",type:"n.",ex:"Protect the <em>environment</em>."},
+      {en:"Pollution",pron:"পলিউশন",bn:"দূষণ",type:"n.",ex:"Air <em>pollution</em> is dangerous."},
+      {en:"Deforestation",pron:"ডিফরেস্টেশন",bn:"বন উজাড়",type:"n.",ex:"<em>Deforestation</em> harms wildlife."},
+      {en:"Sustainability",pron:"সাসটেইনেবিলিটি",bn:"টেকসই উন্নয়ন",type:"n.",ex:"We need <em>sustainability</em>."},
+      {en:"Renewable",pron:"রিনিউয়েবল",bn:"নবায়নযোগ্য",type:"adj.",ex:"Use <em>renewable</em> energy sources."},
+      {en:"Biodiversity",pron:"বায়োডাইভার্সিটি",bn:"জীব বৈচিত্র্য",type:"n.",ex:"Protect <em>biodiversity</em>."},
+      {en:"Ecosystem",pron:"ইকোসিস্টেম",bn:"বাস্তুতন্ত্র",type:"n.",ex:"The <em>ecosystem</em> is fragile."},
+      {en:"Carbon footprint",pron:"কার্বন ফুটপ্রিন্ট",bn:"কার্বন পদচিহ্ন",type:"n.",ex:"Reduce your <em>carbon footprint</em>."},
+      {en:"Conservation",pron:"কনজার্ভেশন",bn:"সংরক্ষণ",type:"n.",ex:"Wildlife <em>conservation</em> is vital."},
+      {en:"Emission",pron:"এমিশন",bn:"নির্গমন",type:"n.",ex:"Reduce gas <em>emissions</em>."},
+      {en:"Recycle",pron:"রিসাইকেল",bn:"পুনর্ব্যবহার করা",type:"v.",ex:"<em>Recycle</em> paper and plastic."},
+      {en:"Contamination",pron:"কন্টামিনেশন",bn:"দূষণ / কলুষতা",type:"n.",ex:"Water <em>contamination</em> is rising."},
+      {en:"Glacier",pron:"গ্লেশিয়ার",bn:"হিমবাহ",type:"n.",ex:"<em>Glaciers</em> are melting fast."},
+      {en:"Ozone layer",pron:"ওজোন লেয়ার",bn:"ওজোন স্তর",type:"n.",ex:"The <em>ozone layer</em> protects us."},
+      {en:"Fossil fuel",pron:"ফসিল ফুয়েল",bn:"জীবাশ্ম জ্বালানি",type:"n.",ex:"Burn less <em>fossil fuel</em>."},
+      {en:"Global warming",pron:"গ্লোবাল ওয়ার্মিং",bn:"বৈশ্বিক উষ্ণায়ন",type:"n.",ex:"<em>Global warming</em> is a crisis."},
+      {en:"Habitat",pron:"হ্যাবিটাট",bn:"আবাসস্থল",type:"n.",ex:"Animals lose their <em>habitat</em>."},
+      {en:"Endangered",pron:"এনডেঞ্জার্ড",bn:"বিপন্ন",type:"adj.",ex:"Tigers are <em>endangered</em>."},
+      {en:"Extinct",pron:"এক্সটিংক্ট",bn:"বিলুপ্ত",type:"adj.",ex:"Dinosaurs are <em>extinct</em>."},
+      {en:"Waste",pron:"ওয়েস্ট",bn:"বর্জ্য",type:"n.",ex:"Manage your <em>waste</em> properly."},
+      {en:"Toxic",pron:"টক্সিক",bn:"বিষাক্ত",type:"adj.",ex:"Avoid <em>toxic</em> chemicals."},
+      {en:"Solar energy",pron:"সোলার এনার্জি",bn:"সৌরশক্তি",type:"n.",ex:"Install <em>solar energy</em> panels."},
+      {en:"Reforestation",pron:"রিফরেস্টেশন",bn:"বনায়ন",type:"n.",ex:"<em>Reforestation</em> helps the climate."},
+      {en:"Awareness",pron:"অ্যাওয়ারনেস",bn:"সচেতনতা",type:"n.",ex:"Raise <em>awareness</em> about pollution."},
+      {en:"Carbon dioxide",pron:"কার্বন ডাইঅক্সাইড",bn:"কার্বন ডাইঅক্সাইড",type:"n.",ex:"<em>Carbon dioxide</em> causes warming."},
+      {en:"Soil erosion",pron:"সয়েল ইরোশন",bn:"মাটি ক্ষয়",type:"n.",ex:"<em>Soil erosion</em> damages farmland."},
+      {en:"Afforestation",pron:"অ্যাফরেস্টেশন",bn:"বৃক্ষরোপণ",type:"n.",ex:"<em>Afforestation</em> combats climate change."},
+      {en:"Pesticide",pron:"পেস্টিসাইড",bn:"কীটনাশক",type:"n.",ex:"Avoid overusing <em>pesticides</em>."},
+      {en:"Sewage",pron:"সিউয়েজ",bn:"পয়ঃনিষ্কাশন",type:"n.",ex:"Treat <em>sewage</em> before disposal."},
+      {en:"Greenery",pron:"গ্রিনারি",bn:"সবুজ পরিবেশ",type:"n.",ex:"Increase urban <em>greenery</em>."},
+    ]
+  },
+  {
+    day: 22, topic: "ব্যবসা ও অর্থনীতি", level: "advanced",
+    words: [
+      {en:"Economy",pron:"ইকোনমি",bn:"অর্থনীতি",type:"n.",ex:"The <em>economy</em> is growing."},
+      {en:"Inflation",pron:"ইনফ্লেশন",bn:"মূল্যস্ফীতি",type:"n.",ex:"High <em>inflation</em> hurts families."},
+      {en:"Export",pron:"এক্সপোর্ট",bn:"রপ্তানি",type:"n./v.",ex:"Bangladesh <em>exports</em> garments."},
+      {en:"Import",pron:"ইমপোর্ট",bn:"আমদানি",type:"n./v.",ex:"We <em>import</em> oil."},
+      {en:"GDP",pron:"জিডিপি",bn:"মোট দেশজ উৎপাদন",type:"n.",ex:"The country's <em>GDP</em> grew."},
+      {en:"Revenue",pron:"রেভিনিউ",bn:"রাজস্ব / আয়",type:"n.",ex:"The company's <em>revenue</em> doubled."},
+      {en:"Expenditure",pron:"এক্সপেন্ডিচার",bn:"ব্যয়",type:"n.",ex:"Control unnecessary <em>expenditure</em>."},
+      {en:"Monopoly",pron:"মনোপলি",bn:"একচেটিয়া",type:"n.",ex:"Avoid <em>monopoly</em> in trade."},
+      {en:"Entrepreneur",pron:"অন্ট্রাপ্রিনিউর",bn:"উদ্যোক্তা",type:"n.",ex:"She is a successful <em>entrepreneur</em>."},
+      {en:"Merger",pron:"মার্জার",bn:"একীভূতকরণ",type:"n.",ex:"The two companies announced a <em>merger</em>."},
+      {en:"Bankruptcy",pron:"ব্যাংকরাপ্টসি",bn:"দেউলিয়া হওয়া",type:"n.",ex:"The firm declared <em>bankruptcy</em>."},
+      {en:"Recession",pron:"রিসেশন",bn:"মন্দা",type:"n.",ex:"The <em>recession</em> hit businesses hard."},
+      {en:"Capital",pron:"ক্যাপিটাল",bn:"মূলধন",type:"n.",ex:"She invested her <em>capital</em>."},
+      {en:"Stock",pron:"স্টক",bn:"শেয়ার / স্টক",type:"n.",ex:"He bought company <em>stocks</em>."},
+      {en:"Dividend",pron:"ডিভিডেন্ড",bn:"লভ্যাংশ",type:"n.",ex:"Shareholders receive <em>dividends</em>."},
+      {en:"Trade",pron:"ট্রেড",bn:"ব্যবসা / বাণিজ্য",type:"n.",ex:"International <em>trade</em> is growing."},
+      {en:"Supply",pron:"সাপ্লাই",bn:"সরবরাহ",type:"n.",ex:"The <em>supply</em> chain was disrupted."},
+      {en:"Demand",pron:"ডিমান্ড",bn:"চাহিদা",type:"n.",ex:"<em>Demand</em> for rice increased."},
+      {en:"Tariff",pron:"ট্যারিফ",bn:"শুল্ক",type:"n.",ex:"The government raised the <em>tariff</em>."},
+      {en:"Investment",pron:"ইনভেস্টমেন্ট",bn:"বিনিয়োগ",type:"n.",ex:"Foreign <em>investment</em> boosted growth."},
+      {en:"Partnership",pron:"পার্টনারশিপ",bn:"অংশীদারিত্ব",type:"n.",ex:"They formed a <em>partnership</em>."},
+      {en:"Corporation",pron:"করপোরেশন",bn:"কোম্পানি",type:"n.",ex:"The <em>corporation</em> expanded globally."},
+      {en:"Audit",pron:"অডিট",bn:"হিসাব নিরীক্ষা",type:"n.",ex:"An <em>audit</em> was conducted."},
+      {en:"Asset",pron:"অ্যাসেট",bn:"সম্পদ",type:"n.",ex:"Land is a valuable <em>asset</em>."},
+      {en:"Liability",pron:"লায়াবিলিটি",bn:"দায়",type:"n.",ex:"Debts are <em>liabilities</em>."},
+      {en:"Fiscal",pron:"ফিসক্যাল",bn:"রাজস্ব সংক্রান্ত",type:"adj.",ex:"The <em>fiscal</em> year ends in June."},
+      {en:"Franchise",pron:"ফ্র্যাঞ্চাইজ",bn:"ফ্র্যাঞ্চাইজ",type:"n.",ex:"She opened a <em>franchise</em>."},
+      {en:"Competition",pron:"কম্পিটিশন",bn:"প্রতিযোগিতা",type:"n.",ex:"<em>Competition</em> improves quality."},
+      {en:"Market",pron:"মার্কেট",bn:"বাজার",type:"n.",ex:"The stock <em>market</em> fell today."},
+      {en:"Wage",pron:"ওয়েজ",bn:"মজুরি",type:"n.",ex:"Workers demanded higher <em>wages</em>."},
+    ]
+  },
+  {
+    day: 23, topic: "ভাষা ও যোগাযোগ", level: "advanced",
+    words: [
+      {en:"Communicate",pron:"কমিউনিকেট",bn:"যোগাযোগ করা",type:"v.",ex:"<em>Communicate</em> clearly."},
+      {en:"Fluent",pron:"ফ্লুয়েন্ট",bn:"সাবলীল",type:"adj.",ex:"She is <em>fluent</em> in English."},
+      {en:"Dialect",pron:"ডায়ালেক্ট",bn:"উপভাষা",type:"n.",ex:"Each region has its own <em>dialect</em>."},
+      {en:"Translate",pron:"ট্র্যান্সলেট",bn:"অনুবাদ করা",type:"v.",ex:"<em>Translate</em> this text."},
+      {en:"Interpret",pron:"ইন্টার্প্রেট",bn:"ব্যাখ্যা করা",type:"v.",ex:"<em>Interpret</em> the meaning."},
+      {en:"Vocabulary",pron:"ভোক্যাবুলারি",bn:"শব্দভান্ডার",type:"n.",ex:"Increase your <em>vocabulary</em>."},
+      {en:"Grammar",pron:"গ্র্যামার",bn:"ব্যাকরণ",type:"n.",ex:"Study English <em>grammar</em>."},
+      {en:"Pronunciation",pron:"প্রোনানসিয়েশন",bn:"উচ্চারণ",type:"n.",ex:"Correct <em>pronunciation</em> is important."},
+      {en:"Rhetoric",pron:"রেটরিক",bn:"বাগ্মিতা",type:"n.",ex:"He is known for his <em>rhetoric</em>."},
+      {en:"Narrative",pron:"ন্যারেটিভ",bn:"বর্ণনা",type:"n.",ex:"The <em>narrative</em> was compelling."},
+      {en:"Persuade",pron:"পার্সুয়েড",bn:"রাজি করানো",type:"v.",ex:"He tried to <em>persuade</em> me."},
+      {en:"Articulate",pron:"আর্টিকিউলেট",bn:"স্পষ্টভাবে বলা",type:"v.",ex:"She <em>articulated</em> her ideas well."},
+      {en:"Eloquent",pron:"এলোকুয়েন্ট",bn:"বাকপটু",type:"adj.",ex:"He is an <em>eloquent</em> speaker."},
+      {en:"Ambiguous",pron:"অ্যাম্বিগিউয়াস",bn:"দ্ব্যর্থবোধক",type:"adj.",ex:"The instruction was <em>ambiguous</em>."},
+      {en:"Concise",pron:"কনসাইস",bn:"সংক্ষিপ্ত",type:"adj.",ex:"Write a <em>concise</em> report."},
+      {en:"Verbal",pron:"ভার্বাল",bn:"মৌখিক",type:"adj.",ex:"She gave a <em>verbal</em> warning."},
+      {en:"Bilingual",pron:"বাইলিঙ্গুয়াল",bn:"দ্বিভাষী",type:"adj.",ex:"She is <em>bilingual</em>."},
+      {en:"Literacy",pron:"লিটারেসি",bn:"সাক্ষরতা",type:"n.",ex:"Improve <em>literacy</em> rates."},
+      {en:"Dialogue",pron:"ডায়ালগ",bn:"সংলাপ",type:"n.",ex:"Open a <em>dialogue</em> with them."},
+      {en:"Debate",pron:"ডিবেট",bn:"বিতর্ক",type:"n.",ex:"She won the <em>debate</em>."},
+      {en:"Argument",pron:"আর্গুমেন্ট",bn:"তর্ক",type:"n.",ex:"Avoid a pointless <em>argument</em>."},
+      {en:"Expression",pron:"এক্সপ্রেশন",bn:"অভিব্যক্তি",type:"n.",ex:"Freedom of <em>expression</em>."},
+      {en:"Tone",pron:"টোন",bn:"ভাষার স্বর",type:"n.",ex:"Change your <em>tone</em>."},
+      {en:"Metaphor",pron:"মেটাফোর",bn:"রূপক",type:"n.",ex:"That's a beautiful <em>metaphor</em>."},
+      {en:"Synonym",pron:"সিনোনিম",bn:"প্রতিশব্দ",type:"n.",ex:"Find a <em>synonym</em> for 'big'."},
+      {en:"Antonym",pron:"অ্যান্টোনিম",bn:"বিপরীত শব্দ",type:"n.",ex:"'Cold' is the <em>antonym</em> of 'hot'."},
+      {en:"Linguistics",pron:"লিঙ্গুইস্টিক্স",bn:"ভাষাবিজ্ঞান",type:"n.",ex:"She studies <em>linguistics</em>."},
+      {en:"Paraphrase",pron:"প্যারাফ্রেজ",bn:"ভাষান্তর",type:"v.",ex:"<em>Paraphrase</em> this sentence."},
+      {en:"Multilingual",pron:"মাল্টিলিঙ্গুয়াল",bn:"বহুভাষী",type:"adj.",ex:"He is <em>multilingual</em>."},
+      {en:"Caption",pron:"ক্যাপশন",bn:"শিরোনাম / ক্যাপশন",type:"n.",ex:"Write a <em>caption</em> for the photo."},
+    ]
+  },
+  {
+    day: 24, topic: "মনোবিজ্ঞান ও মানসিক স্বাস্থ্য", level: "advanced",
+    words: [
+      {en:"Psychology",pron:"সাইকোলজি",bn:"মনোবিজ্ঞান",type:"n.",ex:"She studied <em>psychology</em>."},
+      {en:"Anxiety",pron:"অ্যাংজাইয়েটি",bn:"উদ্বেগ",type:"n.",ex:"He suffers from <em>anxiety</em>."},
+      {en:"Depression",pron:"ডিপ্রেশন",bn:"বিষণ্নতা",type:"n.",ex:"<em>Depression</em> needs proper treatment."},
+      {en:"Motivation",pron:"মোটিভেশন",bn:"অনুপ্রেরণা",type:"n.",ex:"Find your inner <em>motivation</em>."},
+      {en:"Behavior",pron:"বিহেভিয়ার",bn:"আচরণ",type:"n.",ex:"Good <em>behavior</em> is rewarded."},
+      {en:"Cognitive",pron:"কগনিটিভ",bn:"জ্ঞানীয়",type:"adj.",ex:"<em>Cognitive</em> skills improve with reading."},
+      {en:"Subconscious",pron:"সাবকনশাস",bn:"অবচেতন",type:"adj.",ex:"<em>Subconscious</em> fears affect us."},
+      {en:"Mindfulness",pron:"মাইন্ডফুলনেস",bn:"সচেতনতা",type:"n.",ex:"Practice <em>mindfulness</em> daily."},
+      {en:"Resilience",pron:"রেজিলিয়েন্স",bn:"স্থিতিস্থাপকতা",type:"n.",ex:"Build <em>resilience</em> after failure."},
+      {en:"Trauma",pron:"ট্রমা",bn:"মানসিক আঘাত",type:"n.",ex:"She healed from her <em>trauma</em>."},
+      {en:"Stress",pron:"স্ট্রেস",bn:"মানসিক চাপ",type:"n.",ex:"Exercise reduces <em>stress</em>."},
+      {en:"Addiction",pron:"অ্যাডিকশন",bn:"আসক্তি",type:"n.",ex:"Social media <em>addiction</em> is rising."},
+      {en:"Perception",pron:"পার্সেপশন",bn:"উপলব্ধি",type:"n.",ex:"<em>Perception</em> shapes our reality."},
+      {en:"Consciousness",pron:"কনশাসনেস",bn:"চেতনা",type:"n.",ex:"He lost <em>consciousness</em>."},
+      {en:"Therapy",pron:"থেরাপি",bn:"থেরাপি / চিকিৎসা",type:"n.",ex:"Seek <em>therapy</em> when needed."},
+      {en:"Phobia",pron:"ফোবিয়া",bn:"আতঙ্ক",type:"n.",ex:"She has a <em>phobia</em> of spiders."},
+      {en:"Self-esteem",pron:"সেলফ-এস্টিম",bn:"আত্মসম্মানবোধ",type:"n.",ex:"Build your <em>self-esteem</em>."},
+      {en:"Introvert",pron:"ইন্ট্রোভার্ট",bn:"অন্তর্মুখী",type:"n.",ex:"He is an <em>introvert</em>."},
+      {en:"Extrovert",pron:"এক্সট্রোভার্ট",bn:"বহির্মুখী",type:"n.",ex:"She is a natural <em>extrovert</em>."},
+      {en:"Mood",pron:"মুড",bn:"মেজাজ",type:"n.",ex:"Her <em>mood</em> changes often."},
+      {en:"Instinct",pron:"ইনস্টিংক্ট",bn:"প্রবৃত্তি",type:"n.",ex:"Trust your <em>instinct</em>."},
+      {en:"Attitude",pron:"অ্যাটিটিউড",bn:"মনোভাব",type:"n.",ex:"Have a positive <em>attitude</em>."},
+      {en:"Personality",pron:"পার্সোনালিটি",bn:"ব্যক্তিত্ব",type:"n.",ex:"She has a strong <em>personality</em>."},
+      {en:"Isolation",pron:"আইসোলেশন",bn:"বিচ্ছিন্নতা",type:"n.",ex:"Social <em>isolation</em> causes sadness."},
+      {en:"Mental health",pron:"মেন্টাল হেলথ",bn:"মানসিক স্বাস্থ্য",type:"n.",ex:"Prioritize your <em>mental health</em>."},
+      {en:"Counselling",pron:"কাউন্সেলিং",bn:"পরামর্শ সেবা",type:"n.",ex:"She sought <em>counselling</em>."},
+      {en:"Burnout",pron:"বার্নআউট",bn:"কর্মক্লান্তি",type:"n.",ex:"Avoid work <em>burnout</em>."},
+      {en:"Hallucination",pron:"হ্যালুসিনেশন",bn:"বিভ্রম",type:"n.",ex:"The patient had <em>hallucinations</em>."},
+      {en:"Emotion",pron:"ইমোশন",bn:"আবেগ",type:"n.",ex:"Express your <em>emotions</em> freely."},
+      {en:"Empathy",pron:"এম্পাথি",bn:"সহানুভূতি",type:"n.",ex:"Show <em>empathy</em> to others."},
+    ]
+  },
+  {
+    day: 25, topic: "আইন ও বিচার ব্যবস্থা", level: "advanced",
+    words: [
+      {en:"Court",pron:"কোর্ট",bn:"আদালত",type:"n.",ex:"The case was filed in <em>court</em>."},
+      {en:"Judge",pron:"জাজ",bn:"বিচারক",type:"n.",ex:"The <em>judge</em> gave the verdict."},
+      {en:"Verdict",pron:"ভার্ডিক্ট",bn:"রায়",type:"n.",ex:"The <em>verdict</em> was not guilty."},
+      {en:"Defendant",pron:"ডিফেন্ড্যান্ট",bn:"আসামী / বিবাদী",type:"n.",ex:"The <em>defendant</em> pleaded innocent."},
+      {en:"Plaintiff",pron:"প্লেইন্টিফ",bn:"বাদী",type:"n.",ex:"The <em>plaintiff</em> won the case."},
+      {en:"Evidence",pron:"এভিডেন্স",bn:"প্রমাণ",type:"n.",ex:"Strong <em>evidence</em> was presented."},
+      {en:"Testimony",pron:"টেস্টিমনি",bn:"সাক্ষ্য",type:"n.",ex:"The witness gave <em>testimony</em>."},
+      {en:"Guilty",pron:"গিল্টি",bn:"দোষী",type:"adj.",ex:"He was found <em>guilty</em>."},
+      {en:"Innocent",pron:"ইনোসেন্ট",bn:"নির্দোষ",type:"adj.",ex:"She is completely <em>innocent</em>."},
+      {en:"Appeal",pron:"অ্যাপিল",bn:"আপিল",type:"n.",ex:"He filed an <em>appeal</em>."},
+      {en:"Penalty",pron:"পেনাল্টি",bn:"জরিমানা / শাস্তি",type:"n.",ex:"Pay the <em>penalty</em> for breaking rules."},
+      {en:"Acquit",pron:"অ্যাকুইট",bn:"খালাস দেওয়া",type:"v.",ex:"The court <em>acquitted</em> him."},
+      {en:"Prosecute",pron:"প্রসিকিউট",bn:"অভিযোগ দায়ের করা",type:"v.",ex:"They decided to <em>prosecute</em>."},
+      {en:"Jurisdiction",pron:"জুরিসডিকশন",bn:"এখতিয়ার",type:"n.",ex:"This is under our <em>jurisdiction</em>."},
+      {en:"Litigation",pron:"লিটিগেশন",bn:"মামলা",type:"n.",ex:"The <em>litigation</em> lasted years."},
+      {en:"Injunction",pron:"ইনজাংশন",bn:"নিষেধাজ্ঞা",type:"n.",ex:"The court issued an <em>injunction</em>."},
+      {en:"Bail",pron:"বেইল",bn:"জামিন",type:"n.",ex:"He was released on <em>bail</em>."},
+      {en:"Warrant",pron:"ওয়ারেন্ট",bn:"পরোয়ানা",type:"n.",ex:"Police had a search <em>warrant</em>."},
+      {en:"Attorney",pron:"অ্যাটর্নি",bn:"উকিল",type:"n.",ex:"The <em>attorney</em> prepared the case."},
+      {en:"Statute",pron:"স্ট্যাচুট",bn:"বিধিবিধান",type:"n.",ex:"Follow the <em>statute</em>."},
+      {en:"Amendment",pron:"অ্যামেন্ডমেন্ট",bn:"সংশোধনী",type:"n.",ex:"The law needs an <em>amendment</em>."},
+      {en:"Pardon",pron:"পার্ডন",bn:"ক্ষমা / মার্জনা",type:"n.",ex:"The president gave a <em>pardon</em>."},
+      {en:"Sentence",pron:"সেন্টেন্স",bn:"সাজা",type:"n.",ex:"He received a five-year <em>sentence</em>."},
+      {en:"Custody",pron:"কাস্টডি",bn:"হেফাজত",type:"n.",ex:"The child is in <em>custody</em>."},
+      {en:"Witness",pron:"উইটনেস",bn:"সাক্ষী",type:"n.",ex:"A <em>witness</em> testified."},
+      {en:"Crime",pron:"ক্রাইম",bn:"অপরাধ",type:"n.",ex:"Report any <em>crime</em>."},
+      {en:"Investigation",pron:"ইনভেস্টিগেশন",bn:"তদন্ত",type:"n.",ex:"The <em>investigation</em> is ongoing."},
+      {en:"Conviction",pron:"কনভিকশন",bn:"দোষী সাব্যস্ত",type:"n.",ex:"A <em>conviction</em> was recorded."},
+      {en:"Clause",pron:"ক্লজ",bn:"ধারা",type:"n.",ex:"Read every <em>clause</em>."},
+      {en:"Lawyer",pron:"লইয়ার",bn:"আইনজীবী",type:"n.",ex:"He hired a <em>lawyer</em>."},
+    ]
+  },
+  {
+    day: 26, topic: "দর্শন ও চিন্তাভাবনা", level: "advanced",
+    words: [
+      {en:"Philosophy",pron:"ফিলোসফি",bn:"দর্শন",type:"n.",ex:"<em>Philosophy</em> questions existence."},
+      {en:"Ethics",pron:"এথিক্স",bn:"নৈতিকতা",type:"n.",ex:"Follow strong <em>ethics</em>."},
+      {en:"Morality",pron:"মোরালিটি",bn:"নৈতিকতা",type:"n.",ex:"Act with <em>morality</em>."},
+      {en:"Concept",pron:"কনসেপ্ট",bn:"ধারণা",type:"n.",ex:"This is a new <em>concept</em>."},
+      {en:"Abstract",pron:"অ্যাবস্ট্র্যাক্ট",bn:"বিমূর্ত",type:"adj.",ex:"This is an <em>abstract</em> idea."},
+      {en:"Paradox",pron:"প্যারাডক্স",bn:"বৈপরীত্য",type:"n.",ex:"It's a strange <em>paradox</em>."},
+      {en:"Ideology",pron:"আইডিওলজি",bn:"মতাদর্শ",type:"n.",ex:"Each party has its own <em>ideology</em>."},
+      {en:"Perspective",pron:"পার্সপেক্টিভ",bn:"দৃষ্টিভঙ্গি",type:"n.",ex:"Consider every <em>perspective</em>."},
+      {en:"Objective",pron:"অবজেক্টিভ",bn:"বস্তুনিষ্ঠ",type:"adj.",ex:"Be <em>objective</em> in your judgment."},
+      {en:"Subjective",pron:"সাবজেক্টিভ",bn:"আত্মনিষ্ঠ",type:"adj.",ex:"Opinions are <em>subjective</em>."},
+      {en:"Contradiction",pron:"কন্ট্রাডিকশন",bn:"পরস্পরবিরোধ",type:"n.",ex:"There is a <em>contradiction</em> here."},
+      {en:"Inference",pron:"ইনফারেন্স",bn:"অনুমান",type:"n.",ex:"Draw a logical <em>inference</em>."},
+      {en:"Skepticism",pron:"স্কেপটিসিজম",bn:"সন্দেহবাদ",type:"n.",ex:"<em>Skepticism</em> drives science."},
+      {en:"Pragmatic",pron:"প্র্যাগমেটিক",bn:"ব্যবহারিক",type:"adj.",ex:"Be <em>pragmatic</em> in decisions."},
+      {en:"Empirical",pron:"এম্পিরিক্যাল",bn:"অভিজ্ঞতামূলক",type:"adj.",ex:"Give <em>empirical</em> evidence."},
+      {en:"Rationalism",pron:"র‍্যাশনালিজম",bn:"যুক্তিবাদ",type:"n.",ex:"<em>Rationalism</em> values reason."},
+      {en:"Existentialism",pron:"এগজিস্টেনশিয়ালিজম",bn:"অস্তিত্ববাদ",type:"n.",ex:"<em>Existentialism</em> focuses on being."},
+      {en:"Humanism",pron:"হিউম্যানিজম",bn:"মানবতাবাদ",type:"n.",ex:"<em>Humanism</em> values human dignity."},
+      {en:"Consciousness",pron:"কনশাসনেস",bn:"চেতনা",type:"n.",ex:"<em>Consciousness</em> is a mystery."},
+      {en:"Free will",pron:"ফ্রি উইল",bn:"স্বাধীন ইচ্ছা",type:"n.",ex:"Do humans have <em>free will</em>?"},
+      {en:"Utopia",pron:"ইউটোপিয়া",bn:"আদর্শ সমাজ",type:"n.",ex:"Plato imagined a <em>utopia</em>."},
+      {en:"Nihilism",pron:"নাইহিলিজম",bn:"শূন্যবাদ",type:"n.",ex:"<em>Nihilism</em> rejects meaning."},
+      {en:"Determinism",pron:"ডিটার্মিনিজম",bn:"নিয়তিবাদ",type:"n.",ex:"<em>Determinism</em> denies free choice."},
+      {en:"Logic",pron:"লজিক",bn:"যুক্তি",type:"n.",ex:"Apply <em>logic</em> to the problem."},
+      {en:"Critical thinking",pron:"ক্রিটিক্যাল থিংকিং",bn:"সমালোচনামূলক চিন্তা",type:"n.",ex:"Use <em>critical thinking</em>."},
+      {en:"Epistemology",pron:"এপিস্টেমোলজি",bn:"জ্ঞানতত্ত্ব",type:"n.",ex:"<em>Epistemology</em> studies knowledge."},
+      {en:"Metaphysics",pron:"মেটাফিজিক্স",bn:"অধিবিদ্যা",type:"n.",ex:"<em>Metaphysics</em> studies reality."},
+      {en:"Virtue",pron:"ভার্চু",bn:"সদগুণ",type:"n.",ex:"Aristotle discussed <em>virtue</em>."},
+      {en:"Dialectic",pron:"ডায়ালেক্টিক",bn:"দ্বান্দ্বিক পদ্ধতি",type:"n.",ex:"Use <em>dialectic</em> to debate."},
+      {en:"Justice",pron:"জাস্টিস",bn:"ন্যায়",type:"n.",ex:"Define what <em>justice</em> means."},
+    ]
+  },
+  {
+    day: 27, topic: "চিকিৎসাবিজ্ঞান ও হাসপাতাল", level: "advanced",
+    words: [
+      {en:"Diagnosis",pron:"ডায়াগনোসিস",bn:"রোগ নির্ণয়",type:"n.",ex:"Early <em>diagnosis</em> saves lives."},
+      {en:"Surgery",pron:"সার্জারি",bn:"অস্ত্রোপচার",type:"n.",ex:"The <em>surgery</em> was successful."},
+      {en:"Prescription",pron:"প্রেসক্রিপশন",bn:"প্রেসক্রিপশন",type:"n.",ex:"Follow the <em>prescription</em>."},
+      {en:"Symptom",pron:"সিম্পটম",bn:"উপসর্গ",type:"n.",ex:"What are your <em>symptoms</em>?"},
+      {en:"Chronic",pron:"ক্রনিক",bn:"দীর্ঘমেয়াদী",type:"adj.",ex:"She has a <em>chronic</em> illness."},
+      {en:"Acute",pron:"অ্যাকিউট",bn:"তীব্র",type:"adj.",ex:"It was an <em>acute</em> pain."},
+      {en:"Epidemic",pron:"এপিডেমিক",bn:"মহামারী",type:"n.",ex:"The <em>epidemic</em> spread quickly."},
+      {en:"Pandemic",pron:"প্যান্ডেমিক",bn:"বৈশ্বিক মহামারী",type:"n.",ex:"COVID was a global <em>pandemic</em>."},
+      {en:"Vaccine",pron:"ভ্যাকসিন",bn:"টিকা",type:"n.",ex:"Take the <em>vaccine</em> on time."},
+      {en:"Immunity",pron:"ইমিউনিটি",bn:"রোগ প্রতিরোধ ক্ষমতা",type:"n.",ex:"Build your <em>immunity</em>."},
+      {en:"Pathogen",pron:"প্যাথোজেন",bn:"রোগজীবাণু",type:"n.",ex:"A <em>pathogen</em> causes infection."},
+      {en:"Antibiotic",pron:"অ্যান্টিবায়োটিক",bn:"অ্যান্টিবায়োটিক",type:"n.",ex:"Don't overuse <em>antibiotics</em>."},
+      {en:"Rehabilitation",pron:"রিহ্যাবিলিটেশন",bn:"পুনর্বাসন",type:"n.",ex:"He underwent <em>rehabilitation</em>."},
+      {en:"Prognosis",pron:"প্রগনোসিস",bn:"পূর্বাভাস (রোগের)",type:"n.",ex:"The <em>prognosis</em> is positive."},
+      {en:"Anesthesia",pron:"অ্যানেস্থেশিয়া",bn:"অ্যানেস্থেশিয়া",type:"n.",ex:"The doctor gave <em>anesthesia</em>."},
+      {en:"Dosage",pron:"ডোজেজ",bn:"ওষুধের মাত্রা",type:"n.",ex:"Follow the correct <em>dosage</em>."},
+      {en:"Physician",pron:"ফিজিশিয়ান",bn:"চিকিৎসক",type:"n.",ex:"Consult a <em>physician</em>."},
+      {en:"Surgeon",pron:"সার্জন",bn:"শল্যচিকিৎসক",type:"n.",ex:"The <em>surgeon</em> operated carefully."},
+      {en:"Nurse",pron:"নার্স",bn:"নার্স",type:"n.",ex:"The <em>nurse</em> took his temperature."},
+      {en:"Ward",pron:"ওয়ার্ড",bn:"হাসপাতালের কক্ষ",type:"n.",ex:"He is in the surgical <em>ward</em>."},
+      {en:"Infection",pron:"ইনফেকশন",bn:"সংক্রমণ",type:"n.",ex:"Prevent <em>infection</em> by washing hands."},
+      {en:"Fracture",pron:"ফ্র্যাকচার",bn:"হাড় ভাঙা",type:"n.",ex:"He has a leg <em>fracture</em>."},
+      {en:"Blood pressure",pron:"ব্লাড প্রেশার",bn:"রক্তচাপ",type:"n.",ex:"Check your <em>blood pressure</em>."},
+      {en:"Diabetes",pron:"ডায়াবেটিস",bn:"ডায়াবেটিস",type:"n.",ex:"Control your <em>diabetes</em>."},
+      {en:"Allergy",pron:"অ্যালার্জি",bn:"অ্যালার্জি",type:"n.",ex:"She has a dust <em>allergy</em>."},
+      {en:"Transplant",pron:"ট্র্যান্সপ্ল্যান্ট",bn:"প্রতিস্থাপন",type:"n.",ex:"She had a kidney <em>transplant</em>."},
+      {en:"Oncology",pron:"অনকোলজি",bn:"ক্যান্সার চিকিৎসা বিজ্ঞান",type:"n.",ex:"He works in <em>oncology</em>."},
+      {en:"Intensive care",pron:"ইন্টেনসিভ কেয়ার",bn:"নিবিড় পরিচর্যা",type:"n.",ex:"She was in <em>intensive care</em>."},
+      {en:"Stitches",pron:"স্টিচেস",bn:"সেলাই",type:"n.",ex:"He needed ten <em>stitches</em>."},
+      {en:"Scan",pron:"স্ক্যান",bn:"স্ক্যান",type:"n.",ex:"The doctor ordered a brain <em>scan</em>."},
+    ]
+  },
+  {
+    day: 28, topic: "সাহিত্য ও শিল্পকলা", level: "advanced",
+    words: [
+      {en:"Literature",pron:"লিটারেচার",bn:"সাহিত্য",type:"n.",ex:"She loves Bengali <em>literature</em>."},
+      {en:"Novel",pron:"নভেল",bn:"উপন্যাস",type:"n.",ex:"He wrote a famous <em>novel</em>."},
+      {en:"Poetry",pron:"পোয়েট্রি",bn:"কবিতা",type:"n.",ex:"<em>Poetry</em> touches the soul."},
+      {en:"Symbolism",pron:"সিম্বলিজম",bn:"প্রতীকবাদ",type:"n.",ex:"The bird represents <em>symbolism</em>."},
+      {en:"Plot",pron:"প্লট",bn:"কাহিনীর গঠন",type:"n.",ex:"The <em>plot</em> was very interesting."},
+      {en:"Character",pron:"ক্যারেক্টার",bn:"চরিত্র",type:"n.",ex:"The main <em>character</em> was brave."},
+      {en:"Theme",pron:"থিম",bn:"মূল ভাব",type:"n.",ex:"The <em>theme</em> of the novel is love."},
+      {en:"Narrative",pron:"ন্যারেটিভ",bn:"কাহিনী বর্ণনা",type:"n.",ex:"The <em>narrative</em> is gripping."},
+      {en:"Satire",pron:"স্যাটায়ার",bn:"ব্যঙ্গ",type:"n.",ex:"His writing is full of <em>satire</em>."},
+      {en:"Aesthetic",pron:"এস্থেটিক",bn:"নান্দনিক",type:"adj.",ex:"The painting has <em>aesthetic</em> value."},
+      {en:"Masterpiece",pron:"মাস্টারপিস",bn:"মাস্টারপিস",type:"n.",ex:"This is a true <em>masterpiece</em>."},
+      {en:"Critique",pron:"ক্রিটিক",bn:"সমালোচনা",type:"n.",ex:"Write a literary <em>critique</em>."},
+      {en:"Genre",pron:"ঝনর",bn:"ধরন / শ্রেণী",type:"n.",ex:"What <em>genre</em> is this novel?"},
+      {en:"Prose",pron:"প্রোজ",bn:"গদ্য",type:"n.",ex:"She writes beautiful <em>prose</em>."},
+      {en:"Anthology",pron:"অ্যান্থলজি",bn:"সংকলন",type:"n.",ex:"This is a poetry <em>anthology</em>."},
+      {en:"Biography",pron:"বায়োগ্রাফি",bn:"জীবনী",type:"n.",ex:"I read his <em>biography</em>."},
+      {en:"Fiction",pron:"ফিকশন",bn:"কল্পকাহিনী",type:"n.",ex:"She loves reading <em>fiction</em>."},
+      {en:"Non-fiction",pron:"নন-ফিকশন",bn:"বাস্তব কাহিনী",type:"n.",ex:"History books are <em>non-fiction</em>."},
+      {en:"Playwright",pron:"প্লেরাইট",bn:"নাট্যকার",type:"n.",ex:"Shakespeare was a great <em>playwright</em>."},
+      {en:"Stanza",pron:"স্ট্যানজা",bn:"কবিতার স্তবক",type:"n.",ex:"Read the first <em>stanza</em>."},
+      {en:"Rhyme",pron:"রাইম",bn:"ছড়া / মিল",type:"n.",ex:"The poem has a perfect <em>rhyme</em>."},
+      {en:"Imagery",pron:"ইমেজারি",bn:"চিত্রকল্প",type:"n.",ex:"The <em>imagery</em> is vivid."},
+      {en:"Allegory",pron:"অ্যালেগরি",bn:"রূপকথা",type:"n.",ex:"The story is an <em>allegory</em>."},
+      {en:"Irony",pron:"আয়রনি",bn:"বিদ্রূপ",type:"n.",ex:"He used <em>irony</em> beautifully."},
+      {en:"Foreshadowing",pron:"ফোরশ্যাডোয়িং",bn:"পূর্বাভাস",type:"n.",ex:"The author used <em>foreshadowing</em>."},
+      {en:"Climax",pron:"ক্লাইম্যাক্স",bn:"চরমপর্যায়",type:"n.",ex:"The <em>climax</em> was unexpected."},
+      {en:"Setting",pron:"সেটিং",bn:"পটভূমি",type:"n.",ex:"The <em>setting</em> is 18th century London."},
+      {en:"Author",pron:"অথর",bn:"লেখক",type:"n.",ex:"The <em>author</em> won a Nobel Prize."},
+      {en:"Metaphor",pron:"মেটাফোর",bn:"রূপক",type:"n.",ex:"'Life is a journey' is a <em>metaphor</em>."},
+      {en:"Publisher",pron:"পাবলিশার",bn:"প্রকাশক",type:"n.",ex:"She sent it to a <em>publisher</em>."},
+    ]
+  },
+  {
+    day: 29, topic: "আন্তর্জাতিক সম্পর্ক ও কূটনীতি", level: "advanced",
+    words: [
+      {en:"Diplomacy",pron:"ডিপ্লোমেসি",bn:"কূটনীতি",type:"n.",ex:"<em>Diplomacy</em> prevents wars."},
+      {en:"Ambassador",pron:"অ্যাম্বাসেডর",bn:"রাষ্ট্রদূত",type:"n.",ex:"She was appointed <em>ambassador</em>."},
+      {en:"Treaty",pron:"ট্রিটি",bn:"চুক্তি",type:"n.",ex:"They signed a peace <em>treaty</em>."},
+      {en:"Sovereignty",pron:"সভারেইন্টি",bn:"সার্বভৌমত্ব",type:"n.",ex:"Respect national <em>sovereignty</em>."},
+      {en:"Sanction",pron:"স্যাংশন",bn:"নিষেধাজ্ঞা",type:"n.",ex:"Economic <em>sanctions</em> were imposed."},
+      {en:"Alliance",pron:"অ্যালায়েন্স",bn:"জোট / মৈত্রী",type:"n.",ex:"They formed a strong <em>alliance</em>."},
+      {en:"Conflict",pron:"কনফ্লিক্ট",bn:"সংঘাত",type:"n.",ex:"Resolve the <em>conflict</em> peacefully."},
+      {en:"Negotiation",pron:"নেগোশিয়েশন",bn:"আলোচনা",type:"n.",ex:"<em>Negotiations</em> are underway."},
+      {en:"Resolution",pron:"রেজোলিউশন",bn:"প্রস্তাব / সমাধান",type:"n.",ex:"The UN passed a <em>resolution</em>."},
+      {en:"Multilateral",pron:"মাল্টিল্যাটারাল",bn:"বহুপাক্ষিক",type:"adj.",ex:"A <em>multilateral</em> agreement was signed."},
+      {en:"Embargo",pron:"এমবার্গো",bn:"বাণিজ্য নিষেধাজ্ঞা",type:"n.",ex:"The trade <em>embargo</em> hurt exports."},
+      {en:"Refugee",pron:"রেফিউজি",bn:"শরণার্থী",type:"n.",ex:"Millions became <em>refugees</em>."},
+      {en:"Humanitarian",pron:"হিউম্যানিটেরিয়ান",bn:"মানবিক",type:"adj.",ex:"A <em>humanitarian</em> crisis unfolded."},
+      {en:"Globalization",pron:"গ্লোবালাইজেশন",bn:"বিশ্বায়ন",type:"n.",ex:"<em>Globalization</em> connects nations."},
+      {en:"Geopolitics",pron:"জিওপলিটিক্স",bn:"ভূরাজনীতি",type:"n.",ex:"<em>Geopolitics</em> shapes trade."},
+      {en:"Bilateral",pron:"বাইল্যাটারাল",bn:"দ্বিপাক্ষিক",type:"adj.",ex:"A <em>bilateral</em> deal was signed."},
+      {en:"Peacekeeping",pron:"পিসকিপিং",bn:"শান্তিরক্ষা",type:"n.",ex:"UN <em>peacekeeping</em> forces arrived."},
+      {en:"Ceasefire",pron:"সিসফায়ার",bn:"যুদ্ধবিরতি",type:"n.",ex:"A <em>ceasefire</em> was agreed."},
+      {en:"Espionage",pron:"এস্পিওনাজ",bn:"গুপ্তচরবৃত্তি",type:"n.",ex:"He was charged with <em>espionage</em>."},
+      {en:"Summit",pron:"সামিট",bn:"শীর্ষ সম্মেলন",type:"n.",ex:"Leaders met at the <em>summit</em>."},
+      {en:"Protocol",pron:"প্রোটোকল",bn:"কূটনৈতিক নিয়ম",type:"n.",ex:"Follow diplomatic <em>protocol</em>."},
+      {en:"United Nations",pron:"ইউনাইটেড নেশনস",bn:"জাতিসংঘ",type:"n.",ex:"The <em>United Nations</em> helps nations."},
+      {en:"Colonialism",pron:"কলোনিয়ালিজম",bn:"ঔপনিবেশবাদ",type:"n.",ex:"<em>Colonialism</em> caused great harm."},
+      {en:"Imperialism",pron:"ইম্পেরিয়ালিজম",bn:"সাম্রাজ্যবাদ",type:"n.",ex:"<em>Imperialism</em> dominated the 19th century."},
+      {en:"Foreign policy",pron:"ফরেন পলিসি",bn:"বৈদেশিক নীতি",type:"n.",ex:"Review the country's <em>foreign policy</em>."},
+      {en:"Diaspora",pron:"ডায়াসপোরা",bn:"প্রবাসী সম্প্রদায়",type:"n.",ex:"The Bangladeshi <em>diaspora</em> is large."},
+      {en:"Consul",pron:"কনসাল",bn:"কনসাল",type:"n.",ex:"Visit the <em>consul</em> for your visa."},
+      {en:"Occupation",pron:"অকুপেশন",bn:"দখল",type:"n.",ex:"The <em>occupation</em> lasted decades."},
+      {en:"Non-proliferation",pron:"নন-প্রলিফারেশন",bn:"অস্ত্র বিস্তার রোধ",type:"n.",ex:"Sign the <em>non-proliferation</em> treaty."},
+      {en:"Independence",pron:"ইন্ডিপেন্ডেন্স",bn:"স্বাধীনতা",type:"n.",ex:"Bangladesh gained <em>independence</em> in 1971."},
+    ]
+  },
+  {
+    day: 30, topic: "উচ্চতর প্রকাশভঙ্গি ও Idioms", level: "advanced",
+    words: [
+      {en:"Ubiquitous",pron:"ইউবিকুইটাস",bn:"সর্বত্র বিদ্যমান",type:"adj.",ex:"Smartphones are <em>ubiquitous</em>."},
+      {en:"Eloquence",pron:"এলোকুয়েন্স",bn:"বাগ্মিতা",type:"n.",ex:"Her <em>eloquence</em> moved everyone."},
+      {en:"Phenomenon",pron:"ফেনোমেনন",bn:"ঘটনা / বিস্ময়কর বিষয়",type:"n.",ex:"This is a rare <em>phenomenon</em>."},
+      {en:"Paradigm",pron:"প্যারাডাইম",bn:"দৃষ্টান্ত / নমুনা",type:"n.",ex:"A <em>paradigm</em> shift occurred."},
+      {en:"Nuance",pron:"নিউয়্যান্স",bn:"সূক্ষ্ম পার্থক্য",type:"n.",ex:"Understand the <em>nuances</em>."},
+      {en:"Precedent",pron:"প্রেসিডেন্ট",bn:"নজির",type:"n.",ex:"Set a good <em>precedent</em>."},
+      {en:"Anomaly",pron:"অ্যানোমালি",bn:"অস্বাভাবিকতা",type:"n.",ex:"This is an <em>anomaly</em>."},
+      {en:"Meticulous",pron:"মেটিকিউলাস",bn:"সুনিপুণ / যত্নশীল",type:"adj.",ex:"She is <em>meticulous</em> in her work."},
+      {en:"Proliferate",pron:"প্রলিফারেট",bn:"দ্রুত বৃদ্ধি পাওয়া",type:"v.",ex:"Misinformation <em>proliferates</em> online."},
+      {en:"Mitigate",pron:"মিটিগেট",bn:"প্রশমিত করা",type:"v.",ex:"We must <em>mitigate</em> the risks."},
+      {en:"Exacerbate",pron:"এগজ্যাসারবেট",bn:"আরও খারাপ করা",type:"v.",ex:"This will <em>exacerbate</em> the problem."},
+      {en:"Unprecedented",pron:"আনপ্রিসিডেন্টেড",bn:"অভূতপূর্ব",type:"adj.",ex:"An <em>unprecedented</em> crisis."},
+      {en:"Comprehensive",pron:"কম্প্রিহেনসিভ",bn:"ব্যাপক",type:"adj.",ex:"A <em>comprehensive</em> plan is needed."},
+      {en:"Inevitable",pron:"ইনেভিটেবল",bn:"অনিবার্য",type:"adj.",ex:"Change is <em>inevitable</em>."},
+      {en:"Scrutiny",pron:"স্ক্রুটিনি",bn:"কড়া পরীক্ষা",type:"n.",ex:"Under public <em>scrutiny</em>."},
+      {en:"Ambivalent",pron:"অ্যাম্বিভ্যালেন্ট",bn:"দ্বিধান্বিত",type:"adj.",ex:"I feel <em>ambivalent</em> about it."},
+      {en:"Conundrum",pron:"কোনান্ড্রাম",bn:"জটিল সমস্যা",type:"n.",ex:"This is a real <em>conundrum</em>."},
+      {en:"Ephemeral",pron:"ইফেমারাল",bn:"ক্ষণস্থায়ী",type:"adj.",ex:"Fame can be <em>ephemeral</em>."},
+      {en:"Profound",pron:"প্রোফাউন্ড",bn:"গভীর / তীব্র",type:"adj.",ex:"A <em>profound</em> impact on society."},
+      {en:"Volatile",pron:"ভলাটাইল",bn:"অস্থির",type:"adj.",ex:"The market is <em>volatile</em>."},
+      {en:"Resilient",pron:"রেজিলিয়েন্ট",bn:"স্থিতিস্থাপক",type:"adj.",ex:"Be <em>resilient</em> in hard times."},
+      {en:"Colossal",pron:"কোলোসাল",bn:"বিশাল",type:"adj.",ex:"A <em>colossal</em> mistake was made."},
+      {en:"Benevolent",pron:"বিনেভোলেন্ট",bn:"পরোপকারী",type:"adj.",ex:"A <em>benevolent</em> leader helps people."},
+      {en:"Daunting",pron:"ডন্টিং",bn:"ভয়ঙ্কর / নিরুৎসাহজনক",type:"adj.",ex:"The task was <em>daunting</em>."},
+      {en:"Lucid",pron:"লিউসিড",bn:"স্পষ্ট",type:"adj.",ex:"Give a <em>lucid</em> explanation."},
+      {en:"Tenacious",pron:"টেনেশাস",bn:"অদম্য",type:"adj.",ex:"She is very <em>tenacious</em>."},
+      {en:"Versatile",pron:"ভার্সাটাইল",bn:"বহুমুখী প্রতিভাসম্পন্ন",type:"adj.",ex:"She is a <em>versatile</em> artist."},
+      {en:"Pragmatism",pron:"প্র্যাগমেটিজম",bn:"বাস্তববাদ",type:"n.",ex:"<em>Pragmatism</em> solves real problems."},
+      {en:"Ambiguity",pron:"অ্যাম্বিগিউয়িটি",bn:"অস্পষ্টতা",type:"n.",ex:"Remove the <em>ambiguity</em>."},
+      {en:"Eloquent",pron:"এলোকুয়েন্ট",bn:"বাকপটু",type:"adj.",ex:"She gave an <em>eloquent</em> speech."},
+    ]
+  }
+];
+let progress = JSON.parse(localStorage.getItem('vocabProgress') || '{}');
+let quizHistory = JSON.parse(localStorage.getItem('quizHistory') || '[]');
+let currentDay = 1;
+let quizState = {};
+
+function saveProgress() {
+  localStorage.setItem('vocabProgress', JSON.stringify(progress));
+}
+
+function saveHistory() {
+  localStorage.setItem('quizHistory', JSON.stringify(quizHistory));
+}
+
+// ============================
+// LEARN PAGE
+// ============================
+function buildSidebar() {
+  const list = document.getElementById('dayList');
+  list.innerHTML = '';
+  COURSE_DATA.forEach(d => {
+    const btn = document.createElement('button');
+    btn.className = 'day-btn' + (d.day === currentDay ? ' active' : '') + (progress[d.day] ? ' completed' : '');
+    btn.innerHTML = `<span class="day-num">${String(d.day).padStart(2,'0')}</span>দিন ${d.day}<span class="day-progress-dot"></span>`;
+    btn.onclick = () => loadDay(d.day);
+    list.appendChild(btn);
+  });
+}
+
+function loadDay(dayNum) {
+  currentDay = dayNum;
+  buildSidebar();
+  const data = COURSE_DATA.find(d => d.day === dayNum);
+  const lvlClass = {'basic':'level-basic','intermediate':'level-intermediate','advanced':'level-advanced'}[data.level];
+  const lvlTxt = {'basic':'বেসিক','intermediate':'মধ্যবর্তী','advanced':'উন্নত'}[data.level];
+  const total = data.words.length;
+  const circumference = 2 * Math.PI * 26;
+  const pct = progress[dayNum] ? 1 : 0;
+
+  document.getElementById('mainContent').innerHTML = `
+    <div class="day-header-card">
+      <div class="day-title-area">
+        <div class="day-label">দিন ${dayNum} — ${total}টি শব্দ <span class="level-badge ${lvlClass}">${lvlTxt}</span></div>
+        <div class="day-title">${data.topic}</div>
+        <div class="day-subtitle">এই ${total}টি শব্দ শিখুন এবং উদাহরণসহ মনে রাখুন</div>
+      </div>
+      <div class="day-meta">
+        <div class="progress-ring-wrap">
+          <svg width="64" height="64" viewBox="0 0 64 64">
+            <circle class="ring-bg" cx="32" cy="32" r="26"/>
+            <circle class="ring-fill" cx="32" cy="32" r="26" id="ringFill"
+              stroke-dasharray="${circumference}"
+              stroke-dashoffset="${circumference * (1 - pct)}"/>
+          </svg>
+          <div class="ring-text">${pct === 1 ? '✓' : `${dayNum}/30`}</div>
+        </div>
+        <button class="mark-done-btn ${progress[dayNum] ? 'done' : ''}" id="markDoneBtn" onclick="markDone(${dayNum})">
+          ${progress[dayNum] ? '✓ সম্পন্ন' : 'সম্পন্ন চিহ্নিত করুন'}
+        </button>
+      </div>
+    </div>
+    <div class="vocab-grid" id="vocabGrid"></div>
+  `;
+
+  const grid = document.getElementById('vocabGrid');
+  data.words.forEach(w => {
+    const card = document.createElement('div');
+    card.className = 'vocab-card';
+    card.innerHTML = `
+      <div class="vocab-word">${w.en}</div>
+      <div class="vocab-type">${w.type}</div>
+      ${w.pron ? `<div class="vocab-pron">${w.pron}</div>` : ''}
+      <div class="vocab-bn">${w.bn}</div>
+      <div class="vocab-example">${w.ex.replace(/<em>(.*?)<\/em>/g, '<em>$1</em>')}</div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function markDone(dayNum) {
+  progress[dayNum] = true;
+  saveProgress();
+  buildSidebar();
+  const btn = document.getElementById('markDoneBtn');
+  btn.textContent = '✓ সম্পন্ন';
+  btn.classList.add('done');
+  const ring = document.getElementById('ringFill');
+  const circumference = 2 * Math.PI * 26;
+  ring.style.strokeDashoffset = 0;
+  document.querySelector('.ring-text').textContent = '✓';
+  showToast('দিন ' + dayNum + ' সম্পন্ন! 🎉', 'success');
+}
+
+// ============================
+// QUIZ SYSTEM
+// ============================
+function buildQuizSelector() {
+  const sel = document.getElementById('quizDaySelect');
+  sel.innerHTML = '';
+  for (let i = 1; i <= 30; i++) {
+    const opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = `দিন ${i} — ${COURSE_DATA[i-1].topic}`;
+    sel.appendChild(opt);
+  }
+}
+
+function getQuizQuestions(dayNum) {
+  const questions = [];
+  const currentWords = COURSE_DATA[dayNum - 1].words;
+
+  // Review words from previous days (20% of questions, max 4)
+  let reviewWords = [];
+  for (let d = Math.max(1, dayNum - 3); d < dayNum; d++) {
+    reviewWords.push(...COURSE_DATA[d - 1].words.slice(0, 4));
+  }
+  reviewWords = shuffle(reviewWords).slice(0, Math.min(4, Math.floor(currentWords.length * 0.3)));
+
+  const allWords = [...currentWords, ...reviewWords];
+  const shuffled = shuffle([...allWords]);
+  const selected = shuffled.slice(0, Math.min(20, shuffled.length));
+
+  selected.forEach((word, i) => {
+    // Rotate: MCQ, Fill, Pronunciation
+    const allForOptions = COURSE_DATA.flatMap(d => d.words);
+    if (i % 3 === 0) {
+      // MCQ - given English word, choose Bengali meaning
+      const distractors = shuffle(allForOptions.filter(w => w.en !== word.en)).slice(0, 3).map(w => w.bn);
+      const options = shuffle([word.bn, ...distractors]);
+      questions.push({ type: 'mcq', question: `"${word.en}" শব্দের বাংলা অর্থ কী?`, correct: word.bn, options, word });
+    } else if (i % 3 === 1) {
+      // Fill in blank - given Bengali, write English
+      questions.push({ type: 'fill', question: `"${word.bn}" — ইংরেজি বানান লিখুন:`, correct: word.en.toLowerCase(), word });
+    } else {
+      // Pronunciation MCQ - given English word, choose correct Bengali pronunciation
+      if (word.pron) {
+        const distractors = shuffle(allForOptions.filter(w => w.en !== word.en && w.pron)).slice(0, 3).map(w => w.pron);
+        const options = shuffle([word.pron, ...distractors]);
+        questions.push({ type: 'mcq', question: `"${word.en}" শব্দের বাংলা উচ্চারণ কোনটি?`, correct: word.pron, options, word });
+      } else {
+        const distractors = shuffle(allForOptions.filter(w => w.en !== word.en)).slice(0, 3).map(w => w.bn);
+        const options = shuffle([word.bn, ...distractors]);
+        questions.push({ type: 'mcq', question: `"${word.en}" শব্দের বাংলা অর্থ কী?`, correct: word.bn, options, word });
+      }
+    }
+  });
+  return questions;
+}
+
+function shuffle(arr) {
+  return arr.sort(() => Math.random() - 0.5);
+}
+
+function startQuiz() {
+  const dayNum = parseInt(document.getElementById('quizDaySelect').value);
+  const questions = getQuizQuestions(dayNum);
+
+  quizState = {
+    dayNum,
+    questions,
+    current: 0,
+    correct: 0,
+    wrong: 0,
+    answered: false
+  };
+
+  document.getElementById('resultCard').classList.remove('active');
+  document.getElementById('historySection').style.display = 'none';
+  document.getElementById('quizArea').classList.add('active');
+  updateQuizStats();
+  renderQuestion();
+}
+
+function updateQuizStats() {
+  const q = quizState;
+  document.getElementById('statCurrent').textContent = q.current + 1;
+  document.getElementById('statTotal').textContent = q.questions.length;
+  document.getElementById('statCorrect').textContent = q.correct;
+  document.getElementById('statWrong').textContent = q.wrong;
+  const pct = ((q.current) / q.questions.length) * 100;
+  document.getElementById('quizProgressFill').style.width = pct + '%';
+}
+
+function renderQuestion() {
+  const q = quizState.questions[quizState.current];
+  const container = document.getElementById('questionContainer');
+  quizState.answered = false;
+
+  document.getElementById('btnNext').disabled = true;
+  document.getElementById('btnSubmit').style.display = 'none';
+  document.getElementById('btnNext').style.display = '';
+
+  if (q.type === 'fill') {
+    document.getElementById('btnSubmit').style.display = '';
+    document.getElementById('btnNext').style.display = 'none';
+    container.innerHTML = `
+      <div class="question-card">
+        <span class="q-type-badge q-type-fill">পূরণ করুন</span>
+        <div class="q-number">প্রশ্ন ${quizState.current + 1} / ${quizState.questions.length}</div>
+        <div class="q-text">${q.question}</div>
+        <input type="text" class="fill-input" id="fillInput" placeholder="ইংরেজি বানান লিখুন..." autocomplete="off"
+          onkeypress="if(event.key==='Enter')submitAnswer()">
+        <div class="feedback-msg" id="feedbackMsg"></div>
+      </div>
+    `;
+    setTimeout(() => document.getElementById('fillInput')?.focus(), 50);
+  } else {
+    container.innerHTML = `
+      <div class="question-card">
+        <span class="q-type-badge q-type-mcq">MCQ</span>
+        <div class="q-number">প্রশ্ন ${quizState.current + 1} / ${quizState.questions.length}</div>
+        <div class="q-text">${q.question}</div>
+        <div class="mcq-options" id="mcqOptions">
+          ${q.options.map((opt, i) => `
+            <button class="mcq-opt" onclick="selectMCQ(this, '${opt.replace(/'/g,"\\'")}')">
+              <span class="opt-letter">${['A','B','C','D'][i]}</span>${opt}
+            </button>
+          `).join('')}
+        </div>
+        <div class="feedback-msg" id="feedbackMsg"></div>
+      </div>
+    `;
+  }
+}
+
+function submitAnswer() {
+  if (quizState.answered) return;
+  const q = quizState.questions[quizState.current];
+  const input = document.getElementById('fillInput');
+  const val = input.value.trim().toLowerCase();
+  const correct = q.correct.toLowerCase();
+  const fb = document.getElementById('feedbackMsg');
+
+  quizState.answered = true;
+  if (val === correct) {
+    input.classList.add('correct');
+    fb.textContent = '✓ সঠিক! চমৎকার!';
+    fb.className = 'feedback-msg correct';
+    quizState.correct++;
+  } else {
+    input.classList.add('wrong');
+    fb.textContent = `✗ ভুল। সঠিক উত্তর: "${q.correct}"`;
+    fb.className = 'feedback-msg wrong';
+    quizState.wrong++;
+  }
+
+  input.disabled = true;
+  document.getElementById('btnSubmit').style.display = 'none';
+  document.getElementById('btnNext').style.display = '';
+  document.getElementById('btnNext').disabled = false;
+  updateQuizStats();
+}
+
+function selectMCQ(btn, selected) {
+  if (quizState.answered) return;
+  const q = quizState.questions[quizState.current];
+  quizState.answered = true;
+
+  document.querySelectorAll('.mcq-opt').forEach(b => b.disabled = true);
+  const fb = document.getElementById('feedbackMsg');
+
+  if (selected === q.correct) {
+    btn.classList.add('correct');
+    fb.textContent = '✓ সঠিক! চমৎকার!';
+    fb.className = 'feedback-msg correct';
+    quizState.correct++;
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = `✗ ভুল। সঠিক উত্তর: "${q.correct}"`;
+    fb.className = 'feedback-msg wrong';
+    quizState.wrong++;
+    // Show correct
+    document.querySelectorAll('.mcq-opt').forEach(b => {
+      if (b.textContent.trim().includes(q.correct)) b.classList.add('correct');
+    });
+  }
+
+  document.getElementById('btnNext').disabled = false;
+  updateQuizStats();
+}
+
+function nextQuestion() {
+  quizState.current++;
+  if (quizState.current >= quizState.questions.length) {
+    showResult();
+  } else {
+    updateQuizStats();
+    renderQuestion();
+  }
+}
+
+function showResult() {
+  document.getElementById('quizArea').classList.remove('active');
+  const total = quizState.questions.length;
+  const correct = quizState.correct;
+  const wrong = quizState.wrong;
+  const pct = Math.round((correct / total) * 100);
+  let grade, gradeClass, emoji, msg;
+
+  if (pct >= 90) { grade = 'A+'; gradeClass = 'grade-A'; emoji = '🏆'; msg = 'অসাধারণ! আপনি দুর্দান্ত পারফর্ম করেছেন!'; }
+  else if (pct >= 80) { grade = 'A'; gradeClass = 'grade-A'; emoji = '🌟'; msg = 'চমৎকার! আরেকটু চেষ্টায় A+ হবে!'; }
+  else if (pct >= 70) { grade = 'B'; gradeClass = 'grade-B'; emoji = '👍'; msg = 'ভালো করেছেন! আরও চর্চা করুন।'; }
+  else if (pct >= 60) { grade = 'C'; gradeClass = 'grade-C'; emoji = '💪'; msg = 'মোটামুটি। আরও পড়াশোনা দরকার।'; }
+  else { grade = 'D'; gradeClass = 'grade-D'; emoji = '📖'; msg = 'আরও পড়াশোনা করুন এবং আবার চেষ্টা করুন।'; }
+
+  document.getElementById('resultEmoji').textContent = emoji;
+  document.getElementById('resultGrade').textContent = grade;
+  document.getElementById('resultGrade').className = 'result-grade ' + gradeClass;
+  document.getElementById('resultScore').textContent = `স্কোর: ${correct}/${total} (${pct}%)`;
+  document.getElementById('resultMsg').textContent = msg;
+  document.getElementById('rbCorrect').textContent = correct;
+  document.getElementById('rbWrong').textContent = wrong;
+  document.getElementById('rbTotal').textContent = total;
+  document.getElementById('rbPct').textContent = pct + '%';
+
+  // Save to history
+  const histEntry = {
+    date: new Date().toLocaleDateString('bn-BD'),
+    day: quizState.dayNum,
+    total, correct, pct, grade
+  };
+  quizHistory.unshift(histEntry);
+  if (quizHistory.length > 50) quizHistory.pop();
+  saveHistory();
+
+  document.getElementById('resultCard').classList.add('active');
+}
+
+function retryQuiz() {
+  document.getElementById('resultCard').classList.remove('active');
+  startQuiz();
+}
+
+function toggleHistory() {
+  const sec = document.getElementById('historySection');
+  if (sec.style.display === 'none') {
+    sec.style.display = 'block';
+    renderHistory();
+  } else {
+    sec.style.display = 'none';
+  }
+}
+
+function renderHistory() {
+  const tbody = document.getElementById('historyBody');
+  if (quizHistory.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--text-light);padding:24px">এখনো কোনো পরীক্ষা দেননি</td></tr>';
+    return;
+  }
+  tbody.innerHTML = quizHistory.map(h => `
+    <tr>
+      <td>${h.date}</td>
+      <td>দিন ${h.day}</td>
+      <td>${h.total}</td>
+      <td>${h.correct}</td>
+      <td>${h.pct}%</td>
+      <td><span class="grade-pill gp-${h.grade.replace('+','')}">${h.grade}</span></td>
+    </tr>
+  `).join('');
+}
+
+// ============================
+// PAGE NAVIGATION
+// ============================
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  event.target.classList.add('active');
+  if (name === 'quiz') renderHistory();
+}
+
+// ============================
+// BACKUP / RESTORE
+// ============================
+function openModal() {
+  document.getElementById('modal').classList.add('active');
+  document.getElementById('restoreArea').style.display = 'none';
+  document.getElementById('modalMain').style.display = 'block';
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('active');
+}
+
+function doBackup() {
+  const data = { progress, quizHistory, version: '1.0', date: new Date().toISOString() };
+  const json = JSON.stringify(data, null, 2);
+  const blob = new Blob([json], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'vocabulary_backup_' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+  closeModal();
+  showToast('ব্যাকআপ ডাউনলোড হচ্ছে!', 'success');
+}
+
+function showRestoreInput() {
+  document.getElementById('modalMain').style.display = 'none';
+  document.getElementById('restoreArea').style.display = 'block';
+}
+
+function doRestore() {
+  const txt = document.getElementById('restoreInput').value.trim();
+  try {
+    const data = JSON.parse(txt);
+    if (data.progress) { progress = data.progress; saveProgress(); }
+    if (data.quizHistory) { quizHistory = data.quizHistory; saveHistory(); }
+    closeModal();
+    buildSidebar();
+    showToast('ডেটা সফলভাবে রিস্টোর হয়েছে!', 'success');
+  } catch (e) {
+    showToast('ভুল ফরম্যাট! সঠিক JSON ফাইলের কোড দিন।', 'error');
+  }
+}
+
+function clearAllData() {
+  if (!confirm('সত্যিই সব ডেটা মুছতে চান? এই কাজ পূর্বাবস্থায় ফেরানো যাবে না।')) return;
+  progress = {};
+  quizHistory = [];
+  saveProgress();
+  saveHistory();
+  closeModal();
+  buildSidebar();
+  loadDay(1);
+  showToast('সব ডেটা মুছে ফেলা হয়েছে।');
+}
+
+// ============================
+// TOAST
+// ============================
+function showToast(msg, type = '') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast ' + type + ' show';
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// ============================
+// INIT
+// ============================
+document.addEventListener('DOMContentLoaded', () => {
+  buildSidebar();
+  loadDay(1);
+  buildQuizSelector();
+});
+
+// Close modal on overlay click
+document.getElementById('modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+</script>
+</body>
+</html>

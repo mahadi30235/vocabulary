@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #F9F5EE;
+  --surface:  #F3EDE2;
+  --card:     #FDFAF5;
+  --border:   #E5DAC8;
+  --border2:  #D0C0A8;
+  --ink:      #241C14;
+  --ink2:     #5A4230;
+  --muted:    #9A8268;
+  --gold:     #B87030;
+  --gold2:    #D4924A;
+  --gold-glow:rgba(184,112,48,.18);
+  --r:12px;--r-sm:8px;
+  --tr:.3s cubic-bezier(.4,0,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;overflow:hidden;}
+
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+}
+
+/* ══ grain ══ */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  opacity:.6;
+}
+
+/* ══════════════════════ TOPBAR ══════════════════════ */
+.topbar{
+  height:60px;
+  background:var(--card);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;
+  position:relative;z-index:50;
+  box-shadow:0 1px 20px rgba(36,28,20,.07);
+}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand-gem{
+  width:36px;height:36px;border-radius:9px;
+  background:linear-gradient(145deg,#8B4E1E,#C07835);
+  display:flex;align-items:center;justify-content:center;
+  font-size:17px;
+  box-shadow:0 4px 14px rgba(184,112,48,.4),inset 0 1px 0 rgba(255,255,255,.15);
+  position:relative;overflow:hidden;
+}
+.brand-gem::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.2) 0%,transparent 60%);
+}
+.brand-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:700;color:var(--ink);
+  letter-spacing:-.3px;
+}
+.brand-sub{
+  font-size:10px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--muted);display:block;margin-top:1px;
+}
+.topbar-center{
+  position:absolute;left:50%;transform:translateX(-50%);
+  display:flex;align-items:center;gap:6px;
+}
+.nav-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--border2);
+  transition:var(--tr);cursor:pointer;
+}
+.nav-dot.active{background:var(--gold);transform:scale(1.4);}
+
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.stat-chip{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:20px;padding:5px 14px;
+  font-size:12px;color:var(--ink2);font-weight:500;
+  display:flex;align-items:center;gap:6px;
+}
+.stat-chip .num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:17px;font-weight:700;color:var(--gold);
+  line-height:1;
+}
+.search-box{
+  display:flex;align-items:center;gap:8px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r-sm);padding:6px 12px;
+  transition:var(--tr);
+}
+.search-box:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-glow);}
+.search-box input{
+  border:none;background:transparent;outline:none;
+  font-family:'Outfit',sans-serif;font-size:13px;
+  color:var(--ink);width:140px;
+}
+.search-box input::placeholder{color:var(--muted);}
+.search-ico{font-size:13px;color:var(--muted);}
+
+/* ══════════════════════ LAYOUT ══════════════════════ */
+.layout{
+  display:grid;
+  grid-template-columns:270px 1fr;
+  height:calc(100vh - 60px);
+}
+
+/* ══════════════════════ SIDEBAR ══════════════════════ */
+.sidebar{
+  background:var(--card);
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  position:relative;
+}
+/* decorative top line */
+.sidebar::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--gold2),transparent);
+}
+
+.sb-header{
+  padding:18px 18px 12px;
+  border-bottom:1px solid var(--border);
+  flex-shrink:0;
+}
+.sb-title{
+  font-size:10px;font-weight:600;
+  letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--muted);
+}
+
+.sb-scroll{
+  flex:1;overflow-y:auto;
+  padding:8px 10px 16px;
+}
+
+/* ── Category header ── */
+.cat-label{
+  font-size:10px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);
+  padding:14px 10px 6px;
+  display:flex;align-items:center;gap:8px;
+}
+.cat-label::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,var(--border),transparent);
+}
+
+/* ── Menu Item ── */
+.menu-item{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 12px;border-radius:var(--r-sm);
+  cursor:pointer;transition:var(--tr);
+  border:1px solid transparent;
+  margin-bottom:2px;position:relative;
+  text-decoration:none;color:inherit;
+  overflow:hidden;
+}
+.menu-item::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(184,112,48,.08),transparent);
+  opacity:0;transition:var(--tr);
+}
+.menu-item:hover::before{opacity:1;}
+.menu-item:hover{
+  background:var(--surface);
+  border-color:var(--border);
+  transform:translateX(2px);
+}
+.menu-item.active{
+  background:linear-gradient(135deg,rgba(184,112,48,.14),rgba(212,146,74,.06));
+  border-color:rgba(184,112,48,.3);
+}
+.menu-item.active::after{
+  content:'';
+  position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:3px;height:60%;
+  background:linear-gradient(180deg,var(--gold),var(--gold2));
+  border-radius:0 3px 3px 0;
+}
+.menu-item.hidden{display:none;}
+
+.mi-badge{
+  width:30px;height:30px;flex-shrink:0;
+  border-radius:7px;
+  background:var(--surface);
+  border:1.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:13px;font-weight:700;color:var(--ink2);
+  transition:var(--tr);position:relative;overflow:hidden;
+}
+.menu-item.active .mi-badge{
+  background:linear-gradient(145deg,#8B4E1E,#C07835);
+  border-color:transparent;color:#fff;
+  box-shadow:0 3px 10px rgba(184,112,48,.4);
+}
+.mi-badge::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.25) 0%,transparent 60%);
+}
+
+.mi-body{flex:1;min-width:0;}
+.mi-name{
+  font-size:13px;font-weight:500;color:var(--ink);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  transition:var(--tr);
+}
+.menu-item.active .mi-name,.menu-item:hover .mi-name{color:var(--gold);}
+.mi-path{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;color:var(--muted);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  margin-top:2px;
+}
+
+.mi-arr{
+  font-size:10px;color:var(--muted);
+  opacity:0;transform:translateX(-4px);
+  transition:var(--tr);flex-shrink:0;
+}
+.menu-item:hover .mi-arr,.menu-item.active .mi-arr{
+  opacity:1;transform:translateX(0);color:var(--gold);
+}
+
+/* ══════════════════════ MAIN ══════════════════════ */
+.main{
+  display:flex;flex-direction:column;
+  overflow:hidden;position:relative;
+}
+
+/* ── Welcome ── */
+.welcome{
+  flex:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:48px 40px;
+  animation:fadeUp .5s ease both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+.w-ring{
+  width:100px;height:100px;border-radius:50%;
+  border:1.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:28px;
+  position:relative;
+  animation:spin 12s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.w-ring::before{
+  content:'';
+  position:absolute;inset:-1px;border-radius:50%;
+  background:conic-gradient(var(--gold) 0deg, transparent 60deg, transparent 360deg);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 calc(100% - 2px));
+  mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 calc(100% - 2px));
+}
+.w-icon{font-size:42px;animation:counterSpin 12s linear infinite;}
+@keyframes counterSpin{to{transform:rotate(-360deg)}}
+
+.welcome h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;font-weight:700;color:var(--ink);
+  letter-spacing:-.3px;margin-bottom:10px;
+}
+.welcome p{font-size:14.5px;color:var(--ink2);line-height:1.75;max-width:380px;}
+
+.hint-row{
+  display:flex;gap:12px;margin-top:36px;flex-wrap:wrap;justify-content:center;
+}
+.hint{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:16px 18px;
+  font-size:12.5px;color:var(--ink2);
+  display:flex;align-items:center;gap:9px;
+  box-shadow:0 2px 12px rgba(36,28,20,.06);
+  transition:var(--tr);
+}
+.hint:hover{
+  transform:translateY(-3px);
+  box-shadow:0 6px 22px rgba(36,28,20,.1);
+  border-color:var(--gold2);
+}
+.hint-ico{font-size:18px;}
+
+/* ── Viewer ── */
+.viewer{
+  flex:1;display:flex;flex-direction:column;
+  animation:fadeUp .35s ease both;
+}
+
+.vbar{
+  background:var(--card);
+  border-bottom:1px solid var(--border);
+  padding:10px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-shrink:0;
+  box-shadow:0 2px 12px rgba(36,28,20,.06);
+  gap:16px;
+}
+.vbar-left{display:flex;align-items:center;gap:12px;min-width:0;}
+.vbar-gem{
+  width:34px;height:34px;border-radius:8px;flex-shrink:0;
+  background:linear-gradient(145deg,#8B4E1E,#C07835);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;font-weight:700;color:#fff;
+  box-shadow:0 3px 10px rgba(184,112,48,.4);
+  position:relative;overflow:hidden;
+}
+.vbar-gem::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.2),transparent 60%);
+}
+.vbar-meta{min-width:0;}
+.vbar-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;font-weight:700;color:var(--ink);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.vbar-path{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;color:var(--muted);
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:4px;padding:2px 8px;
+  display:inline-block;margin-top:3px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  max-width:340px;
+}
+
+/* breadcrumb */
+.breadcrumb{
+  display:flex;align-items:center;gap:6px;
+  font-size:11px;color:var(--muted);
+  flex-shrink:0;
+}
+.bc-sep{font-size:10px;}
+.bc-item{
+  padding:3px 8px;border-radius:4px;
+  background:var(--surface);border:1px solid var(--border);
+  font-weight:500;color:var(--ink2);
+}
+.bc-item.current{
+  background:rgba(184,112,48,.1);
+  border-color:rgba(184,112,48,.25);
+  color:var(--gold);
+}
+
+.vbar-right{display:flex;gap:8px;align-items:center;flex-shrink:0;}
+.btn-ico{
+  width:32px;height:32px;border-radius:var(--r-sm);
+  border:1px solid var(--border);background:var(--surface);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  font-size:15px;transition:var(--tr);color:var(--ink2);
+}
+.btn-ico:hover{background:var(--border);transform:scale(1.08);}
+.btn-ext{
+  padding:7px 15px;
+  background:var(--ink);color:var(--bg);
+  border:none;border-radius:var(--r-sm);
+  font-family:'Outfit',sans-serif;
+  font-size:12px;font-weight:500;
+  cursor:pointer;display:flex;align-items:center;gap:5px;
+  text-decoration:none;transition:var(--tr);letter-spacing:.3px;
+}
+.btn-ext:hover{
+  background:var(--gold);
+  transform:translateY(-1px);
+  box-shadow:0 4px 16px rgba(184,112,48,.35);
+}
+
+/* progress bar */
+.progress-bar{
+  height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--gold2));
+  transform-origin:left;transform:scaleX(0);
+  transition:transform .6s ease;
+  flex-shrink:0;
+}
+.progress-bar.loading{transform:scaleX(.7);}
+.progress-bar.done{transform:scaleX(1);}
+
+.iframe-wrap{flex:1;background:#fff;position:relative;}
+.iframe-wrap iframe{width:100%;height:100%;border:none;display:block;}
+
+/* loading overlay */
+.load-overlay{
+  position:absolute;inset:0;
+  background:var(--card);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:16px;
+  transition:opacity .3s;
+  z-index:10;
+}
+.load-overlay.hidden{opacity:0;pointer-events:none;}
+.spinner{
+  width:40px;height:40px;border-radius:50%;
+  border:2.5px solid var(--border);
+  border-top-color:var(--gold);
+  animation:spin .8s linear infinite;
+}
+.load-txt{
+  font-size:13px;color:var(--muted);
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+}
+
+/* ══ scrollbar ══ */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:10px;}
+::-webkit-scrollbar-thumb:hover{background:var(--muted);}
+
+/* ══ transitions ══ */
+.page-enter{animation:fadeUp .35s ease both;}
+</style>
+</head>
+<body>
+
+<!-- ══ TOPBAR ══ -->
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-gem">🗂️</div>
+    <div>
+      <span class="brand-name">Project Hub</span>
+      <span class="brand-sub">HTML Collection</span>
+    </div>
+  </div>
+
+  <div class="topbar-center" id="navDots"></div>
+
+  <div class="topbar-right">
+    <div class="search-box">
+      <span class="search-ico">🔍</span>
+      <input type="text" id="searchInput" placeholder="প্রজেক্ট খুঁজুন…" oninput="filterItems()">
+    </div>
+    <div class="stat-chip">
+      <span class="num" id="countNum">0</span> প্রজেক্ট
+    </div>
+  </div>
+</header>
+
+<!-- ══ LAYOUT ══ -->
+<div class="layout">
+
+  <!-- ══ SIDEBAR ══ -->
+  <aside class="sidebar">
+    <div class="sb-header">
+      <div class="sb-title">📂 প্রজেক্ট মেনু</div>
+    </div>
+
+    <div class="sb-scroll" id="sbScroll">
+
+      <!-- ════════════════════════════════════════════════
+           ✏️  এখানে আপনার প্রজেক্ট এন্ট্রি করুন
+
+           প্রতিটি মেনু আইটেমে শুধু পরিবর্তন করুন:
+             data-num   → সিরিয়াল
+             data-name  → প্রজেক্টের নাম
+             data-cat   → বিভাগের নাম (একই রাখলে একই গ্রুপে)
+             data-path  → মেনুতে দেখানো ছোট পাথ
+             href       → আসল ফাইল URL
+      ════════════════════════════════════════════════ -->
+
+      <!-- ── বিভাগ: Basic Projects ── -->
+      <a class="menu-item"
+         data-num="01" data-name="vocabulary"
+         data-cat="Basic Projects"
+         data-path="/vocabulary"
+         href="vocabulary.html"
+         onclick="loadProject(event,this)">
+        <div class="mi-badge">01</div>
+        <div class="mi-body">
+          <div class="mi-name">vocabulary</div>
+         </div>
+        <div class="mi-arr">›</div>
+      </a>
+
+      <a class="menu-item"
+         data-num="02" data-name="Parts of Speech & Tense"
+         data-cat="Basic Projects"
+         data-path="/PTense.html"
+         href="PTense.html"
+         onclick="loadProject(event,this)">
+        <div class="mi-badge">02</div>
+        <div class="mi-body">
+          <div class="mi-name">Parts of Speech & Tense</div>
+                </div>
+        <div class="mi-arr">›</div>
+      </a>
+
+      <a class="menu-item"
+         data-num="03" data-name="Weather Card"
+         data-cat="Basic Projects"
+         data-path="/weather/index.html"
+         href="file:///C:/projects/weather/index.html"
+         onclick="loadProject(event,this)">
+        <div class="mi-badge">03</div>
+        <div class="mi-body">
+          <div class="mi-name">Weather Card</div>
+          <div class="mi-path">/weather/index.html</div>
+        </div>
+        <div class="mi-arr">›</div>
+      </a>
+
+      <!-- ── বিভাগ: Advanced Projects ── -->
+      <a class="menu-item"
+         data-num="04" data-name="Quiz App"
+         data-cat="Advanced Projects"
+         data-path="/quiz/index.html"
+         href="file:///C:/projects/quiz/index.html"
+         onclick="loadProject(event,this)">
+        <div class="mi-badge">04</div>
+        <div class="mi-body">
+          <div class="mi-name">Quiz App</div>
+          <div class="mi-path">/quiz/index.html</div>
+        </div>
+        <div class="mi-arr">›</div>
+      </a>
+
+      <a class="menu-item"
+         data-num="05" data-name="Portfolio Site"
+         data-cat="Advanced Projects"
+         data-path="/portfolio/index.html"
+         href="file:///C:/projects/portfolio/index.html"
+         onclick="loadProject(event,this)">
+        <div class="mi-badge">05</div>
+        <div class="mi-body">
+          <div class="mi-name">Portfolio Site</div>
+          <div class="mi-path">/portfolio/index.html</div>
+        </div>
+        <div class="mi-arr">›</div>
+      </a>
+
+      <!-- ── বিভাগ: Games ── -->
+      <a class="menu-item"
+         data-num="06" data-name="Snake Game"
+         data-cat="Games"
+         data-path="/snake/index.html"
+         href="file:///C:/projects/snake/index.html"
+         onclick="loadProject(event,this)">
+        <div class="mi-badge">06</div>
+        <div class="mi-body">
+          <div class="mi-name">Snake Game</div>
+          <div class="mi-path">/snake/index.html</div>
+        </div>
+        <div class="mi-arr">›</div>
+      </a>
+
+      <!-- ════════════════════════════════════════════════
+           ✏️  উপরের যেকোনো <a class="menu-item"> ব্লক
+           কপি করে নিচে পেস্ট করুন এবং ৫টি তথ্য বদলান।
+           একই data-cat দিলে একই বিভাগে যাবে।
+      ════════════════════════════════════════════════ -->
+
+    </div>
+  </aside>
+
+  <!-- ══ MAIN ══ -->
+  <main class="main" id="main">
+
+    <!-- Welcome -->
+    <div id="welcomeState" class="welcome">
+      <div class="w-ring"><div class="w-icon">🗂️</div></div>
+      <h2>Project Hub-এ স্বাগতম</h2>
+      <p>বাম মেনু থেকে যেকোনো প্রজেক্ট বেছে নিন — এখানে লাইভ প্রিভিউ দেখাবে।</p>
+      <div class="hint-row">
+        <div class="hint"><span class="hint-ico">✏️</span>HTML-এ সরাসরি এন্ট্রি করুন</div>
+        <div class="hint"><span class="hint-ico">🔍</span>সার্চ বক্সে প্রজেক্ট খুঁজুন</div>
+        <div class="hint"><span class="hint-ico">🖥️</span>iframe-এ লাইভ প্রিভিউ</div>
+      </div>
+    </div>
+
+    <!-- Viewer -->
+    <div id="viewerState" class="viewer" style="display:none">
+      <div class="progress-bar" id="progressBar"></div>
+      <div class="vbar">
+        <div class="vbar-left">
+          <div class="vbar-gem" id="vNum">01</div>
+          <div class="vbar-meta">
+            <div class="vbar-title" id="vTitle">—</div>
+            <div class="vbar-path" id="vPath">—</div>
+          </div>
+        </div>
+        <div class="breadcrumb" id="breadcrumb"></div>
+        <div class="vbar-right">
+          <button class="btn-ico" title="রিফ্রেশ" onclick="reloadFrame()">↻</button>
+          <a class="btn-ext" id="vLink" href="#" target="_blank">↗ নতুন ট্যাব</a>
+        </div>
+      </div>
+      <div class="iframe-wrap">
+        <div class="load-overlay" id="loadOverlay">
+          <div class="spinner"></div>
+          <div class="load-txt">লোড হচ্ছে…</div>
+        </div>
+        <iframe id="frame" title="Preview" onload="frameLoaded()"></iframe>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+// ── Build categories & nav dots ──
+const allItems = Array.from(document.querySelectorAll('.menu-item'));
+document.getElementById('countNum').textContent = allItems.length;
+
+const cats = [];
+allItems.forEach(el => {
+  const c = el.dataset.cat || 'General';
+  if (!cats.includes(c)) cats.push(c);
+});
+
+// Insert category labels dynamically
+const sbScroll = document.getElementById('sbScroll');
+cats.forEach(cat => {
+  const label = document.createElement('div');
+  label.className = 'cat-label';
+  label.textContent = cat;
+  const firstOfCat = allItems.find(el => (el.dataset.cat || 'General') === cat);
+  sbScroll.insertBefore(label, firstOfCat);
+});
+
+// Nav dots
+const dotsEl = document.getElementById('navDots');
+cats.forEach((cat, i) => {
+  const d = document.createElement('div');
+  d.className = 'nav-dot';
+  d.title = cat;
+  d.onclick = () => scrollToCat(cat);
+  dotsEl.appendChild(d);
+});
+
+function scrollToCat(cat) {
+  const label = Array.from(document.querySelectorAll('.cat-label')).find(l => l.textContent === cat);
+  if (label) label.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ── Search filter ──
+function filterItems() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  allItems.forEach(el => {
+    const name = el.dataset.name.toLowerCase();
+    el.classList.toggle('hidden', q !== '' && !name.includes(q));
+  });
+  // hide empty cat labels
+  document.querySelectorAll('.cat-label').forEach(label => {
+    const cat = label.textContent;
+    const visible = allItems.filter(el => (el.dataset.cat || 'General') === cat && !el.classList.contains('hidden'));
+    label.style.display = visible.length === 0 ? 'none' : '';
+  });
+}
+
+// ── Load project ──
+let activeHref = null;
+
+function loadProject(e, el) {
+  e.preventDefault();
+  const href = el.getAttribute('href');
+  if (href === activeHref) return;
+  activeHref = href;
+
+  allItems.forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+
+  // viewer
+  document.getElementById('welcomeState').style.display = 'none';
+  const vs = document.getElementById('viewerState');
+  vs.style.display = 'flex';
+  vs.classList.remove('page-enter');
+  void vs.offsetWidth;
+  vs.classList.add('page-enter');
+
+  document.getElementById('vNum').textContent  = el.dataset.num;
+  document.getElementById('vTitle').textContent = el.dataset.name;
+  document.getElementById('vPath').textContent  = el.dataset.path;
+  document.getElementById('vLink').href         = href;
+
+  // breadcrumb
+  const cat = el.dataset.cat || 'General';
+  document.getElementById('breadcrumb').innerHTML =
+    `<span class="bc-item">Hub</span>
+     <span class="bc-sep">›</span>
+     <span class="bc-item">${cat}</span>
+     <span class="bc-sep">›</span>
+     <span class="bc-item current">${el.dataset.name}</span>`;
+
+  // progress bar
+  const bar = document.getElementById('progressBar');
+  bar.className = 'progress-bar loading';
+
+  // loading overlay
+  document.getElementById('loadOverlay').classList.remove('hidden');
+
+  // nav dot
+  const idx = cats.indexOf(cat);
+  document.querySelectorAll('.nav-dot').forEach((d,i) => d.classList.toggle('active', i === idx));
+
+  const frame = document.getElementById('frame');
+  frame.src = '';
+  setTimeout(() => { frame.src = href; }, 40);
+}
+
+function frameLoaded() {
+  const bar = document.getElementById('progressBar');
+  bar.className = 'progress-bar done';
+  document.getElementById('loadOverlay').classList.add('hidden');
+  setTimeout(() => { bar.className = 'progress-bar'; }, 700);
+}
+
+function reloadFrame() {
+  const f = document.getElementById('frame');
+  document.getElementById('loadOverlay').classList.remove('hidden');
+  f.src = f.src;
+}
+
+// ── Keyboard nav ──
+document.addEventListener('keydown', e => {
+  if (document.activeElement === document.getElementById('searchInput')) return;
+  const visible = allItems.filter(el => !el.classList.contains('hidden'));
+  const cur = visible.findIndex(el => el.classList.contains('active'));
+  if (e.key === 'ArrowDown' && cur < visible.length - 1) {
+    visible[cur + 1].click();
+    visible[cur + 1].scrollIntoView({ block: 'nearest' });
+  }
+  if (e.key === 'ArrowUp' && cur > 0) {
+    visible[cur - 1].click();
+    visible[cur - 1].scrollIntoView({ block: 'nearest' });
+  }
+});
+</script>
+</body>
+</html>
